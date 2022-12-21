@@ -1,0 +1,147 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.PostBackground1 {
+    margin-top: 40px !important;
+    background: linear-gradient(to bottom right,rgb(247, 244, 228), rgb(223, 216, 175));
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    width: 90%;
+}
+
+.PostBackground1:hover {
+    border: 2px solid black !important;
+    box-shadow: none !important;
+}
+
+.PostTitle {
+    text-align: center;
+    font-size: 30px;
+    font-weight: 800;
+    color: red;
+    text-transform: uppercase;
+}
+
+.PostDesc {
+    text-align: left;
+}
+
+.track-line {
+    height: 2px !important;
+    background-color: #488978;
+    opacity: 1;
+}
+
+.dot {
+    height: 10px;
+    width: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
+    margin-top: 0px;
+    background-color: #488978;
+    border-radius: 50%;
+    display: inline-block
+}
+
+.big-dot {
+    height: 25px;
+    width: 25px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    background-color: #488978;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.big-dot i {
+    font-size: 12px;
+}
+
+.card-stepper {
+    z-index: 0
+}
+
+.PostHeader {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.PostsIssue {
+    font-size: 20px;
+    color: black;
+    letter-spacing: 1px;
+    font-weight: normal;
+    margin-left: 20px;
+    margin-right: 20px;
+    text-transform: capitalize;
+}
+
+.ComplaintsButton {
+    text-transform: uppercase;
+    width: 30%;
+    letter-spacing: 2px;
+    background-color: gold;
+    color: black;
+    font-weight: bold;
+    border: none;
+    padding: 10px
+}
+
+.ComplaintsButton:hover {
+    background-color: black;
+    color: gold;
+}
+
+.DescriptionTitle {
+
+    font-size: 20px;
+    letter-spacing: 1px;
+    text-decoration-line: underline;
+    text-underline-offset: 10px;
+    font-weight: bold;
+}
+
+.PostHeading {
+    font-weight: bold;
+    font-size: 20px;
+    color: rgb(63, 61, 51);
+    letter-spacing: 1.5px;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+}
+
+.statusOptions {
+    font-size: 20px;
+    border: none;
+    background-color: #00000008;
+    padding: 10px;
+    letter-spacing: 1px;
+}
+
+select {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+}
+
+option {
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+}
+
+.documentDiv{
+    display: flex;
+    /* justify-content: space-around; */
+}
+
+.CardDocument{
+    background-color: rgb(247, 244, 228);
+    padding: 0px !important;
+}
+
+
+
+.CardBodyDiv{
+    padding: 10px !important;
+}

@@ -1,0 +1,45 @@
+
+.notificationBlockdiv{
+    width: 500px ;
+    float:right ;
+    height: 100%;
+    overflow-y: scroll;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px ;
+    background-color: #F5F5F5;
+    border-radius: 5px;
+    margin-right: 20px;
+    border:2px solid #675A0E;
+}
+
+@media (min-width:1000px) and (max-width: 1300px) {
+    .notificationBlockdiv{
+        width: 400px !important;
+    }
+}
+
+@media (max-width:1000px) {
+    .notificationBlockdiv{
+        width: auto;
+        float:none;
+    }
+}
+
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #675a0e;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

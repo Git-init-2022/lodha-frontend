@@ -1,0 +1,89 @@
+.mainDiv {
+    width: 50%;
+    position: absolute;
+}
+
+.DocumentsDiv {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto auto;
+    column-gap: 10px;
+    row-gap: 20px;
+}
+
+.DocumentCard {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 90% !important;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.DocumentCard:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px !important;
+    border: 1px solid gray
+}
+
+.DisplayDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+
+.filterDocuments {
+    letter-spacing: 1px;
+    font-size: 20px;
+    margin-left: 20px;
+    /* text-decoration-line: underline;
+    text-decoration-color: rgb(83, 74, 26);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 10px; */
+}
+
+.documentDropdown {
+    margin-left: 20px;
+    padding: 10px;
+    letter-spacing: 1px;
+    background-color: whitesmoke;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border: 2px solid rgb(83, 74, 26);
+}
+
+.viewDocumentButton {
+    background-color: whitesmoke;
+    border: 2px solid rgb(83, 74, 26);
+    /* color:rgb(83, 74, 26); */
+    color: black;
+    letter-spacing: 1px;
+
+}
+
+.viewDocumentButton:hover {
+    color: white;
+    background-color: rgb(114, 101, 22) !important;
+    border: 2px solid rgb(83, 74, 26) !important;
+}
+
+@media (max-width: 1000px) {
+    .mainDiv {
+        width: 100%;
+        position: absolute;
+    }
+
+    .DocumentsDiv {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media (max-width: 900px) {
+    .DocumentsDiv {
+        grid-template-columns: auto auto;
+    }
+}
+
+
+
+@media (max-width: 500px) {
+    .DocumentsDiv {
+        grid-template-columns: auto;
+    }
+}

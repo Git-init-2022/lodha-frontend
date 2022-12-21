@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+.FormHeader {
+    text-align: center;
+    font-weight: bold;
+    margin: 8px;
+    font-size: 25px;
+    color: #675a0e;
+    letter-spacing: 2px;
+}
+
+.FormHeader:first-letter {
+    font-size: 40px;
+    font-weight: normal;
+}
+
+.FormItems {
+    position: absolute;
+    margin: auto;
+    margin-left: 50px;
+    margin-top: 0;
+    width: 50%;
+    min-height: max-content;
+    max-height: 100%;
+    overflow-y: scroll;
+    /*background-color: #edf6f7;*/
+    background-color: whitesmoke;
+    border-radius: 10px;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
+}
+
+.modalButton {
+    margin-left: 5%;
+    width: 60% !important;
+    text-align: center;
+    justify-content: center;
+    height: 80px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: rgb(234, 231, 212) !important;
+    color: #000 !important;
+    border: 1px solid black;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    transition: 0.5s;
+}
+
+.modalButton:hover {
+    color: white !important;
+    background-color: #3f3f3e !important;
+    transform: scale(1.05);
+    border: 1px solid #3f3f3e !important;
+}
+
+.FormHeading {
+    width: 75%;
+    text-align: left;
+    letter-spacing: 1px;
+    padding: 3px;
+}
+
+.FormView {
+    justify-content: center;
+    text-align: center;
+    width: 20%;
+}
+
+/* .Viewbutton:hover {
+    background-color: rgb(233, 222, 156);
+    color: black !important;
+}
+
+.Viewbutton {
+    border: 1px solid black;
+    color: black !important;
+} */
+
+.Viewbutton:hover {
+    background-color: #3f3f3e !important;
+    color: white !important;
+}
+
+.Viewbutton {
+    border: 0px solid black;
+    color: black !important;
+    background-color: rgb(234, 231, 212);
+}
+
+#title,
+#Description {
+
+    padding: 10px;
+    border-radius: 5px;
+    margin-left:10px;
+    border: 1px solid black;
+    margin-top: 10px;
+}
+
+#link{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+
+#titleOfForm, #DescriptionOfForm, #linkOfForm{
+    padding: 10px;
+    border-radius: 5px;
+    margin-left:10px;
+    margin-top: 10px;
+}
+
+
+@media (max-width: 1000px) {
+    .FormItems{
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #675a0e;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}

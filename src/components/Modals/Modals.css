@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+*{
+ font-family: 'Montserrat', sans-serif;
+}
+.ModalNotify{
+  display: flex; 
+  justify-content : space-between;
+  flex-direction: row;
+  flex-wrap : wrap;
+}
+
+
+.Date{
+  padding : 5px;
+}
+

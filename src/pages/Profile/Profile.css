@@ -1,0 +1,261 @@
+/* .UserProfileDiv {
+    background-color: whitesmoke !important;
+    width: 80%;
+    margin-left: 10%;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    margin-top: 100px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}*/
+
+#userProfileTitle {
+    padding: 85px 0px 0px 0px;
+    font-size: 40px;
+    font-weight: bolder;
+    margin-bottom: -75px;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+/*#userProfileTitle:first-letter {
+    font-weight: bold;
+    font-size: 33px;
+}
+
+#userProfileImg {
+    margin-top: 30px;
+    height: 30%;
+    width: 90%;
+    margin-left: 10%;
+    border-radius: 10px;
+    background-color: rgb(234, 231, 215);
+    border: 2px solid black;
+}
+
+.uploadButton{
+    margin-top: 30px;
+    padding: 10px;
+    letter-spacing: 1px;
+    background-color: white;
+    color: black;
+    border: 3px solid  rgb(148, 133, 48);
+    width: 90%;
+    margin-left: 10%;
+    border-radius: 10px;
+}
+
+.uploadButton:hover{
+    color: white !important;
+    background-color: rgb(148, 133, 48) !important;
+    border: 3px solid rgb(148, 133, 48) !important;
+}
+
+ .ProfileInput {
+    margin-left: 100px;
+} 
+
+.EditTitle {
+    margin: auto;
+    margin-top: 40px;
+    font-size: 16px;
+    color: black;
+    letter-spacing: 1.5px;
+    
+}
+
+.EditTitle:first-letter {
+    font-size: 22px;
+    font-weight: normal;
+
+}
+
+
+
+.EditInput {
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    width: 80%;
+    font-size: 18px;
+    padding: 5px;
+    margin-left: 2px;
+
+}
+
+.EditButton {
+    width: 10%;
+    padding: 5px;
+    margin-left: 20px;
+    background-color: black;
+    border: none;
+    color: white;
+
+    border-radius: 5px;
+}
+
+.EditButton:hover {
+    background-color: gold;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    color: black;
+    font-weight: bold;
+
+}
+
+.UserProfileSubmit {
+    width: 50%;
+    font-size: 18px;
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    margin-top: 50px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    padding: 10px;
+    letter-spacing: 2px;
+    background-color: white;
+    color: black;
+    border: 3px solid  rgb(148, 133, 48);
+    border-radius: 10px;
+}
+
+.UserProfileSubmit:hover {
+    color: white !important;
+    background-color: rgb(148, 133, 48) !important;
+    border: 3px solid rgb(148, 133, 48) !important;
+}
+
+@media (max-width: 800px) {
+    .ProfileFlexDiv{
+        display: inherit;
+    }
+}*/
+
+.gradient-custom {
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right bottom, rgb(222, 189, 79), rgb(254, 254, 254));
+
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right bottom,#bab753,
+    #dbd9b3)
+}
+
+
+.text-muted {
+    font-size: 18px;
+    color: black !important;
+    text-align: left;
+    /* border: 1px solid rgb(193, 191, 191); */
+    padding: 10px;
+    border-radius: 5px;
+}
+
+
+.profileImage {
+    margin-bottom: 0px !important;
+    margin-top: 0px !important;
+    border-radius: 100px;
+}
+
+.ProfileName {
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-weight: normal;
+    margin-top: 10px;
+    font-size: 35px;
+}
+
+.ProfileRole {
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-weight: normal;
+    font-size: 18px;
+}
+
+.fileInput {
+    color: black;
+    border: 2px solid black;
+    border-radius: 5px;
+    letter-spacing: 1px;
+    padding: 5px;
+    width: 80%;
+}
+
+.uploadButton {
+    margin-top: 30px;
+    padding: 10px;
+    letter-spacing: 1px;
+    background-color: white;
+    color: black;
+    border: 3px solid black;
+    width: 80%;
+    border-radius: 10px;
+}
+
+.uploadButton:hover {
+    color: white !important;
+    background-color: rgb(148, 133, 48) !important;
+    border: 3px solid black !important;
+}
+
+.BackButton {
+    color: black;
+    text-align: left;
+    font-size: 16px;
+    margin-left: 20px;
+}
+
+.ProfileHeader {
+    letter-spacing: 2px;
+    font-size: 30px;
+    text-transform: capitalize;
+    color: rgb(119, 105, 25);
+    font-weight: bolder;
+}
+
+.ProfileHeader:first-letter {
+    font-size: 35px;
+}
+
+.InputHeader {
+    text-align: left;
+    font-size: 22px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-weight: bold;
+    padding: 10px;
+    color: rgb(119, 105, 25);
+}
+
+.InputHeader:first-letter {
+    font-size: 24px;
+}
+
+.editProfileButton {
+
+    padding: 10px;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    background-color: white;
+    color: rgb(148, 133, 48);
+    border: 3px solid rgb(148, 133, 48);
+    border-radius: 10px;
+}
+
+.profileLeftDiv{
+   height: inherit;
+   margin : 0 auto !important; 
+}
+
+.editProfileButton:hover {
+    border: 3px solid rgb(148, 133, 48) !important;
+    background-color: rgb(148, 133, 48) !important;
+    color: white !important;
+}
+
+.Profilediv {
+    position: absolute;
+    top: 180px;
+    left: 0;
+    right: 0;
+
+}

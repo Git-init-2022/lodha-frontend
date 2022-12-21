@@ -1,0 +1,38 @@
+.FacilityNavBar{
+   margin-top: 30px;
+    width: 80%;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 10px;
+    margin-left: 50px;
+}
+
+.FacilityLink{
+  margin: 5px !important;
+  color: whitesmoke !important;
+  font-size: 16px;
+}
+.FacilityLink:first-letter{
+    font-size: 22px;
+}
+
+#title1{
+    margin-top: 100px !important;
+    font-size: 25px;
+    font-weight: bolder;
+    margin: 0px;
+    letter-spacing: 2px;
+    margin-left: 50px !important;
+}
+
+#title1:first-letter{
+    font-weight: normal;
+    font-size: 33px;
+    
+}
+
+.FacilityNavBar .active{
+    background-color: gold !important;
+    color: black !important;
+}
+

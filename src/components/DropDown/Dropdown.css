@@ -1,0 +1,132 @@
+/* Fixed sidenav, full height */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+*{
+ font-family: 'Montserrat', sans-serif;
+}
+
+.sidenav {
+  height: 100%;
+  width: 300px;
+  position:fixed;
+  z-index: 10000 !important;
+  background-color: #FFFFFF;
+  overflow-y: scroll;
+  padding-top: 20px;
+  box-shadow: 2px 2px 12px #cacac8;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 0px;
+  text-decoration: none;
+  font-size: 13px;
+  color: black !important;
+  font-weight: normal;
+  display: block;
+  border: none;
+  background: none;
+  width:100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  margin-left: 10px; 
+  margin-top: 15px;
+  /* border-bottom: 1px solid rgb(236, 228, 186) ; */
+  border-bottom: 1px solid #c6c6c6;
+  text-transform: uppercase;
+  font-weight: bold;
+  letter-spacing: 1.2px;
+}
+
+/* On mouse-over */
+.sidenav a:hover{
+  font-weight: bold;
+  /* border-bottom: 1px solid black; */
+
+}
+
+.sidenav a:after {
+  transition: all ease-in-out .2s;
+  background: none repeat scroll 0 0 #000;
+  content: "";
+  display: block;
+  height: 2px;
+  width: 0;
+}
+.sidenav a:hover:after {
+  width: 100%;
+}
+.sidenav a:first-letter{
+  font-size: 16px;
+}
+.ExpandDropDown{
+  
+  background-color: #c6c6c6!important;
+}
+
+.accordion-button{
+  background-color : #FFFFFF;
+  font-size : 15px;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding-bottom: 0px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: rgba(0,0,0,.125);
+}
+.DropDownHeader{
+  text-align: center;
+  justify-content: center;
+}
+.DropDownHeader:first-letter{
+  font-size: 17px;
+}
+
+/* .accordion-button:not(.collapsed){
+  background-color: rgb(100, 93, 52) !important;
+  color: white;
+} */
+
+.accordion-button:not(.collapsed){
+  background-color: #212529 !important;
+  color: white;
+} 
+
+.accordion-button.collapsed::after{
+
+  background: url("/src/assests/goldDropDown.png");
+  background-size:     cover;                     
+  background-repeat:   no-repeat;
+  background-position: center center;  
+  margin-top:-10px;
+}
+
+.accordion-button:not(.collapsed)::after{
+
+  background: url("/src/assests/silverDropDown.png");
+  background-size:     cover;                     
+  background-repeat:   no-repeat;
+  background-position: center center;  
+  margin-top:-10px;
+  
+}
+
+
+/* @media (max-width: 850px) {
+  .sidenav{
+    width: 40%;
+  }
+}
+
+@media (max-width: 450px) {
+  .sidenav {
+
+    width: 60%;
+  }
+} */

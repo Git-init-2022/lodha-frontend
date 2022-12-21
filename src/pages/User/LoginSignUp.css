@@ -1,0 +1,305 @@
+
+  .login_signUp_toggle {
+    width: 100%;
+    
+    display: flex;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  }
+  .LoginRegisterTitle{
+    color: black;
+    font-weight: bold;
+    transition: all 0.5s;
+    cursor: pointer;
+    display: grid;
+    font-size: 25px;
+    place-items: center;
+    width: 90%;
+    margin: 0;
+    padding: 15px 0px 15px 15px;
+    letter-spacing: 2px;
+    transition: 0.2s;
+  }
+
+  .LoginRegisterTitle:hover{
+    transform: scale(1.05);
+  }
+  .visible{
+    display: none;
+  }
+
+  .LoginRegisterTitle:first-letter{
+    font-size: 40px;
+  }
+  
+  
+  .login_signUp_toggle > p:hover {
+    color: #BFA008;
+    background-color: #212529;
+  }
+ 
+  
+  .switchButton {
+    margin: 0px;
+    padding: 0px;
+    display: none;
+    background-color: white;
+    height: 3px;
+    width: 50%;
+    border: none;
+    transition: all 0.5s;
+  }
+
+
+  
+  
+  
+  .signUpForm {
+    transform: translateY(-100%) translateX(-100vmax);
+  }
+  
+  .shiftToLeft {
+    transform: translateX(-100%);
+  }
+  .shiftToNeutral {
+    transform: translateX(0%);
+  }
+  
+  .shiftToNeutralForm {
+    transform: translateX(0%) translateY(-100%);
+  }
+  
+  .shiftToRight {
+    transform: translateX(100%);
+  }
+  
+  
+*{
+    font-family: 'Montserrat', sans-serif;
+   
+   }
+   
+   .rounded-t-5 {
+     border-top-left-radius: 0.5rem;
+     border-bottom-left-radius: 0.5rem;
+   }
+   
+   .form1{
+     padding: 5px 5px 5px 10px;
+     height: 50px !important;
+     width: 80%;
+     margin-left:10% !important;
+     border-radius: 10px;
+   }
+   
+   .LoginHeading{
+     font-weight: bold;
+     margin: 0 !important; 
+     padding-left: 20px;
+     text-align : center;
+     color: #bfa008 !important;
+     text-transform: uppercase;
+     font-size: 35px;
+     letter-spacing: 2px;
+   }
+   .LoginHeading:first-letter{
+     font-size: 45px;
+     
+   }
+   
+   #pass{
+     height: 40px;
+     border-radius: 10px;
+   }
+   
+   #loginButton{
+     
+     margin: 0px !important; 
+     border: none;
+     background-color: black !important;
+     border-radius: 10px;
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+     text-transform: uppercase;
+     letter-spacing: 1px;
+   }
+   #loginButton:hover{
+     color: black;
+     font-weight: bold;
+     background-color: #BFA008 !important;
+   }
+   
+   .LoginContainer{
+     background-color: #FFFEF6;
+     margin-top: 0px;
+     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+     border-radius: 10px;
+     width: 100%;
+   }
+   
+   @media only screen and (max-width: 780px) {
+     .rounded-tr-lg-0 {
+       border-top-right-radius: 0.5rem;
+       border-bottom-left-radius: 0rem;
+     }
+     .form1{
+       padding: 5px 5px 5px 10px;
+       width: 100%;
+       margin-left: 0%;
+     }
+     #loginButton{
+       margin-top : 0px;
+       margin-bottom: 10%;
+     }
+     .LoginHeading{
+         margin: 5% 5% 5% 0%;
+     }
+     .LoginContainer{
+      width:100% !important;
+     }
+   }
+   
+   
+   *{
+    font-family: 'Montserrat', sans-serif;
+   
+   }
+   
+   .rounded-t-5 {
+     border-top-left-radius: 0.5rem;
+     border-bottom-left-radius: 0.5rem;
+   }
+   
+   .form1{
+     
+     padding: 5px 5px 5px 10px;
+     height: 50px !important;
+     width: 80% !important;
+     margin-left:10%;
+     border-radius: 10px;
+   }
+   
+   .RegisterHeading{
+     font-weight: bold;
+     margin: 0 !important; 
+     padding-left: 20px;
+     align-items: center;
+     justify-content: center;
+     text-align : center;
+     color: #bfa008 !important;
+     text-transform: uppercase;
+     font-size: 35px;
+     letter-spacing: 2px;
+   }
+   .RegisterHeading:first-letter{
+     font-size: 45px;
+     
+   }
+   #name{
+     border: 1px solid #000!important;
+     margin-bottom: 0 !important;
+     
+   }
+   #RegUname, #parking, #mob, #flat, #block{
+      border: 1px solid #000!important;
+   }
+   
+   #RegPass{
+     
+      border: 1px solid #000!important;
+     height: 40px;
+     border-radius: 10px;
+   }
+   
+   #ReEnterRegPass{
+     
+    border: 1px solid #000!important;
+   height: 40px;
+   border-radius: 10px;
+ }
+   #RegisterButton{
+     margin: 0px !important;
+     align-items: center !important;
+     justify-content: center !important;
+     text-align : center !important;
+     background-color: black !important;
+     letter-spacing: 1px;
+     text-transform: uppercase;
+     border-radius: 10px;
+     border: none;
+     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+   }
+   #RegisterButton:hover{
+     background-color: #BFA008 !important;
+     color: black !important;
+     font-weight: bold;
+   }
+   
+   .registerContainer{
+     background-color:rgb(255, 254, 246);
+     position: absolute;
+     top: 10px;
+     box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+     border-radius: 10px;
+   }
+   
+   @media (max-width: 780px) {
+     .rounded-tr-lg-0 {
+       border-top-right-radius: 0.5rem;
+       border-bottom-left-radius: 0rem;
+     }
+     .form1{
+       padding: 5px 5px 5px 10px;
+       width: 100%;
+       margin-left: 0%;
+     }
+     #RegisterButton{
+       margin-top : 0px;
+       margin-bottom: 10%;
+     }
+     .RegisterHeading{
+         margin: 5% 5% 5% 0%;
+     }
+     
+   }
+   
+   
+   .Label {
+    text-align: left;
+    margin-left: 10% ;
+    font-size: 15px;
+    color: black;
+    letter-spacing: 1.5px;
+    /* text-decoration-line: underline;
+    text-underline-offset: 10px;
+    text-decoration-color: gold;
+    text-decoration-thickness: 2px; */
+    margin-bottom: 5px !important;
+}
+
+
+.Label:first-letter {
+    font-size: 20px;
+    font-weight: normal;
+
+}
+
+.ToastLogin{
+
+  width: 90%;
+  height: 50px;
+
+  z-index: 10;
+  border: none;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.Red{
+  color: red;
+  letter-spacing: 1px;
+}
+
+.Green{
+  font-weight: normal;
+  color: #528e16;
+  letter-spacing: 1px;
+}

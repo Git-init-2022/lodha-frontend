@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+
+.middle{
+  position: absolute;
+  width:55%;
+  background-color: white;
+}
+
+.accordion-button {
+  color: black;
+  font-weight: bolder;
+}
+
+
+@media(max-width:1000px){
+  .middle{
+    width: 80%;
+    margin-left: 10%;
+  }
+}
+
+
+
+#title3{
+  margin-top: 20px !important;
+  font-size: 25px;
+  font-weight: bolder;
+  margin: 0px;
+  letter-spacing: 2px;
+  
+}
+
+#title3:first-letter{
+  font-weight: normal;
+  font-size: 33px;
+  
+}

@@ -1,0 +1,75 @@
+*{
+ box-sizing: border-box;
+}
+
+.caption{
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.4em;
+}
+
+
+.locationtitle{
+  display: flex;
+  align-items: center;
+  margin-top: 40px;
+}
+
+#location{
+  color:#d19c29;
+  font-weight:bold;
+  font-size:22px;
+  margin:0px;
+  margin-left: 10px;
+}
+#location:first-letter{
+  font-size: 30px;
+}
+
+#our{
+  color:#000;
+  font-weight:bold;
+  font-size:22px;
+  margin:0px;
+  margin-left: 15px;
+}
+#our:first-letter{
+  font-size: 30px;
+}
+
+#locationicon{
+  border:3px solid #d19c29;
+  width:60px;
+  margin-left : 5%;
+  margin-top:0%;
+  padding:1px;
+}
+#our1{
+  color:#000;
+  font-weight:bold;
+  font-size:22px;
+  margin:0px;
+  margin-left: 15px;
+}
+#our1:first-letter{
+  font-size : 30px;
+}
+
+#facility{
+  color:#d19c29;
+  font-weight:bold;
+  font-size:22px;
+  margin:0px;
+  margin-left: 10px;
+}
+#facility:first-letter{
+  font-size: 30px;
+  
+}
+#facilities{
+  border:3px solid #d19c29;
+  width:60px;
+  margin-left : 5%;
+  margin-top:0%;
+  padding:1px;
+}
