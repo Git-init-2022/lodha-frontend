@@ -20,7 +20,7 @@ function BasicExample() {
   }
 
   const fetchDocuments = async () => {
-    const { data } = await axios.get("http://localhost:4000/api/v1/getDocumentsByType", { params: { Type: Type } });
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/getDocumentsByType", { params: { Type: Type } });
     setDocuments(data.documents);
   }
 

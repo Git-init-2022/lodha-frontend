@@ -11,7 +11,7 @@ const ForgotPassword = () => {
   const { loading, setLoading } = useState(false);
   const [successful, setSuccessful] = useState(0);
   const forgot = async (email, flatnum) => {
-    const { data } = await axios.get("http://localhost:4000/api/v1/forgotpassword", { params: { FlatNo: flatnum, Email: email } });
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/forgotpassword", { params: { FlatNo: flatnum, Email: email } });
     if (data.success === true) {
       setSuccessful(2);
     }

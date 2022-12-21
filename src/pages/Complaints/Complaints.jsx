@@ -15,7 +15,7 @@ function Complaints() {
   const fetchComplaints = async () => {
 
     const user = JSON.parse(User);
-    const { data } = await axios.get("http://localhost:4000/api/v1/complaint", { params: { FlatNo: user.FlatNo } });
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/complaint", { params: { FlatNo: user.FlatNo } });
     setComplaints(data.complaints);
   }
   useEffect(() => {

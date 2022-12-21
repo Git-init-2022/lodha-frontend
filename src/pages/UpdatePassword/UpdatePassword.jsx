@@ -13,7 +13,7 @@ const UpdatePassword = ({match}) => {
     const navigate = useNavigate();
     const Update = async (Password) => {
         alert("hello");
-        const { data } = await axios.get("http://localhost:4000/api/v1/updatepassword/", { params: {token: token , Password: Password}});
+        const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/updatepassword/", { params: {token: token , Password: Password}});
         localStorage.setItem("data", JSON.stringify(data));
         if(data.success === true){
             navigate('/login');

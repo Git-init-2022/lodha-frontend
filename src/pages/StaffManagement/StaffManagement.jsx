@@ -28,7 +28,7 @@ const StaffManagement = () => {
   const [visible, setVisible] = useState(false);
   const roles = ['admin', 'user', 'am', 'fm', 'itsupport'];
   const fetchUsers = async () => {
-    const { data } = await axios.get("http://localhost:4000/api/v1/users");
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/users");
     setUsers(data.users);
   }
 
@@ -64,15 +64,15 @@ const StaffManagement = () => {
   }, [users.length]);
 
   const Delete = async (FlatNo) => {
-    const { data } = await axios.get("http://localhost:4000/api/v1/userdelete", { params: { FlatNo: FlatNo } });
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/userdelete", { params: { FlatNo: FlatNo } });
     refreshPage();
   }
   const createNotification = async (user, subject, message) => {
-    const { data } = await axios.post("http://localhost:4000/api/v1/postNotification", { FlatNo: user.FlatNo, NotificationTitle: subject, NotificationDesc:message});
+    const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/postNotification", { FlatNo: user.FlatNo, NotificationTitle: subject, NotificationDesc:message});
   }
   const Edit = async (user) => {
 
-    const { data } = await axios.get("http://localhost:4000/api/v1/userupdate", { params: { user: user } });
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/userupdate", { params: { user: user } });
     createNotification(user, data.subject, data.message);
     refreshPage();
   }

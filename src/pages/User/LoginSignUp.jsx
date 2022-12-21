@@ -52,7 +52,7 @@ const LoginSignUp = () => {
 
   const login = async (loginFlatNo, loginPassword) => {
     setLoading(true);
-    const { data } = await axios.post("http://localhost:4000/api/v1/login", {
+    const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/login", {
       FlatNo: loginFlatNo, Password: loginPassword
     });
     const user = data.user;
@@ -73,7 +73,7 @@ const LoginSignUp = () => {
 
   const register = async (OwnerName, RegisteredName, FlatNo, Password, Email, Mobile, ParkingSlot, Block) => {
     setLoading(true);
-    const { data } = await axios.post("http://localhost:4000/api/v1/register", {
+    const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/register", {
       OwnerName: OwnerName,
       RegisteredName: RegisteredName,
       Email: Email,

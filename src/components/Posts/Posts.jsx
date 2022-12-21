@@ -38,7 +38,7 @@ function Posts({ props }) {
   }
 
   const updateComplaint = async () => {
-    const { data } = await axios.get("http://localhost:4000/api/v1/updatecomplaint", { params: { complaint: props } });
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/updatecomplaint", { params: { complaint: props } });
     refreshPage();
   }
 

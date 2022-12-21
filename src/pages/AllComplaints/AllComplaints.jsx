@@ -93,7 +93,7 @@ const EditableCell = ({
 
 const fetchUsers = async () => {
   const { data } = await axios.get(
-    "http://localhost:4000/api/v1/AllComplaints"
+    "https://lodha-backend.onrender.com/api/v1/AllComplaints"
   );
   const users = data.complaints;
   return users;
@@ -177,7 +177,7 @@ function AllComplaints() {
 
 
   const delete_Issue = async (ele) => {
-    const issue = await axios.post("http://localhost:4000/api/v1/delete_issue", {
+    const issue = await axios.post("https://lodha-backend.onrender.com/api/v1/delete_issue", {
       issue: ele.Name,
       Admin: JSON.parse(localStorage.getItem("User")).FlatNo
     })
@@ -185,7 +185,7 @@ function AllComplaints() {
   }
 
   const issue = async (issue) => {
-    const { data } = await axios.post("http://localhost:4000/api/v1/new_issue", {
+    const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/new_issue", {
       issue: issue
     })
     setIssues([]);
@@ -195,7 +195,7 @@ function AllComplaints() {
     issue(e.target.issue.value);
   }
   const fetchIssues = async () => {
-    const { data } = await axios.get("http://localhost:4000/api/v1/issue_types");
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/issue_types");
     setIssues(data.issues);
   }
   useEffect(() => {
@@ -203,7 +203,7 @@ function AllComplaints() {
   }, [Issues.length]);
 
   const deleteComplaint = async (key) => {
-    const { data } = await axios.get("http://localhost:4000/api/v1/deletecomplaint", { params: { FlatNo: key.FlatNo, Issue: key.Issue, Description: key.Description } });
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/deletecomplaint", { params: { FlatNo: key.FlatNo, Issue: key.Issue, Description: key.Description } });
     refreshPage();
   }
 
@@ -248,7 +248,7 @@ function AllComplaints() {
   ]
 
   const updateComplaint = async (row) => {
-    const { data } = await axios.get("http://localhost:4000/api/v1/updatecomplaint", { params: { complaint: row } });
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/updatecomplaint", { params: { complaint: row } });
     console.log(data.complaint);
     refreshPage();
   }

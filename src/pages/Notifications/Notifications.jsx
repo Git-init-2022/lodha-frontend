@@ -29,7 +29,7 @@ function Notifications() {
   const { User } = useGlobalContext();
   const [isAdmin, setisAdmin] = useState(JSON.parse(User).Role === '440f3041c89adee0f2ad780704bcc0efae1bdb30f8d77dc455a2f6c823b87ca0');
   const fetchMeetings = async () => {
-    const { data } = await axios.get("http://localhost:4000/api/v1/AllMeetings");
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/AllMeetings");
     const temp1 = [], temp2 = [];
     for (let meeting of data.meetings) {
       if (CompareDate(meeting.Date, meeting.Time)) {
@@ -114,7 +114,7 @@ function Notifications() {
   }
 
   const DeleteMeetingFromDb = async (_id) => {
-    const { data } = await axios.get("http://localhost:4000/api/v1/deletemeeting", { params: { _id: _id } });
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/deletemeeting", { params: { _id: _id } });
     refreshPage();
   }
 
@@ -124,7 +124,7 @@ function Notifications() {
   }
 
   const UpdateMeetingInDb = async (Link, Title, Description, Date, Time, Host, _id) => {
-    const { data } = await axios.get("http://localhost:4000/api/v1/updatemeeting", { params: { _id: _id, Title: Title, Description: Description, Link: Link, Date: Date, Time: Time, Host: Host } });
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/updatemeeting", { params: { _id: _id, Title: Title, Description: Description, Link: Link, Date: Date, Time: Time, Host: Host } });
     refreshPage();
   }
 

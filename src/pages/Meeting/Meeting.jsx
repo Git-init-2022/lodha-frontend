@@ -10,7 +10,7 @@ function Meeting() {
   const [DuplicateMeeting, setDuplicateMeeting] = useState(0);
   const CreateMeetingForm = async (Title, Description, Link, Host, Date, Time) => {
     setLoading(true);
-    const { data } = await axios.post("http://localhost:4000/api/v1/meeting/new", {
+    const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/meeting/new", {
       Title: Title,
       Description: Description,
       Link: Link,

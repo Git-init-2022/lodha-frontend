@@ -14,7 +14,7 @@ import Spinner from "/src/components/Spinner/Spinner"
 //     //         if(User !== null){
 //     //             console.log(User);
 //     //         console.log("Flat Number: ",JSON.parse(User).FlatNo);
-//     //       const { data } = await axios.get("http://localhost:4000/api/v1/singleUser",{params:{FlatNo: JSON.parse(User).FlatNo}});
+//     //       const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/singleUser",{params:{FlatNo: JSON.parse(User).FlatNo}});
 //     //       const user = data.user1;
 //     //       const user1 = {
 //     //         OwnerName: user[0].OwnerName,
@@ -158,7 +158,7 @@ export default function Profile() {
       if (User !== null) {
         console.log(User);
         console.log("Flat Number: ", JSON.parse(User).FlatNo);
-        const { data } = await axios.get("http://localhost:4000/api/v1/singleUser", { params: { FlatNo: JSON.parse(User).FlatNo } });
+        const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/singleUser", { params: { FlatNo: JSON.parse(User).FlatNo } });
         const user = data.user1;
         const user1 = {
           OwnerName: user[0].OwnerName,
@@ -232,7 +232,7 @@ export default function Profile() {
     const cid = await client.put(files);
     console.log(cid);
     const FileName = files[0].name;
-    const { data } = await axios.post("http://localhost:4000/api/v1/updateProfile", { cid: cid, name: FileName, FlatNo: JSON.parse(User).FlatNo });
+    const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/updateProfile", { cid: cid, name: FileName, FlatNo: JSON.parse(User).FlatNo });
     setLoading(false);
     refreshPage();
   }

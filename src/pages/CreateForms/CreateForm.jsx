@@ -10,7 +10,7 @@ function CreateForm() {
     const [duplicateForm, setDuplicateForm] = useState(0);
     const CreateForms = async (Title, Description, Link) => {
         setLoading(true);
-        const { data } = await axios.post("http://localhost:4000/api/v1/form/new", {
+        const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/form/new", {
             Title: Title,
             Description: Description,
             Link: Link

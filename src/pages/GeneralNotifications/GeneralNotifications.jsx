@@ -15,7 +15,7 @@ function GeneralNotifications() {
     const { User } = useGlobalContext();
     const [isAdmin, setisAdmin] = useState(JSON.parse(User).Role === 'admin');
     const fetchNotifications = async () => {
-        const { data } = await axios.get("http://localhost:4000/api/v1/AllNotifications");
+        const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/AllNotifications");
         setGeneralNotifications(data.notifications);
     }
 

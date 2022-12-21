@@ -153,7 +153,7 @@ const FinanceAndAccount = () => {
   }, [searchVal, origData, searchIndex]);
 
   const fetchUsers = async () => {
-    const { data } = await axios.get("http://localhost:4000/api/v1/users")
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/users")
     const users = data.users
     return users
   }
@@ -195,7 +195,7 @@ const FinanceAndAccount = () => {
   ]
 
   const updateUser = async(row)=> {
-    const {data} = await axios.get("http://localhost:4000/api/v1/userupdate", {params: {user: row}});
+    const {data} = await axios.get("https://lodha-backend.onrender.com/api/v1/userupdate", {params: {user: row}});
     console.log(data.user);
     refreshPage();
   }

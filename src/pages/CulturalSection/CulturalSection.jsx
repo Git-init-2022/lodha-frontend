@@ -11,7 +11,7 @@ function CulturalSection() {
 
     const PostCulturalSection = async (Title, Description) => {
         setLoading(true);
-        const { data } = await axios.post("http://localhost:4000/api/v1/notification/new", {
+        const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/notification/new", {
             Title: Title,
             Description: Description, 
             PostedDate: new Date()

@@ -30,7 +30,7 @@ function AdminPosts({ props, selectedOption }) {
     const [singleUser, setSingleUser] = useState([])
     const [filesNames, setFilesNames] = useState([])
     const user = async () => {
-        const { data } = await axios.get("http://localhost:4000/api/v1/singleUser", { params: { FlatNo: props.FlatNo } });
+        const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/singleUser", { params: { FlatNo: props.FlatNo } });
         const singleuser = data.user1[0];
         setSingleUser(singleuser)
         return singleuser;
@@ -46,12 +46,12 @@ function AdminPosts({ props, selectedOption }) {
     }
 
     const updateComplaint = async () => {
-        const { data } = await axios.get("http://localhost:4000/api/v1/updatecomplaint", { params: { complaint: props, Admin: JSON.parse(localStorage.getItem("User")).FlatNo } });
+        const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/updatecomplaint", { params: { complaint: props, Admin: JSON.parse(localStorage.getItem("User")).FlatNo } });
         refreshPage();
     }
 
     const deleteUserComplaint = async () => {
-        const { data } = await axios.get("http://localhost:4000/api/v1/deletecomplaint", { params: { complaint: props, Admin: JSON.parse(localStorage.getItem("User")).FlatNo } });
+        const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/deletecomplaint", { params: { complaint: props, Admin: JSON.parse(localStorage.getItem("User")).FlatNo } });
         refreshPage();
     }
 

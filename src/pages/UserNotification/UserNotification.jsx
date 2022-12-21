@@ -19,7 +19,7 @@ function UserNotification() {
     }
 
     const fetchNotifications = async () => {
-        const { data } = await axios.get("http://localhost:4000/api/v1/getUserNotifications", { params: { FlatNo: JSON.parse(User).FlatNo } })
+        const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/getUserNotifications", { params: { FlatNo: JSON.parse(User).FlatNo } })
         const temp = data.userNotifications;
         temp.sort(compare);
         setNotifications(temp)
@@ -47,7 +47,7 @@ function UserNotification() {
 
     const updateNotification = async (item) => {
         // alert("hello");
-        const { data } = await axios.get("http://localhost:4000/api/v1/updateUserNotification", { params: { item: item } });
+        const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/updateUserNotification", { params: { item: item } });
         refreshPage();
     }
 
@@ -58,7 +58,7 @@ function UserNotification() {
     }
 
     const Delete = async(item) => { 
-        const { data } = await axios.get("http://localhost:4000/api/v1/deleteUserNotification", { params: { item: item } });
+        const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/deleteUserNotification", { params: { item: item } });
         refreshPage();
     }
 

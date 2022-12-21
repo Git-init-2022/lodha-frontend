@@ -63,7 +63,7 @@ function SocietyDues() {
     };
 
     const fetchDues = async () => {
-        const { data } = await axios.get("http://localhost:4000/api/v1/singleUser", { params: { FlatNo: JSON.parse(User).FlatNo } })
+        const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/singleUser", { params: { FlatNo: JSON.parse(User).FlatNo } })
         setuser(data.user1);
         console.log(user);
     }

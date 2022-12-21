@@ -26,7 +26,7 @@ function HelpDesk() {
             temp.push(file.name);
         }
         console.log(temp);
-        const { data } = await axios.post("http://localhost:4000/api/v1/complaint/new", {
+        const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/complaint/new", {
             FlatNo: FlatNo,
             Issue: Issue,
             Description: Description, 
@@ -57,7 +57,7 @@ function HelpDesk() {
 
 
     const fetchIssues = async () => {
-        const { data } = await axios.get("http://localhost:4000/api/v1/issue_types");
+        const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/issue_types");
         setIssues(data.issues);
     }
     useEffect(() => {

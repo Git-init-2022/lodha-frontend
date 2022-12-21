@@ -18,7 +18,7 @@ function LegalUpdate() {
         for(let file of files) {
             
             console.log(cid);
-            const { data } = await axios.post("http://localhost:4000/api/v1/createDocument", {
+            const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/createDocument", {
                 UploadDate: Date.now(),
                 Type: "legal",
                 Name: file.name,
