@@ -7,6 +7,7 @@ import LoginNavBar from '../../components/LoginNavBar/LoginNavBar';
 import { useGlobalContext } from '../../context/StateContext';
 import Spinner from "../../components/Spinner/Spinner";
 import { TeamOutlined } from "@ant-design/icons";
+import complaint from "../../assests/complaint.png";
 
 function HelpDesk() {
     const { User, setLoading, loading } = useGlobalContext();
@@ -69,7 +70,7 @@ function HelpDesk() {
             <LoginNavBar />
             <div >
                 <div style={{ display: "flex", justifyContent:"center", marginBottom: "-20px"}}>
-                    <img src={require("../../assests/complaint.png")} style={{ height: "50px", width: "50px", marginTop : "95px", marginRight: "5px"}}></img>
+                    <img src={complaint} style={{ height: "50px", width: "50px", marginTop : "95px", marginRight: "5px"}}></img>
                     <p id="title2">POST A COMPLAINT</p>
                 </div>
             

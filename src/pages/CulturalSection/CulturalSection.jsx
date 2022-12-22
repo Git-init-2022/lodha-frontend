@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import './CulturalSection.css';
 import LoginNavBar from '../../components/LoginNavBar/LoginNavBar';
 import { useGlobalContext } from '../../context/StateContext';
+import activities from "../../assests/activities.png";
 
 function CulturalSection() {
     const { User, setLoading, loading } = useGlobalContext();
@@ -39,7 +40,7 @@ function CulturalSection() {
             <LoginNavBar />
             <div>
                 <div style={{ display: "flex", justifyContent:"center", }}>
-                    <img src={require("../../assests/activities.png")} style={{ height: "50px", width: "50px", marginTop : "100px", marginRight: "15px"}}></img>
+                    <img src={activities} style={{ height: "50px", width: "50px", marginTop : "100px", marginRight: "15px"}}></img>
                     <p id="title2">CULTURAL ACTIVITIES</p>
                 </div>
                 {

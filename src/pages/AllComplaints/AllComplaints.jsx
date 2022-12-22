@@ -7,7 +7,7 @@ import 'antd/dist/antd.css';
 import Accordion from 'react-bootstrap/Accordion';
 const { Search } = Input;
 import Posts from "../../components/Posts/Posts"
-
+import complaint from "../../assests/complaint.png";
 import Toast from 'react-bootstrap/Toast';
 import AdminPosts from "../../components/AdminPosts/AdminPosts";
 import { useRoutes } from "react-router-dom";
@@ -287,7 +287,7 @@ function AllComplaints() {
       <LoginNavBar />
       <div className="KeyContactDiv">
         <div style={{ display: "flex", marginTop: "100px", justifyContent:"center", }}>
-            <img src={require("../../assests/complaint.png")} style={{ height: "50px", width: "50px", marginTop : "-3px", marginBottom: "50px", marginRight: "5px"}}></img>
+            <img src={complaint} style={{ height: "50px", width: "50px", marginTop : "-3px", marginBottom: "50px", marginRight: "5px"}}></img>
             <p id="title10">ALL COMPLAINTS</p>
         </div>
 

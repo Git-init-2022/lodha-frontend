@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import './CreateForm.css';
 import LoginNavBar from '../../components/LoginNavBar/LoginNavBar';
 import { useGlobalContext } from '../../context/StateContext';
+import survey from "../../assests/survey.png";
 
 function CreateForm() {
     const { User, setLoading, loading } = useGlobalContext();
@@ -40,7 +41,7 @@ function CreateForm() {
             <LoginNavBar />
             <div>
                 <div style={{ display: "flex", justifyContent:"center", }}>
-                    <img src={require("../../assests/survey.png")} style={{ height: "50px", width: "50px", marginTop : "100px", marginBottom: "0px", marginRight: "10px"}}></img>
+                    <img src={survey} style={{ height: "50px", width: "50px", marginTop : "100px", marginBottom: "0px", marginRight: "10px"}}></img>
                     <p id="title4">CREATE SURVEY FORMS</p>
                 </div>
 

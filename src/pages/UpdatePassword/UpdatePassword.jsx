@@ -5,6 +5,7 @@ import MetaData from "../layout/MetaData";
 import { useGlobalContext } from "../../context/StateContext";
 import NavBar from "../../components/NavBar/NavBar";
 import axios from "axios";
+import passwordReset from "../../assests/passwordReset.png";
 
 import {useNavigate ,useParams } from "react-router-dom";
 
@@ -39,7 +40,7 @@ const UpdatePassword = ({match}) => {
                     <div className="forgotPasswordContainer">
                         <div className="forgotPasswordBox">
                             <div style={{ display: "flex", marginTop: "20px", justifyContent: "center" }}>
-                                <img src={require("../../assests/passwordReset.png")} height="25px" width="25px" style={{ marginTop: "5px", marginRight: "10px" }}></img>
+                                <img src={passwordReset} height="25px" width="25px" style={{ marginTop: "5px", marginRight: "10px" }}></img>
                                 <h2 className="forgotPasswordHeading">Update Password</h2>
                             </div>
                             <form className="forgotPasswordForm" method='put' onSubmit={UpdatePasswordSubmit}>

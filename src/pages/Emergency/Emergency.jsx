@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from "react";
 import "./Emergency.css";
 import LoginNavBar from '../../components/LoginNavBar/LoginNavBar'
+import emergency from "../../assests/emergency.png";
 
 function Emergency() {
   
@@ -9,7 +10,7 @@ function Emergency() {
     <LoginNavBar/>
     <div className="emergency">
       <div style={{ display: "flex", justifyContent:"center", marginTop: "90px"}}>
-        <img src={require("../../assests/emergency.png")} style={{ height: "50px", width: "50px", marginTop : "20px", marginBottom: "50px"}}></img>
+        <img src={emergency} style={{ height: "50px", width: "50px", marginTop : "20px", marginBottom: "50px"}}></img>
         <p id="title">EMERGENCY SERVICES</p>
       </div>
     {/* <div className="wrapper">

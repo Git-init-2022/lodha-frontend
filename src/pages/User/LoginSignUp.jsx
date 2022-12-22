@@ -22,6 +22,9 @@ import NavBar from "../../components/NavBar/NavBar";
 import validator from 'validator'
 import 'antd/dist/antd.css';
 import { Alert } from 'antd';
+import user from "../../assests/user.png";
+import password from "../../assests/password.png";
+import lodha11 from '../../assests/lodha11.webp';
 
 
 
@@ -310,14 +313,14 @@ const LoginSignUp = () => {
                     <MDBRow className='g-0 d-flex align-items-center'>
 
                       <MDBCol md='4'>
-                        <MDBCardImage src='../../assests/lodha11.webp' alt='logo' className='rounded-t-5 rounded-tr-lg-0' fluid />
+                        <MDBCardImage src={lodha11} alt='logo' className='rounded-t-5 rounded-tr-lg-0' fluid />
                       </MDBCol>
 
                       <MDBCol md='8'>
 
                         <MDBCardBody className="mx-auto">
                           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "5%" }}>
-                            <img src={require("../../assests/user.png")} style={{ width: "70px", height: "70px" }}></img>
+                            <img src={user} style={{ width: "70px", height: "70px" }}></img>
                             <h1 className='LoginHeading'>User Login</h1>
                           </div>
                           <div>
@@ -326,7 +329,7 @@ const LoginSignUp = () => {
                           </div>
                           <div style={{ display: "flex", justifyContent: "space-between" }}>
                             <p className="Label">PASSWORD</p>
-                            <img src={require("../../assests/password.png")} onClick={(e) => ShowPassword(e)} style={{ height: "20px", width: "20px", marginRight: "10%", marginTop: "10px" }}></img>
+                            <img src={password} onClick={(e) => ShowPassword(e)} style={{ height: "20px", width: "20px", marginRight: "10%", marginTop: "10px" }}></img>
                           </div>
                           <MDBInput wrapperClass='mb-4' placeholder='Password' className='form1' id='pass' name="Password" type={Curr ? 'text' : 'password'} required />
 
@@ -365,7 +368,7 @@ const LoginSignUp = () => {
 
                           <MDBCardBody className="mx-auto">
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "5%" }}>
-                              <img src={require("../../assests/user.png")} style={{ width: "70px", height: "70px" }}></img>
+                              <img src={user} style={{ width: "70px", height: "70px" }}></img>
                               <h1 className='RegisterHeading'>Register</h1>
                             </div>
                             <p className="Label">OWNER NAME </p>
@@ -382,7 +385,7 @@ const LoginSignUp = () => {
 
                             <div style={{ display: "flex", justifyContent: "space-between" }}>
                               <p className="Label">PASSWORD</p>
-                              <img src={require("../../assests/password.png")} onClick={(e) => ShowPassword(e)} style={{ height: "20px", width: "20px", marginRight: "10%", marginTop: "10px" }}></img>
+                              <img src={password} onClick={(e) => ShowPassword(e)} style={{ height: "20px", width: "20px", marginRight: "10%", marginTop: "10px" }}></img>
                             </div>
                             <MDBInput wrapperClass='mb-4' placeholder='Password' name="Password" className='form1' id='RegPass' type={Curr ? 'text' : 'password'} ref={UserPass} onChange={(e) => validate(e.target.value, e.target.value.length)} required />
                             {

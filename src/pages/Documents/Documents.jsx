@@ -5,6 +5,14 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { useEffect } from "react";
 import axios from "axios";
+import image from '../../assests/image.png';
+import document from "../../assests/document.png";
+import docx from '../../assests/docx.png';
+import pdf from '../../assests/pdf.png';
+import excel from '../../assests/excel.png';
+import ppt from '../../assests/ppt.png';
+import legalUpate from '../../assests/legalUpdate.png';
+import { ExceptionOutlined, FilePdfFilled } from "@ant-design/icons";
 
 
 
@@ -42,27 +50,27 @@ function BasicExample() {
       x += item[index]
     }
     if(x === 'png' || x==='jpg' || x==='gif' || x==='jpeg'){
-      return require('../../assests/image.png');
+      return image;
     }
     if (x === 'docx' || x === 'doc') {
       console.log("hello");
-      return require('../../assests/docx.png');
+      return docx;
     }
     if (x === 'pdf') {
-      return require('../../assests/pdf.png')
+      return pdf;
     }
     if (x === 'xlsx' || x === 'xls') {
-      return require('../../assests/excel.png')
+      return excel;
     }
     if (x === 'pptx' || x === 'ppt') {
-      return require('../../assests/ppt.png')
+      return ppt;
     }
 
   }
 
   const getimagesource = (type) => {
     if(type==='legal'){
-      return require('../../assests/legalUpdate.png');
+      return legalUpdate;
     }
     if(Type==='bank'){
       
@@ -125,7 +133,7 @@ function BasicExample() {
 
                       </Card.Text>
                       <Button variant="primary" target="blank" href={"https://" + item.Hash + ".ipfs.w3s.link/" + item.Name} className="viewDocumentButton">
-                        <img src={require("../../assests/document.png")} height="20px" width = "20px" style={{marginRight:"10px"}}></img>View Document</Button>
+                        <img src={document} height="20px" width = "20px" style={{marginRight:"10px"}}></img>View Document</Button>
                     </Card.Body>
                   </Card>
                 );

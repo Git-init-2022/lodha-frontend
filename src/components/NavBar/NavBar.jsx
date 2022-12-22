@@ -6,6 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import { Link } from 'react-router-dom';
 import './NavBar.css';
 import Dropdown from '../DropDown/Dropdown';
+import lodhalogo1 from "../../assests/lodhalogo1.png";
 
 function Header() {
 
@@ -17,7 +18,7 @@ function Header() {
         <Container>
           <Navbar.Brand href="/">
             <a>
-              <img id="MeridianLogo" src={require("../../assests/lodhalogo1.png")} alt="logo" />
+              <img id="MeridianLogo" src={lodhalogo1} alt="logo" />
             </a>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />

@@ -3,6 +3,7 @@ import './AdminPosts.css'
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Web3Storage } from 'web3.storage';
+import done from "../../assests/done.png";
 import {
     MDBBtn,
     MDBCard,
@@ -20,6 +21,11 @@ import { useGlobalContext } from '../../context/StateContext';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import image from '../../assests/image.png';
+import docx from '../../assests/docx.png';
+import pdf from '../../assests/pdf.png';
+import excel from '../../assests/excel.png';
+import ppt from '../../assests/ppt.png';
 
 const client = new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDcxOTdiN2M2OGFEMTNhNzREMGIzMGQ3OTI4OTNGMDc4MWQxZjE4M2QiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzAxNjM1MTczNDIsIm5hbWUiOiJsb2RoYS1maWxlcyJ9.rmkUCge8MPPj5TC6i8Z5lVAjIevCSVni0gpu-_jUzlI" });
 
@@ -112,20 +118,20 @@ function AdminPosts({ props, selectedOption }) {
             x += item[index]
         }
         if (x === 'png' || x === 'jpg' || x === 'gif' || x === 'jpeg') {
-            return require('../../assests/image.png');
+            return image;
         }
         if (x === 'docx' || x === 'doc') {
            
-            return require('../../assests/docx.png');
+            return docx;
         }
         if (x === 'pdf') {
-            return require('../../assests/pdf.png');
+            return pdf;
         }
         if (x === 'xlsx' || x === 'xls') {
-            return require('../../assests/excel.png')
+            return excel;
         }
         if (x === 'pptx' || x === 'ppt') {
-            return require('../../assests/ppt.png');
+            return ppt;
         }
         
     }
@@ -160,7 +166,7 @@ function AdminPosts({ props, selectedOption }) {
                                 </div>
 
                                 <div>
-                                    {props.Status ? <div><img src={require("../../assests/done.png")} height="20px" width="20px"></img><span style={{ color: "green", fontWeight: "bold", fontSize: "16px", letterSpacing: "2px" }}>Done</span></div> : <select name="Status" id='Status' className='statusOptions'>
+                                    {props.Status ? <div><img src={done} height="20px" width="20px"></img><span style={{ color: "green", fontWeight: "bold", fontSize: "16px", letterSpacing: "2px" }}>Done</span></div> : <select name="Status" id='Status' className='statusOptions'>
                                         <option value="0">
                                             Pending
                                         </option>

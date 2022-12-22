@@ -4,6 +4,7 @@ import "./FinanceAndAccount.css"
 import { Form, Input, Popconfirm, Table } from "antd"
 import axios from "axios"
 import LoginNavBar from "../../components/LoginNavBar/LoginNavBar"
+import finance from "../../assests/finance.png"
 import "antd/dist/antd.css"
 const { Search } = Input
 
@@ -252,7 +253,7 @@ const FinanceAndAccount = () => {
       <LoginNavBar />
       <div className="KeyContactDiv">
         <div style={{ display: "flex", justifyContent:"center", }}>
-            <img src={require("../../assests/finance.png")} style={{ height: "50px", width: "50px", marginTop : "20px", marginBottom: "50px"}}></img>
+            <img src={finance} style={{ height: "50px", width: "50px", marginTop : "20px", marginBottom: "50px"}}></img>
             <p id="title">FINANCE AND ACCOUNT MANAGEMENT</p>
         </div>
         

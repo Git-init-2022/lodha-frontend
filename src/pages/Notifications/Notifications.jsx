@@ -5,6 +5,7 @@ import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
+import calendar from "../../assests/calendar.png";
 import { Radio, Space, Tabs } from 'antd';
 import { useGlobalContext } from '../../context/StateContext';
 import { getTwoToneColor } from "@ant-design/icons";
@@ -244,7 +245,7 @@ function Notifications() {
                               </p>
                               <p
                               className="MeetingtimeMobileView">
-                                <img height="30px" width="30px" src={require("../../assests/calendar.png")} style={{marginRight:"10px"}}></img>
+                                <img height="30px" width="30px" src={calendar} style={{marginRight:"10px"}}></img>
                                 { getFormattedTime(item.Date) + ", " + getFormattedTime1(item.Date) + "  " + item.Time}
                               </p>
                               <p style={{ fontSize: "14px", textTransform: "capitalize", letterSpacing: "1px", textAlign: "left" }}>

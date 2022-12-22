@@ -4,9 +4,15 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Popconfirm } from 'antd';
 import { Web3Storage } from 'web3.storage';
+import done from "../../assests/done.png";
+import redCircle from "../../assests/redCircle.png";
+import image from '../../assests/image.png';
+import docx from '../../assests/docx.png';
+import pdf from '../../assests/pdf.png';
+import excel from '../../assests/excel.png';
+import ppt from '../../assests/ppt.png';
+
 const client = new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDcxOTdiN2M2OGFEMTNhNzREMGIzMGQ3OTI4OTNGMDc4MWQxZjE4M2QiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzAxNjM1MTczNDIsIm5hbWUiOiJsb2RoYS1maWxlcyJ9.rmkUCge8MPPj5TC6i8Z5lVAjIevCSVni0gpu-_jUzlI" });
-
-
 import {
   MDBBtn,
   MDBCard,
@@ -58,19 +64,19 @@ function Posts({ props }) {
       x += item[index]
     }
     if (x === 'png' || x === 'jpg' || x === 'gif' || x === 'jpeg') {
-      return '../../assests/image.png';
+      return image;
     }
     if (x === 'docx' || x === 'doc') {
-      return '../../assests/docx.png';
+      return docx;
     }
     if (x === 'pdf') {
-      return '../../assests/pdf.png'
+      return pdf;
     }
     if (x === 'xlsx' || x === 'xls') {
-      return '../../assests/excel.png'
+      return excel;
     }
     if (x === 'pptx' || x === 'ppt') {
-      return '../../assests/ppt.png'
+      return ppt;
     }
 
   }
@@ -87,12 +93,12 @@ function Posts({ props }) {
             </div>
             <div>
               {props.Status ? <div>
-                <img src={require("../../assests/done.png")} height="20px" width="20px"></img>
+                <img src={done} height="20px" width="20px"></img>
                 <span style={{ color: "green", fontWeight: "bold", fontSize: "18px", letterSpacing: "2px" }}>Done</span>
               </div>
                 :
                 <div>
-                  <img src={require("../../assests/redCircle.png")} height="20px" width="20px"></img>
+                  <img src={redCircle} height="20px" width="20px"></img>
                   <span style={{ color: "red", fontWeight: "bold", fontSize: "18px", letterSpacing: "2px" }}>Pending</span>
                 </div>
               }

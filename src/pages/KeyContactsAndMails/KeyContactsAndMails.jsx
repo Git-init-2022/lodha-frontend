@@ -4,6 +4,7 @@ import "./KeyContactsAndMails.css"
 import { Form, Input, Popconfirm, Table, Typography, InputNumber } from "antd"
 import axios from "axios"
 import LoginNavBar from "../../components/LoginNavBar/LoginNavBar"
+import contact from "../../assests/contact.png";
 import "antd/dist/antd.css"
 const { Search } = Input
 
@@ -323,7 +324,7 @@ const KeyContactsAndMails = () => {
       <LoginNavBar />
       <div className="KeyContactDiv">
         <div style={{ display: "flex", justifyContent: "center", }}>
-          <img src={require("../../assests/contact.png")} style={{ height: "50px", width: "50px", marginTop: "20px", marginBottom: "30px", marginRight: "-10px" }}></img>
+          <img src={contact} style={{ height: "50px", width: "50px", marginTop: "20px", marginBottom: "30px", marginRight: "-10px" }}></img>
           <p id="title">KEY CONTACTS AND MAILS</p>
         </div>
 

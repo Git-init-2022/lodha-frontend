@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import {Web3Storage} from 'web3.storage';
 import './LegalUpdate.css';
 import LoginNavBar from '../../components/LoginNavBar/LoginNavBar';
+import legal from "../../assests/legal.png";
 import { useGlobalContext } from '../../context/StateContext';
 
 function LegalUpdate() {
@@ -53,7 +54,7 @@ function LegalUpdate() {
             <LoginNavBar />
             <div>
                 <div style={{ display: "flex", justifyContent: "center", }}>
-                    <img src={require("../../assests/legal.png")} style={{ height: "50px", width: "50px", marginTop: "100px", marginBottom: "25px", marginRight: "10px" }}></img>
+                    <img src={legal} style={{ height: "50px", width: "50px", marginTop: "100px", marginBottom: "25px", marginRight: "10px" }}></img>
                     <p id="title2">LEGAL UPDATE</p>
                 </div>
 

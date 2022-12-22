@@ -1,37 +1,43 @@
 import * as React from "https://cdn.skypack.dev/react@17.0.1";
 import "./facilities.css";
+import pool from "../../assests/pool.png";
+import gym from "../../assests/gym.png";
+import indoorgames from "../../assests/indoorgames.png";
+import yoga from "../../assests/yoga.png";
+import cafe from "../../assests/cafe.png";
+import kidsplay from "../../assests/kidsplay.png";
 
 function Facilities() {
   return (
     <div className="wrapper">
 
       <Card
-        img={require("../../assests/pool.png")}
+        img={pool}
         title="Swimming Pool"
         desc="hello" />
 
       <Card
-        img={require("../../assests/gym.png")}
+        img={gym}
         title="Gym"
         desc="hello" />
 
       <Card
-        img={require("../../assests/indoorgames.png")}
+        img={indoorgames}
         title="Indoor Games"
         desc="hello" />
 
       <Card
-        img={require("../../assests/yoga.png")}
+        img={yoga}
         title="Yoga"
         desc="hello" />
 
       <Card
-        img={require("../../assests/cafe.png")}
+        img={cafe}
         title="Cafe"
         desc="hello" />
 
       <Card
-        img={require("../../assests/kidsplay.png")}
+        img={kidsplay}
         title="Kids Play Room"
         desc="hello" />
     </div>

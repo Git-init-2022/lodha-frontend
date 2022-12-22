@@ -1,10 +1,12 @@
 import React, { useState } from "react";
 import LoginNavBar from "../../components/LoginNavBar/LoginNavBar"
 import "./SocietyDues.css";
+import society from "../../assests/society.png";
 import axios from "axios"
 import { useEffect } from "react";
 import { useGlobalContext } from "../../context/StateContext";
 import { Button, Table } from "antd";
+import payment from "../../assests/payment.png";
 
 
 function SocietyDues() {
@@ -77,7 +79,7 @@ function SocietyDues() {
             <LoginNavBar />
             <div>
                 <div style={{ display: "flex", marginTop: "100px", justifyContent: "center" }}>
-                    <img src={require("../../assests/society.png")} style={{ height: "55px", width: "50px", marginBottom: "0px", }}></img>
+                    <img src={society} style={{ height: "55px", width: "50px", marginBottom: "0px", }}></img>
                     <p id="userDashboardTitle">SOCIETY DUES</p>
                 </div>
                 <div>
@@ -94,7 +96,7 @@ function SocietyDues() {
                     <div className="PaymentDiv">
                         <div>
                             <div style={{ display: "flex", justifyContent: "center", marginTop: "30px", marginBottom: "0px" }}>
-                                <img src={require("../../assests/payment.png")} style={{ height: "40px", width: "40px", marginBottom: "0px", }}></img>
+                                <img src={payment} style={{ height: "40px", width: "40px", marginBottom: "0px", }}></img>
                                 <p className="PaymentText">PAYMENT</p>
 
                             </div>

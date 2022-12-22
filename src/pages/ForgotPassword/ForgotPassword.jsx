@@ -5,6 +5,7 @@ import Loader from "../layout/Loader/Loader";
 //import useGlobalContext from '/src/context/StateContext';
 import NavBar from "../../components/NavBar/NavBar";
 import axios from "axios";
+import forgotPassword from "../../assests/forgotPassword.png";
 import { Alert } from "antd";
 
 const ForgotPassword = () => {
@@ -52,7 +53,7 @@ const ForgotPassword = () => {
           <div className="forgotPasswordContainer">
             <div className="forgotPasswordBox">
               <div style={{ display: "flex", marginTop: "20px", justifyContent: "center" }}>
-                <img src={require("../../assests/forgotPassword.png")} height="25px" width="25px" style={{ marginTop: "5px", marginRight: "10px" }}></img>
+                <img src={forgotPassword} height="25px" width="25px" style={{ marginTop: "5px", marginRight: "10px" }}></img>
                 <h2 className="forgotPasswordHeading">Forgot Password</h2>
               </div>
               <hr style={{ width: "90%", height: "2px", backgroundColor: "black", color: "black", marginLeft: "5%" }}></hr>

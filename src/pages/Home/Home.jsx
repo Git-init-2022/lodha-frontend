@@ -11,7 +11,10 @@ import Location from '../../components/Location/Location';
 import Carousels from '../../components/Carousel/Carousel';
 import Facilities from '../../components/Facilities/facilities';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import NavBar from '../../components/NavBar/NavBar'
+import NavBar from '../../components/NavBar/NavBar';
+import home from "../../assests/home.mp4";
+import apartment from "../../assests/apartment.png";
+import homepage from "../../assests/homemap.png";
 
 function Home() {
   return (
@@ -19,7 +22,7 @@ function Home() {
     <NavBar/>
       <div style={{ marginTop: "60px", width: "100%" }}>
         <video width="100%" autoplay="" muted loop playsinline>
-          <source src={require("../../assests/home.mp4")} type="video/mp4"></source>
+          <source src={home} type="video/mp4"></source>
         </video>
       </div>
       <div className="container cunt-bg-whight p-5">
@@ -52,7 +55,7 @@ function Home() {
       <hr style={{ width: "90%", marginLeft: "5%", marginTop: "5%", height: "3px", backgroundColor: "gold" }}></hr>
 
       <div className='locationtitle'>
-        <img src={require("../../assests/apartment.png")} id="facilities"></img>
+        <img src={apartment} id="facilities"></img>
         <div style={{ justifyContent: "center", display: "flex" }}>
           <p id='our1'>OUR</p>
           <p id='facility' >FACILITIES</p>
@@ -63,7 +66,7 @@ function Home() {
       </div>
       <hr style={{ width: "90%", marginLeft: "5%", marginTop: "5%", height: "3px", backgroundColor: "gold" }}></hr>
       <div className='locationtitle'>
-        <img src={require("../../assests/homemap.png")} id="locationicon"></img>
+        <img src={homepage} id="locationicon"></img>
         <div style={{ justifyContent: "center", display: "flex" }}>
           <p id='our'>OUR</p>
           <p id='location' >LOCATION</p>
