@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { useGlobalContext } from '/src/context/StateContext';
+import { useGlobalContext } from '../../context/StateContext';
 
 
 function GeneralNotifications() {
@@ -78,7 +78,7 @@ function GeneralNotifications() {
                                 <div className="announcement" style={{ width: "100%", display: "flex", justifyContent: "space-between" }}>
                                     <div style={{ marginLeft: "30px", width: "70%" }}>
                                         <div style={{ display: "flex" }}>
-                                            <img src="/src/assests/announcement.png" height="25px" width="25px"></img>
+                                            <img src={require("../../assests/announcement.png")} height="25px" width="25px"></img>
                                             <p style={{ marginLeft: "20px", fontSize: "22px", textTransform: "capitalize", letterSpacing: "1px", textAlign: "left", textDecorationLine: "underline", textUnderlineOffset: "10px", textDecorationColor: "#675A0E", textDecorationThickness: "2px" }}>
                                                 {item.Title}
                                             </p>

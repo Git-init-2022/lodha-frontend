@@ -4,12 +4,12 @@ import Nav from 'react-bootstrap/Nav';
 import GoogleForms from "../GoogleForms/GoogleForms";
 import "./Dashboard.css"
 import Notifications from "../Notifications/Notifications";
-import LoginNavBar from '/src/components/LoginNavBar/LoginNavBar'
+import LoginNavBar from '../../components/LoginNavBar/LoginNavBar'
 import GeneralNotifications from "../GeneralNotifications/GeneralNotifications";
 import Complaints from "../Complaints/Complaints";
 import Documents from "../Documents/Documents";
 import UserNotification from "../UserNotification/UserNotification";
-import {useGlobalContext} from "/src/context/StateContext";
+import {useGlobalContext} from "../../context/StateContext";
 
 function Dashboard() {
     const [IsForms, setIsForms] = useState(false);
@@ -77,7 +77,7 @@ function Dashboard() {
 
             <div>
                 <div style={{ display: "flex", marginTop: "100px", justifyContent: "center", }}>
-                    {/* <img src="/src/assests/dashboard.png" style={{ height: "55px", width: "50px", marginBottom: "0px", }}></img> */}
+                    {/* <img src="../../assests/dashboard.png" style={{ height: "55px", width: "50px", marginBottom: "0px", }}></img> */}
                     <p id="userDashboardTitle">Hello, {JSON.parse(User).OwnerName}!</p>
                 </div>
                 
@@ -88,7 +88,7 @@ function Dashboard() {
                             <Nav.Item>
                                 <Nav.Link className="FacilityLink" eventKey="/home" onClick={(e) => changeMenu(e, "Announcements")}>
                                     <div style={{ display: "flex", alignItems: "center",height:"100%" , flexDirection: "column", textAlign: "center" }}>
-                                        <img src="/src/assests/announcement.png" height="50px" width="50px"></img>
+                                        <img src={require("../../assests/announcement.png")} height="50px" width="50px"></img>
                                         <pre style={{ fontFamily: "Montserrat" }}>Announcements</pre>
                                     </div>
                                 </Nav.Link>
@@ -97,7 +97,7 @@ function Dashboard() {
                             {/* <Nav.Item className="navbarLink">
                                 <Nav.Link className="FacilityLink" eventKey="/announcements" onClick={(e) => changeMenu(e, "Annoucements")}>
                                     <div style={{ display: "flex", alignItems: "center", flexDirection: "column", textAlign: "center" }}>
-                                        <img src="/src/assests/announcement.png" height="50px" width="50px"></img>
+                                        <img src="../../assests/announcement.png" height="50px" width="50px"></img>
                                         <pre style={{ fontFamily: "Montserrat" }}>Annoucements</pre>
                                     </div>
                                 </Nav.Link>
@@ -106,7 +106,7 @@ function Dashboard() {
                             <Nav.Item className="navbarLink">
                                 <Nav.Link className="FacilityLink" eventKey="/forms" onClick={(e) => changeMenu(e, "Forms")}>
                                     <div style={{ display: "flex", alignItems: "center", flexDirection: "column", textAlign: "center" }}>
-                                        <img src="/src/assests/form.png" height="50px" width="50px"></img>
+                                        <img src={require("../../assests/form.png")} height="50px" width="50px"></img>
                                         <pre style={{ fontFamily: "Montserrat" }}>      Forms       </pre>
                                     </div>
                                 </Nav.Link>
@@ -115,7 +115,7 @@ function Dashboard() {
                             <Nav.Item className="navbarLink">
                                 <Nav.Link className="FacilityLink" eventKey="/meet" onClick={(e) => changeMenu(e, "Meetings")}>
                                     <div style={{ display: "flex", alignItems: "center", flexDirection: "column", textAlign: "center" }}>
-                                        <img src="/src/assests/meeting1.png" height="50px" width="50px"></img>
+                                        <img src={require("../../assests/meeting1.png")} height="50px" width="50px"></img>
                                         <pre style={{ fontFamily: "Montserrat" }}>   Meetings     </pre>
                                     </div>
                                 </Nav.Link>
@@ -124,7 +124,7 @@ function Dashboard() {
                             <Nav.Item>
                                 <Nav.Link className="FacilityLink" eventKey="/complaints" onClick={(e) => changeMenu(e, "Complaints")}>
                                     <div style={{ display: "flex", alignItems: "center", flexDirection: "column", textAlign: "center" }}>
-                                        <img src="/src/assests/complaint1.png" height="50px" width="50px"></img>
+                                        <img src={require("../../assests/complaint1.png")} height="50px" width="50px"></img>
                                         <pre style={{ fontFamily: "Montserrat" }}>  Complaints  </pre>
                                     </div>
                                 </Nav.Link>
@@ -132,14 +132,14 @@ function Dashboard() {
                             <Nav.Item>
                                 <Nav.Link className="FacilityLink" eventKey="/docs" onClick={(e) => changeMenu(e, "Documents")}>
                                     <div style={{ display: "flex", alignItems: "center", flexDirection: "column", textAlign: "center" }}>
-                                        <img src="/src/assests/documents.png" height="50px" width="50px"></img>
+                                        <img src={require("../../assests/documents.png")} height="50px" width="50px"></img>
                                         <pre style={{ fontFamily: "Montserrat" }}>   Documents   </pre>
                                     </div></Nav.Link>
                             </Nav.Item>
                             <Nav.Item className="NotificationLinkItem">
                                 <Nav.Link className="FacilityLink" eventKey="/notify" onClick={(e) => changeMenu(e, "Notifications")}>
                                     <div style={{ display: "flex", alignItems: "center", flexDirection: "column", textAlign: "center" }}>
-                                        <img src="/src/assests/notifications.png" height="50px" width="50px"></img>
+                                        <img src={require("../../assests/notifications.png")} height="50px" width="50px"></img>
                                         <pre style={{ fontFamily: "Montserrat" }}>   Notifications   </pre>
                                     </div></Nav.Link>
                             </Nav.Item>

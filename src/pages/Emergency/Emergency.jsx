@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import "./Emergency.css";
-import LoginNavBar from '/src/components/LoginNavBar/LoginNavBar'
+import LoginNavBar from '../../components/LoginNavBar/LoginNavBar'
 
 function Emergency() {
   
@@ -9,38 +9,38 @@ function Emergency() {
     <LoginNavBar/>
     <div className="emergency">
       <div style={{ display: "flex", justifyContent:"center", marginTop: "90px"}}>
-        <img src="/src/assests/emergency.png" style={{ height: "50px", width: "50px", marginTop : "20px", marginBottom: "50px"}}></img>
+        <img src={require("../../assests/emergency.png")} style={{ height: "50px", width: "50px", marginTop : "20px", marginBottom: "50px"}}></img>
         <p id="title">EMERGENCY SERVICES</p>
       </div>
     {/* <div className="wrapper">
 
       <Card
-        img="/src/assests/pool.svg"
+        img="../../assests/pool.png"
         title="Swimming Pool"
         desc="hello" />
 
       <Card
-        img="/src/assests/gym.svg"
+        img="../../assests/gym.png"
         title="Gym"
         desc="hello" />
 
       <Card
-        img="/src/assests/indoorgames.svg"
+        img="../../assests/indoorgames.png"
         title="Indoor Games"
         desc="hello" />
 
       <Card
-        img="/src/assests/yoga.svg"
+        img="../../assests/yoga.png"
         title="Yoga"
         desc="hello" />
 
       <Card
-        img="/src/assests/cafe.svg"
+        img="../../assests/cafe.png"
         title="Cafe"
         desc="hello" />
 
       <Card
-        img="/src/assests/kidsplay.svg"
+        img="../../assests/kidsplay.png"
         title="Kids Play Room"
         desc="hello" />
     </div> */}

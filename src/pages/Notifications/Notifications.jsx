@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import './Notifications.css';
-import LoginNavBar from '/src/components/LoginNavBar/LoginNavBar'
+import LoginNavBar from '../../components/LoginNavBar/LoginNavBar'
 import Button from 'react-bootstrap/Button';
 import Nav from 'react-bootstrap/Nav';
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import { Radio, Space, Tabs } from 'antd';
-import { useGlobalContext } from '/src/context/StateContext';
+import { useGlobalContext } from '../../context/StateContext';
 import { getTwoToneColor } from "@ant-design/icons";
 
 

@@ -2,8 +2,8 @@ import { Alert } from "antd";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import './CreateForm.css';
-import LoginNavBar from '/src/components/LoginNavBar/LoginNavBar';
-import { useGlobalContext } from '/src/context/StateContext';
+import LoginNavBar from '../../components/LoginNavBar/LoginNavBar';
+import { useGlobalContext } from '../../context/StateContext';
 
 function CreateForm() {
     const { User, setLoading, loading } = useGlobalContext();
@@ -40,7 +40,7 @@ function CreateForm() {
             <LoginNavBar />
             <div>
                 <div style={{ display: "flex", justifyContent:"center", }}>
-                    <img src="/src/assests/survey.png" style={{ height: "50px", width: "50px", marginTop : "100px", marginBottom: "0px", marginRight: "10px"}}></img>
+                    <img src={require("../../assests/survey.png")} style={{ height: "50px", width: "50px", marginTop : "100px", marginBottom: "0px", marginRight: "10px"}}></img>
                     <p id="title4">CREATE SURVEY FORMS</p>
                 </div>
 

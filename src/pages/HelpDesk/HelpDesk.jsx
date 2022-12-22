@@ -3,8 +3,8 @@ import axios from "axios";
 import { Web3Storage } from 'web3.storage';
 import React, { useState, useEffect } from "react";
 import './HelpDesk.css';
-import LoginNavBar from '/src/components/LoginNavBar/LoginNavBar';
-import { useGlobalContext } from '/src/context/StateContext';
+import LoginNavBar from '../../components/LoginNavBar/LoginNavBar';
+import { useGlobalContext } from '../../context/StateContext';
 import Spinner from "../../components/Spinner/Spinner";
 import { TeamOutlined } from "@ant-design/icons";
 
@@ -69,7 +69,7 @@ function HelpDesk() {
             <LoginNavBar />
             <div >
                 <div style={{ display: "flex", justifyContent:"center", marginBottom: "-20px"}}>
-                    <img src="/src/assests/complaint.png" style={{ height: "50px", width: "50px", marginTop : "95px", marginRight: "5px"}}></img>
+                    <img src={require("../../assests/complaint.png")} style={{ height: "50px", width: "50px", marginTop : "95px", marginRight: "5px"}}></img>
                     <p id="title2">POST A COMPLAINT</p>
                 </div>
             

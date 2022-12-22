@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useRef, useState } from "react";
 import { Table, Input, Form, Popconfirm } from "antd";
 import axios from "axios";
 import './AllComplaints.css';
-import LoginNavBar from '/src/components/LoginNavBar/LoginNavBar'
+import LoginNavBar from '../../components/LoginNavBar/LoginNavBar'
 import 'antd/dist/antd.css';
 import Accordion from 'react-bootstrap/Accordion';
 const { Search } = Input;
-import Posts from "/src/components/Posts/Posts"
+import Posts from "../../components/Posts/Posts"
 
 import Toast from 'react-bootstrap/Toast';
 import AdminPosts from "../../components/AdminPosts/AdminPosts";
@@ -287,7 +287,7 @@ function AllComplaints() {
       <LoginNavBar />
       <div className="KeyContactDiv">
         <div style={{ display: "flex", marginTop: "100px", justifyContent:"center", }}>
-            <img src="/src/assests/complaint.png" style={{ height: "50px", width: "50px", marginTop : "-3px", marginBottom: "50px", marginRight: "5px"}}></img>
+            <img src={require("../../assests/complaint.png")} style={{ height: "50px", width: "50px", marginTop : "-3px", marginBottom: "50px", marginRight: "5px"}}></img>
             <p id="title10">ALL COMPLAINTS</p>
         </div>
 

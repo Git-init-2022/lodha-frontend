@@ -16,7 +16,7 @@ import {
     MDBRow,
     MDBTypography,
 } from "mdb-react-ui-kit";
-import { useGlobalContext } from '/src/context/StateContext';
+import { useGlobalContext } from '../../context/StateContext';
 import axios from 'axios';
 import { useEffect } from 'react';
 import { useState } from 'react';
@@ -112,20 +112,20 @@ function AdminPosts({ props, selectedOption }) {
             x += item[index]
         }
         if (x === 'png' || x === 'jpg' || x === 'gif' || x === 'jpeg') {
-            return '/src/assests/image.png';
+            return '../../assests/image.png';
         }
         if (x === 'docx' || x === 'doc') {
             console.log("hello");
-            return '/src/assests/docx.png';
+            return '../../assests/docx.png';
         }
         if (x === 'pdf') {
-            return '/src/assests/pdf.png'
+            return '../../assests/pdf.png'
         }
         if (x === 'xlsx' || x === 'xls') {
-            return '/src/assests/excel.png'
+            return '../../assests/excel.png'
         }
         if (x === 'pptx' || x === 'ppt') {
-            return '/src/assests/ppt.png'
+            return '../../assests/ppt.png'
         }
         
     }
@@ -160,7 +160,7 @@ function AdminPosts({ props, selectedOption }) {
                                 </div>
 
                                 <div>
-                                    {props.Status ? <div><img src="/src/assests/done.png" height="20px" width="20px"></img><span style={{ color: "green", fontWeight: "bold", fontSize: "16px", letterSpacing: "2px" }}>Done</span></div> : <select name="Status" id='Status' className='statusOptions'>
+                                    {props.Status ? <div><img src={require("../../assests/done.png")} height="20px" width="20px"></img><span style={{ color: "green", fontWeight: "bold", fontSize: "16px", letterSpacing: "2px" }}>Done</span></div> : <select name="Status" id='Status' className='statusOptions'>
                                         <option value="0">
                                             Pending
                                         </option>

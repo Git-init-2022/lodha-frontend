@@ -4,9 +4,10 @@
   "type": "module",
   "description": "React TypeScript on Replit, using Vite bundler",
   "scripts": {
-    "dev": "vite",
-    "build": "npm install && tsc && vite build",
-    "preview": "vite preview"
+    "start": "react-scripts start",
+    "prodeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "build": "react-scripts build"
   },
   "keywords": [],
   "author": "",
@@ -46,12 +47,23 @@
     "@iconify/react": "4.0.0",
     "@types/react": "18.0.15",
     "@types/react-dom": "18.0.6",
-    "@vitejs/plugin-react": "2.0.0",
+    "@vitejs/plugin-react": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "typescript": "4.7.4",
-    "typescript-language-server": "0.11.2",
-    "vite": "3.0.4"
+    "typescript": "^4.9.4",
+    "typescript-language-server": "^2.2.0",
+    "vite": "^3.0.4"
   },
-  "proxy": "http://192.168.29.21:4000"
+  "browserslist":{
+    "production":[
+      ">0.2%",
+      "not dead",
+       "not op_mini all"
+    ],
+    "development":[
+      "last 1 chrome version",
+      "last 1 firefox version", 
+      "last 1 safari version"
+    ]
+  }
 }

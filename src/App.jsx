@@ -7,7 +7,7 @@ import Home from './pages/Home/Home'
 import Meeting from './pages/Meeting/Meeting'
 import GoogleForms from './pages/GoogleForms/GoogleForms'
 import Emergency from './pages/Emergency/Emergency'
-import NavBar from '/src/components/NavBar/NavBar'
+import NavBar from './components/NavBar/NavBar'
 import KeyContactsAndMails from './pages/KeyContactsAndMails/KeyContactsAndMails'
 import LoginSignUp from './pages/User/LoginSignUp'
 import FacilityManagement from './pages/FacilityManagement/FacilityManagement'
@@ -20,7 +20,7 @@ import Profile from './pages/Profile/Profile';
 import Dashboard from './pages/Dashboard/Dashboard';
 import LoggedHome from './pages/LoggedHome/LoggedHome'
 import { useGlobalContext } from "./context/StateContext";
-import PrivateRoute from '/src/pages/PrivateRoute/PrivateRoute'
+import PrivateRoute from './pages/PrivateRoute/PrivateRoute'
 import GeneralNotifications from './pages/GeneralNotifications/GeneralNotifications';
 import AllComplaints from './pages/AllComplaints/AllComplaints';
 import CreateForm from './pages/CreateForms/CreateForm';
@@ -62,11 +62,11 @@ export default function App() {
 
                     {/* <Route path="/Complaints"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<Complaints />}
-                            isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
+    isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} /> */}
 
                     <Route path="/Meeting"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<Meeting />}
-                            isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} /> */}
+                            isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} /> 
                     <Route path="/Emergency"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<Emergency />}
                             isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />

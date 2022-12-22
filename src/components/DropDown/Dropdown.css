@@ -100,7 +100,7 @@
 
 .accordion-button.collapsed::after{
 
-  background: url("/src/assests/goldDropDown.png");
+  background: url("../../assests/goldDropDown.png");
   background-size:     cover;                     
   background-repeat:   no-repeat;
   background-position: center center;  
@@ -109,7 +109,7 @@
 
 .accordion-button:not(.collapsed)::after{
 
-  background: url("/src/assests/silverDropDown.png");
+  background: url("../../assests/silverDropDown.png");
   background-size:     cover;                     
   background-repeat:   no-repeat;
   background-position: center center;  

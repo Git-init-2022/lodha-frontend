@@ -2,8 +2,8 @@ import { Alert } from "antd";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import './Meeting.css';
-import LoginNavBar from '/src/components/LoginNavBar/LoginNavBar'
-import { useGlobalContext } from '/src/context/StateContext';
+import LoginNavBar from '../../components/LoginNavBar/LoginNavBar'
+import { useGlobalContext } from '../../context/StateContext';
 
 function Meeting() {
   const { User, setLoading, loading } = useGlobalContext();
@@ -48,7 +48,7 @@ function Meeting() {
     <>
       <LoginNavBar />
       <div style={{ display: "flex", justifyContent:"center", marginTop: "80px"}}>
-            <img src="/src/assests/meeting.png" style={{ height: "50px", width: "50px", marginTop : "19px", marginBottom: "-20px", marginRight: "-8px"}}></img>
+            <img src={require("../../assests/meeting.png")} style={{ height: "50px", width: "50px", marginTop : "19px", marginBottom: "-20px", marginRight: "-8px"}}></img>
             <p id="title">SET-UP A MEETING</p>
       </div>
       {/* <p id="title">FINANCE AND MANAGEMENT</p> */}

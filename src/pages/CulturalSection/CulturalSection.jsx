@@ -2,8 +2,8 @@ import { Alert } from "antd";
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import './CulturalSection.css';
-import LoginNavBar from '/src/components/LoginNavBar/LoginNavBar';
-import { useGlobalContext } from '/src/context/StateContext';
+import LoginNavBar from '../../components/LoginNavBar/LoginNavBar';
+import { useGlobalContext } from '../../context/StateContext';
 
 function CulturalSection() {
     const { User, setLoading, loading } = useGlobalContext();
@@ -39,7 +39,7 @@ function CulturalSection() {
             <LoginNavBar />
             <div>
                 <div style={{ display: "flex", justifyContent:"center", }}>
-                    <img src="/src/assests/activities.png" style={{ height: "50px", width: "50px", marginTop : "100px", marginRight: "15px"}}></img>
+                    <img src={require("../../assests/activities.png")} style={{ height: "50px", width: "50px", marginTop : "100px", marginRight: "15px"}}></img>
                     <p id="title2">CULTURAL ACTIVITIES</p>
                 </div>
                 {

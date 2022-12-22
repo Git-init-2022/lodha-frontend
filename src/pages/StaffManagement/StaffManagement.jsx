@@ -3,10 +3,10 @@ import "antd/dist/antd.css"
 import "./StaffManagement.css"
 import { Form, Input, Popconfirm, Table } from "antd"
 import axios from "axios"
-import LoginNavBar from "/src/components/LoginNavBar/LoginNavBar"
+import LoginNavBar from "../../components/LoginNavBar/LoginNavBar"
 import "antd/dist/antd.css"
 const { Search } = Input;
-import { useGlobalContext } from '/src/context/StateContext';
+import { useGlobalContext } from '../../context/StateContext';
 import Card from "antd/lib/card/Card"
 import Meta from "antd/lib/card/Meta"
 import Modal from 'react-bootstrap/Modal';
@@ -156,7 +156,7 @@ const StaffManagement = () => {
       <LoginNavBar />
       <div>
         <div style={{ display: "flex", marginTop: "100px", justifyContent: "center", }}>
-          <img src="/src/assests/staff.png" style={{ height: "55px", width: "50px", marginBottom: "0px", }}></img>
+          <img src={require("../../assests/staff.png")} style={{ height: "55px", width: "50px", marginBottom: "0px", }}></img>
           <p id="userDashboardTitle">STAFF MANAGEMENT</p>
         </div>
         <div className="AddStaffDiv">
@@ -257,7 +257,7 @@ const StaffManagement = () => {
                     <form>
                       <div className="DisplayCard">
                         <div>
-                          <img src={i.ImageToken ===undefined ? "/src/assests/admin.png" : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName } width="150px" height="150px" style={{ margin: "25px" }}></img>
+                          <img src={i.ImageToken ===undefined ? require("../../assests/admin.png") : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName } width="150px" height="150px" style={{ margin: "25px" }}></img>
 
                         </div>
                         <div style={{ width: "90%", marginTop: "5px" }}>
@@ -298,14 +298,14 @@ const StaffManagement = () => {
                               title="Click ok to Edit User Details"
                               onConfirm={() => HandleEdit(i)}>
                               <button className="btn btn-primary editButton" style={{ width: "40%" }}>
-                                <img src="/src/assests/Edit.png" height="20px" width="20px"></img>
+                                <img src={require("../../assests/Edit.png")} height="20px" width="20px"></img>
                                 <span style={{ marginLeft: "10px" }}>Edit</span></button>
                             </Popconfirm>
                             <Popconfirm
                               title="Click ok to Confirm Deletion of user"
                               onConfirm={() => HandleDelete(i)}>
                               <button className="btn btn-danger DeleteButton" style={{ width: "45%", marginLeft: "10px" }}>
-                                <img src="/src/assests/Delete.png" height="20px" width="20px"></img>
+                                <img src={require("../../assests/Delete.png")} height="20px" width="20px"></img>
                                 <span style={{ marginLeft: "10px" }}>Delete</span> </button>
                             </Popconfirm>
                           </div>
@@ -344,7 +344,7 @@ const StaffManagement = () => {
                     <form>
                       <div className="DisplayCard">
                         <div>
-                        <img src={i.ImageToken ===undefined ? "/src/assests/admin.png" : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName } width="150px" height="150px" style={{ margin: "25px" }}></img>
+                        <img src={i.ImageToken ===undefined ? require("../../assests/admin.png") : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName } width="150px" height="150px" style={{ margin: "25px" }}></img>
 
                         </div>
                         <div style={{ width: "100%", marginTop: "5px" }}>
@@ -385,14 +385,14 @@ const StaffManagement = () => {
                               title="Click ok to Edit User Details"
                               onConfirm={() => HandleEdit(i)}>
                               <button className="btn btn-primary editButton" type="submit" style={{ width: "45%" }}>
-                                <img src="/src/assests/Edit.png" height="20px" width="20px"></img>
+                                <img src={require("../../assests/Edit.png")} height="20px" width="20px"></img>
                                 <span style={{ marginLeft: "10px" }}>Edit</span></button>
                             </Popconfirm>
                             <Popconfirm
                               title="Click ok to Confirm Deletion of user"
                               onConfirm={() => HandleDelete(i)}>
                               <button className="btn btn-danger DeleteButton" style={{ width: "45%", marginLeft: "10px" }}>
-                                <img src="/src/assests/Delete.png" height="20px" width="20px"></img>
+                                <img src={require("../../assests/Delete.png")} height="20px" width="20px"></img>
                                 <span style={{ marginLeft: "10px" }}>Delete</span> </button>
                             </Popconfirm>
                           </div>
@@ -431,7 +431,7 @@ const StaffManagement = () => {
                     <form>
                       <div className="DisplayCard">
                         <div>
-                        <img src={i.ImageToken ===undefined ? "/src/assests/admin.png" : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName } width="150px" height="150px" style={{ margin: "25px" }}></img>
+                        <img src={i.ImageToken ===undefined ? require("../../assests/admin.png") : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName } width="150px" height="150px" style={{ margin: "25px" }}></img>
 
                         </div>
                         <div style={{ width: "100%", marginTop: "5px" }}>
@@ -472,14 +472,14 @@ const StaffManagement = () => {
                               title="Click ok to Edit User Details"
                               onConfirm={() => HandleEdit(i)}>
                               <button className="btn btn-primary editButton" type="submit" style={{ width: "45%" }}>
-                                <img src="/src/assests/Edit.png" height="20px" width="20px"></img>
+                                <img src={require("../../assests/Edit.png")} height="20px" width="20px"></img>
                                 <span style={{ marginLeft: "10px" }}>Edit</span></button>
                             </Popconfirm>
                             <Popconfirm
                               title="Click ok to Confirm Deletion of user"
                               onConfirm={() => HandleDelete(i)}>
                               <button className="btn btn-danger DeleteButton" style={{ width: "45%", marginLeft: "10px" }}>
-                                <img src="/src/assests/Delete.png" height="20px" width="20px"></img>
+                                <img src={require("../../assests/Delete.png")} height="20px" width="20px"></img>
                                 <span style={{ marginLeft: "10px" }}>Delete</span> </button>
                             </Popconfirm>
                           </div>
@@ -518,7 +518,7 @@ const StaffManagement = () => {
                     <form>
                       <div className="DisplayCard">
                         <div>
-                        <img src={i.ImageToken ===undefined ? "/src/assests/admin.png" : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName } width="150px" height="150px" style={{ margin: "25px" }}></img>
+                        <img src={i.ImageToken ===undefined ? require("../../assests/admin.png") : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName } width="150px" height="150px" style={{ margin: "25px" }}></img>
 
                         </div>
                         <div style={{ width: "100%", marginTop: "5px" }}>
@@ -559,14 +559,14 @@ const StaffManagement = () => {
                               title="Click ok to Edit User Details"
                               onConfirm={() => HandleEdit(i)}>
                               <button className="btn btn-primary editButton" type="submit" style={{ width: "45%" }}>
-                                <img src="/src/assests/Edit.png" height="20px" width="20px"></img>
+                                <img src={require("../../assests/Edit.png")} height="20px" width="20px"></img>
                                 <span style={{ marginLeft: "10px" }}>Edit</span></button>
                             </Popconfirm>
                             <Popconfirm
                               title="Click ok to Confirm Deletion of user"
                               onConfirm={() => HandleDelete(i)}>
                               <button className="btn btn-danger DeleteButton" style={{ width: "45%", marginLeft: "10px" }}>
-                                <img src="/src/assests/Delete.png" height="20px" width="20px"></img>
+                                <img src={require("../../assests/Delete.png")} height="20px" width="20px"></img>
                                 <span style={{ marginLeft: "10px" }}>Delete</span> </button>
                             </Popconfirm>
                           </div>

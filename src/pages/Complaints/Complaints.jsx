@@ -1,11 +1,11 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import './Complaints.css';
-import LoginNavBar from '/src/components/LoginNavBar/LoginNavBar'
-import Posts from '/src/components/Posts/Posts';
+import LoginNavBar from '../../components/LoginNavBar/LoginNavBar'
+import Posts from '../../components/Posts/Posts';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { useGlobalContext } from "/src/context/StateContext"
+import { useGlobalContext } from "../../context/StateContext"
 
 
 function Complaints() {

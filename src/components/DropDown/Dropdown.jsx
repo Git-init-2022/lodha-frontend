@@ -1,7 +1,7 @@
 import React from 'react';
 import './Dropdown.css';
 import Accordion from 'react-bootstrap/Accordion';
-import { useGlobalContext } from '/src/context/StateContext';
+import { useGlobalContext } from '../../context/StateContext';
 import { useState } from 'react';
 function Dropdown() {
   const {User} = useGlobalContext();

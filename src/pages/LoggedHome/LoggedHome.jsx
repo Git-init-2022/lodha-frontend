@@ -6,12 +6,12 @@ import {
   MDBCardText,
   MDBCardImage
 } from 'mdb-react-ui-kit';
-import Location from '/src/components/Location/Location';
-import Contact from '/src/components/ContactUs/Contact';
-import Carousels from '/src/components/Carousel/Carousel';
-import Facilities from '/src/components/Facilities/facilities';
+import Location from '../../components/Location/Location';
+import Contact from '../../components/ContactUs/Contact';
+import Carousels from '../../components/Carousel/Carousel';
+import Facilities from '../../components/Facilities/facilities';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import LoginNavBar from '/src/components/LoginNavBar/LoginNavBar'
+import LoginNavBar from '../../components/LoginNavBar/LoginNavBar'
 
 function LoggedHome() {
 
@@ -20,7 +20,7 @@ function LoggedHome() {
     <LoginNavBar/>
       <div style={{ marginTop: "60px", width: "100%" }}>
         <video width="100%" autoplay="" muted loop playsinline>
-          <source src="src/assests/home.mp4" type="video/mp4"></source>
+          <source src={require("../../assests/home.mp4")} type="video/mp4"></source>
         </video>
       </div>
       <div className="container cunt-bg-whight p-5">
@@ -53,7 +53,7 @@ function LoggedHome() {
       <div style={{width: "100%", backgroundColor:"#675A0E", height:"2px", marginTop:"50px"}}></div>
 
       <div className='locationtitle'>
-        <img src="src/assests/apartment.svg" id="facilities"></img>
+        <img src={require("../../assests/apartment.png")} id="facilities"></img>
         <div style={{ justifyContent: "center", display: "flex" }}>
           <p id='our1'>OUR</p>
           <p id='facility' >FACILITIES</p>
@@ -64,7 +64,7 @@ function LoggedHome() {
       </div>
       <div style={{width: "100%", backgroundColor:"#675A0E", height:"2px", marginTop:"50px"}}></div>
       <div className='locationtitle'>
-        <img src="src/assests/homemap.svg" id="locationicon"></img>
+        <img src={require("../../assests/homemap.png")} id="locationicon"></img>
         <div style={{ justifyContent: "center", display: "flex" }}>
           <p id='our'>OUR</p>
           <p id='location' >LOCATION</p>

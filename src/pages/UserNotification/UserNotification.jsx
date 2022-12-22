@@ -3,7 +3,7 @@ import Toast from 'react-bootstrap/Toast';
 import { BellFilled } from "@ant-design/icons"
 import React, { useState } from "react";
 import { useEffect } from "react";
-import { useGlobalContext } from '/src/context/StateContext';
+import { useGlobalContext } from '../../context/StateContext';
 import axios from "axios";
 import "./UserNotification.css"
 
@@ -123,7 +123,7 @@ function UserNotification() {
                                                     <div style={{ display: "flex", justifyContent: "space-between", width: "90%"}}>
                                                         <div>
                                                             {/* <img width="15px" height="15px"
-                                                            src="/src/assests/info.png"
+                                                            src="../../assests/info.png"
                                                              /> */}
                                                             <span style={{ letterSpacing: "1px", fontSize: "16px" ,fontWeight: "bold", marginLeft: "5px", marginTop: "5px", color: "black" }}>
                                                                 {item.NotificationTitle}
@@ -150,7 +150,7 @@ function UserNotification() {
                                                     <div style={{ display: "flex", justifyContent: "space-between", width: "90%", }}>
                                                         <div>
                                                             {/* <img width="15px" height="15px"
-                                                            src="/src/assests/info.png"
+                                                            src="../../assests/info.png"
                                                              /> */}
                                                             <span style={{ letterSpacing: "1px", fontSize: "18px", fontWeight: "bold", marginLeft: "5px", marginTop: "5px", color: "black" }}>
                                                                 {item.NotificationTitle}

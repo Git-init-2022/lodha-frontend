@@ -2,9 +2,9 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { setSourceMapRange } from "typescript";
 import './Profile.css';
-import LoginNavBar from '/src/components/LoginNavBar/LoginNavBar'
-import { useGlobalContext } from "/src/context/StateContext";
-import Spinner from "/src/components/Spinner/Spinner"
+import LoginNavBar from '../../components/LoginNavBar/LoginNavBar'
+import { useGlobalContext } from "../../context/StateContext";
+import Spinner from "../../components/Spinner/Spinner"
 // function Profile() {
 
 //     const { User, setUser } = useGlobalContext();
@@ -80,9 +80,9 @@ import Spinner from "/src/components/Spinner/Spinner"
 //                         <div style={{display:"flex", justifyContent:"space-between"}}>
 //                             <div style={{ display: "flex", flexDirection:"column", width:"30%"}}>
 
-//                                 <img src="/src/assests/user.svg" id="userProfileImg" ></img>
+//                                 <img src="../../assests/user.png" id="userProfileImg" ></img>
 //                                 <button className="btn btn-primary uploadButton" onClick={() => setVisible(true)}>
-//                                 <img src='/src/assests/camera.png' height="20px" width="20px" style={{marginRight:"10px"}}></img>
+//                                 <img src='../../assests/camera.png' height="20px" width="20px" style={{marginRight:"10px"}}></img>
 //                                 Upload
 //                                 </button>
 //                                 <form encType="multipart/form-data" >
@@ -267,7 +267,7 @@ export default function Profile() {
                         <MDBCol md="4" className="gradient-custom text-center text-white profileLeftDiv"
                           style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem', display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", margin: "auto", }}>
 
-                          <MDBCardImage className="my-5 profileImage" src={JSON.parse(User).ImageToken !== undefined ? "https://" + JSON.parse(User).ImageToken + ".ipfs.w3s.link/" + JSON.parse(User).ImageName : "/src/assests/user.svg"}
+                          <MDBCardImage className="my-5 profileImage" src={JSON.parse(User).ImageToken !== undefined ? "https://" + JSON.parse(User).ImageToken + ".ipfs.w3s.link/" + JSON.parse(User).ImageName : "../../assests/user.png"}
                             alt="Avatar" style={{ width: '150px', height: '150px' }} fluid />
                           <MDBTypography tag="h4" className="ProfileName">{JSON.parse(User).OwnerName}</MDBTypography>
                           <MDBTypography tag="h4" className="ProfileRole">{JSON.parse(User).Role}</MDBTypography>
@@ -286,7 +286,7 @@ export default function Profile() {
                                 <input type="file" className="fileInput" name="profilePic" accept="image/*" >
                                 </input>
                                 <button className="uploadButton" type="submit" style={{ marginBottom: "15px" }} onClick={(e) => uploadPhoto(e)}>
-                                  <img src="/src/assests/camera.png" height="20px" width="20px" style={{ marginRight: "10px" }}></img>Upload
+                                  <img src={require("../../assests/camera.png")} height="20px" width="20px" style={{ marginRight: "10px" }}></img>Upload
                                 </button>
                               </form>
                               :
@@ -324,11 +324,11 @@ export default function Profile() {
                               </MDBCol>
                               <div style={{ display: "flex", justifyContent: "space-between" }}>
                                 <button className="btn btn-primary editProfileButton">
-                                  <img src="/src/assests/edit.png" height="15px" width="15px" style={{ marginRight: "10px" }}></img>
+                                  <img src={require("../../assests/Edit.png")} height="15px" width="15px" style={{ marginRight: "10px" }}></img>
                                   Edit
                                 </button>
                                 <button className="btn btn-primary editProfileButton">
-                                  <img src="/src/assests/update.png" height="15px" width="15px" style={{ marginRight: "10px" }}></img>
+                                  <img src={require("../../assests/update.png")} height="15px" width="15px" style={{ marginRight: "10px" }}></img>
                                   Update
                                 </button>
                               </div>

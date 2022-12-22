@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import Nav from 'react-bootstrap/Nav';
 import "./FacilityManagement.css"
-import LoginNavBar from '/src/components/LoginNavBar/LoginNavBar'
+import LoginNavBar from '../../components/LoginNavBar/LoginNavBar'
 
 function FacilityManagement() {
 

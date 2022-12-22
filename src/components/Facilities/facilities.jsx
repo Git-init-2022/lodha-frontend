@@ -6,32 +6,32 @@ function Facilities() {
     <div className="wrapper">
 
       <Card
-        img="/src/assests/pool.svg"
+        img={require("../../assests/pool.png")}
         title="Swimming Pool"
         desc="hello" />
 
       <Card
-        img="/src/assests/gym.svg"
+        img={require("../../assests/gym.png")}
         title="Gym"
         desc="hello" />
 
       <Card
-        img="/src/assests/indoorgames.svg"
+        img={require("../../assests/indoorgames.png")}
         title="Indoor Games"
         desc="hello" />
 
       <Card
-        img="/src/assests/yoga.svg"
+        img={require("../../assests/yoga.png")}
         title="Yoga"
         desc="hello" />
 
       <Card
-        img="/src/assests/cafe.svg"
+        img={require("../../assests/cafe.png")}
         title="Cafe"
         desc="hello" />
 
       <Card
-        img="/src/assests/kidsplay.svg"
+        img={require("../../assests/kidsplay.png")}
         title="Kids Play Room"
         desc="hello" />
     </div>

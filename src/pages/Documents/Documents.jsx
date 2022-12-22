@@ -42,27 +42,27 @@ function BasicExample() {
       x += item[index]
     }
     if(x === 'png' || x==='jpg' || x==='gif' || x==='jpeg'){
-      return '/src/assests/image.png';
+      return require('../../assests/image.png');
     }
     if (x === 'docx' || x === 'doc') {
       console.log("hello");
-      return '/src/assests/docx.png';
+      return require('../../assests/docx.png');
     }
     if (x === 'pdf') {
-      return '/src/assests/pdf.png'
+      return require('../../assests/pdf.png')
     }
     if (x === 'xlsx' || x === 'xls') {
-      return '/src/assests/excel.png'
+      return require('../../assests/excel.png')
     }
     if (x === 'pptx' || x === 'ppt') {
-      return '/src/assests/ppt.png'
+      return require('../../assests/ppt.png')
     }
 
   }
 
   const getimagesource = (type) => {
     if(type==='legal'){
-      return '/src/assests/legalUpdate.png';
+      return require('../../assests/legalUpdate.png');
     }
     if(Type==='bank'){
       
@@ -125,7 +125,7 @@ function BasicExample() {
 
                       </Card.Text>
                       <Button variant="primary" target="blank" href={"https://" + item.Hash + ".ipfs.w3s.link/" + item.Name} className="viewDocumentButton">
-                        <img src="/src/assests/document.png" height="20px" width = "20px" style={{marginRight:"10px"}}></img>View Document</Button>
+                        <img src={require("../../assests/document.png")} height="20px" width = "20px" style={{marginRight:"10px"}}></img>View Document</Button>
                     </Card.Body>
                   </Card>
                 );

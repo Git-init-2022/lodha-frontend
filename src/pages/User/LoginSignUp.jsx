@@ -2,7 +2,7 @@ import React, { Fragment, useRef, useState, useEffect } from "react";
 import "./LoginSignUp.css";
 import Loader from "../layout/Loader/Loader";
 import { Link } from "react-router-dom";
-import { useGlobalContext } from '/src/context/StateContext'
+import { useGlobalContext } from '../../context/StateContext'
 
 import { useNavigate } from 'react-router-dom';
 import {
@@ -18,7 +18,7 @@ import {
 }
   from 'mdb-react-ui-kit';
 import axios from "axios";
-import NavBar from "/src/components/NavBar/NavBar";
+import NavBar from "../../components/NavBar/NavBar";
 import validator from 'validator'
 import 'antd/dist/antd.css';
 import { Alert } from 'antd';
@@ -310,14 +310,14 @@ const LoginSignUp = () => {
                     <MDBRow className='g-0 d-flex align-items-center'>
 
                       <MDBCol md='4'>
-                        <MDBCardImage src='/src/assests/lodha11.webp' alt='logo' className='rounded-t-5 rounded-tr-lg-0' fluid />
+                        <MDBCardImage src='../../assests/lodha11.webp' alt='logo' className='rounded-t-5 rounded-tr-lg-0' fluid />
                       </MDBCol>
 
                       <MDBCol md='8'>
 
                         <MDBCardBody className="mx-auto">
                           <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "5%" }}>
-                            <img src="/src/assests/user.svg" style={{ width: "70px", height: "70px" }}></img>
+                            <img src={require("../../assests/user.png")} style={{ width: "70px", height: "70px" }}></img>
                             <h1 className='LoginHeading'>User Login</h1>
                           </div>
                           <div>
@@ -326,7 +326,7 @@ const LoginSignUp = () => {
                           </div>
                           <div style={{ display: "flex", justifyContent: "space-between" }}>
                             <p className="Label">PASSWORD</p>
-                            <img src="/src/assests/password.png" onClick={(e) => ShowPassword(e)} style={{ height: "20px", width: "20px", marginRight: "10%", marginTop: "10px" }}></img>
+                            <img src={require("../../assests/password.png")} onClick={(e) => ShowPassword(e)} style={{ height: "20px", width: "20px", marginRight: "10%", marginTop: "10px" }}></img>
                           </div>
                           <MDBInput wrapperClass='mb-4' placeholder='Password' className='form1' id='pass' name="Password" type={Curr ? 'text' : 'password'} required />
 
@@ -365,7 +365,7 @@ const LoginSignUp = () => {
 
                           <MDBCardBody className="mx-auto">
                             <div style={{ display: "flex", justifyContent: "center", alignItems: "center", marginBottom: "5%" }}>
-                              <img src="/src/assests/user.svg" style={{ width: "70px", height: "70px" }}></img>
+                              <img src={require("../../assests/user.png")} style={{ width: "70px", height: "70px" }}></img>
                               <h1 className='RegisterHeading'>Register</h1>
                             </div>
                             <p className="Label">OWNER NAME </p>
@@ -382,7 +382,7 @@ const LoginSignUp = () => {
 
                             <div style={{ display: "flex", justifyContent: "space-between" }}>
                               <p className="Label">PASSWORD</p>
-                              <img src="/src/assests/password.png" onClick={(e) => ShowPassword(e)} style={{ height: "20px", width: "20px", marginRight: "10%", marginTop: "10px" }}></img>
+                              <img src={require("../../assests/password.png")} onClick={(e) => ShowPassword(e)} style={{ height: "20px", width: "20px", marginRight: "10%", marginTop: "10px" }}></img>
                             </div>
                             <MDBInput wrapperClass='mb-4' placeholder='Password' name="Password" className='form1' id='RegPass' type={Curr ? 'text' : 'password'} ref={UserPass} onChange={(e) => validate(e.target.value, e.target.value.length)} required />
                             {

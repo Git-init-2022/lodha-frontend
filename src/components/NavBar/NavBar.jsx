@@ -17,7 +17,7 @@ function Header() {
         <Container>
           <Navbar.Brand href="/">
             <a>
-              <img id="MeridianLogo" src="/src/assests/lodhalogo.svg" alt="logo" />
+              <img id="MeridianLogo" src={require("../../assests/lodhalogo1.png")} alt="logo" />
             </a>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
