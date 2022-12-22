@@ -51,7 +51,6 @@ function Posts({ props }) {
   const UpdateDescription = (e) => {
     e.preventDefault();
     const desc = document.getElementById((props._id).toString()).innerText;
-    console.log("Update description", desc);
     props.Description = desc;
     updateComplaint();
 

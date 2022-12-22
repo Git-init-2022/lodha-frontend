@@ -249,7 +249,6 @@ function AllComplaints() {
 
   const updateComplaint = async (row) => {
     const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/updatecomplaint", { params: { complaint: row } });
-    console.log(data.complaint);
     refreshPage();
   }
 

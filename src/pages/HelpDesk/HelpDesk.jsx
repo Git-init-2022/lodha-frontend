@@ -21,12 +21,10 @@ function HelpDesk() {
         const files = document.getElementsByName("complaintfiles").item(0).files;
         
         const cid = await client.put(files);
-        console.log(cid);
         const temp = []
         for(let file of files){
             temp.push(file.name);
         }
-        console.log(temp);
         const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/complaint/new", {
             FlatNo: FlatNo,
             Issue: Issue,
@@ -49,7 +47,6 @@ function HelpDesk() {
         const Description = e.target.Description.value;
         const files = document.getElementsByName("complaintfiles").item(0).files;
         e.preventDefault();
-        console.log("user", FlatNo, Issue, Description, files);
         PostComplaint(FlatNo, Issue, Description);
         e.target.Issue.value = "";
         e.target.Description.value = "";

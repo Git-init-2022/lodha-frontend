@@ -197,23 +197,11 @@ const FinanceAndAccount = () => {
 
   const updateUser = async(row)=> {
     const {data} = await axios.get("https://lodha-backend.onrender.com/api/v1/userupdate", {params: {user: row}});
-    console.log(data.user);
     refreshPage();
   }
 
   const handleSave = row => {
-    console.log("row",JSON.stringify(row));
     updateUser(row);
-    // const newData = [...dataSource]
-    // const index = newData.findIndex(item => row.FlatNo === item.FlatNo)
-    // console.log("data", dataSource);
-    // console.log("index", index);
-    // const item = newData[index];
-    // newData.splice(index, 1, {
-    //   ...item,
-    //   ...row
-    // })
-    // setDataSource(newData)
   }
 
   const components = {

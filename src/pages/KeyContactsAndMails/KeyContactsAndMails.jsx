@@ -160,14 +160,11 @@ const KeyContactsAndMails = () => {
   }
   
   const deleteUser = async(key)=> {
-    console.log(`${localStorage.getItem("User")}`);
     const {data} = await axios.get("https://lodha-backend.onrender.com/api/v1/userdelete", {params: {FlatNo: key, Admin: JSON.parse(localStorage.getItem("User")).FlatNo }});
-    console.log(data.message);
     refreshPage();
   }
 
   const handleDelete = key => {
-    console.log("key", key)
     deleteUser(key);
     const newData = dataSource.filter(item => item.FlatNo !== key)
     setDataSource(newData)
@@ -276,12 +273,10 @@ const KeyContactsAndMails = () => {
 
   const updateUser = async(row)=> {
     const {data} = await axios.get("https://lodha-backend.onrender.com/api/v1/userupdate", {params: {user: row, Admin: JSON.parse(localStorage.getItem("User")).FlatNo}});
-    console.log(data.user);
     refreshPage();
   }
 
   const handleSave = row => {
-    console.log("row", JSON.stringify(row));
     updateUser(row);
   }
 

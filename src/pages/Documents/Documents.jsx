@@ -11,7 +11,7 @@ import docx from '../../assests/docx.png';
 import pdf from '../../assests/pdf.png';
 import excel from '../../assests/excel.png';
 import ppt from '../../assests/ppt.png';
-import legalUpate from '../../assests/legalUpdate.png';
+import legalUpdate from '../../assests/legalUpdate.png';
 import { ExceptionOutlined, FilePdfFilled } from "@ant-design/icons";
 
 
@@ -53,7 +53,6 @@ function BasicExample() {
       return image;
     }
     if (x === 'docx' || x === 'doc') {
-      console.log("hello");
       return docx;
     }
     if (x === 'pdf') {

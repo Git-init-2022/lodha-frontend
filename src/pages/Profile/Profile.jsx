@@ -18,8 +18,6 @@ export default function Profile() {
   useEffect(() => {
     const fetchUsers = async () => {
       if (User !== null) {
-        console.log(User);
-        console.log("Flat Number: ", JSON.parse(User).FlatNo);
         const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/singleUser", { params: { FlatNo: JSON.parse(User).FlatNo } });
         const user = data.user1;
         const user1 = {
@@ -37,8 +35,6 @@ export default function Profile() {
         }
         setUser(JSON.stringify(user1));
         localStorage.setItem("User", User);
-        console.log("data: ", user1);
-        console.log("User :", User);
       }
     }
     if (User !== null) {
@@ -92,7 +88,6 @@ export default function Profile() {
     const files = document.getElementsByName("profilePic").item(0).files;
     const client = new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDcxOTdiN2M2OGFEMTNhNzREMGIzMGQ3OTI4OTNGMDc4MWQxZjE4M2QiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzAxNjM1MTczNDIsIm5hbWUiOiJsb2RoYS1maWxlcyJ9.rmkUCge8MPPj5TC6i8Z5lVAjIevCSVni0gpu-_jUzlI" });
     const cid = await client.put(files);
-    console.log(cid);
     const FileName = files[0].name;
     const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/updateProfile", { cid: cid, name: FileName, FlatNo: JSON.parse(User).FlatNo });
     setLoading(false);

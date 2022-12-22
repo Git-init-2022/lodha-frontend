@@ -13,12 +13,9 @@ function LegalUpdate() {
     const PostLegalUpdate = async (Title, Description) => {
         setLoading(true);
         const files = document.getElementsByName("LegalFiles").item(0).files;
-        console.log(files);
         const client =  new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDcxOTdiN2M2OGFEMTNhNzREMGIzMGQ3OTI4OTNGMDc4MWQxZjE4M2QiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzAxNjM1MTczNDIsIm5hbWUiOiJsb2RoYS1maWxlcyJ9.rmkUCge8MPPj5TC6i8Z5lVAjIevCSVni0gpu-_jUzlI" });
         const cid = await client.put(files);
         for(let file of files) {
-            
-            console.log(cid);
             const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/createDocument", {
                 UploadDate: Date.now(),
                 Type: "legal",

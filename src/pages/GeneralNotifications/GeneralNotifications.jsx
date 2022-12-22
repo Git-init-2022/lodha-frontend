@@ -36,7 +36,6 @@ function GeneralNotifications() {
 
     useEffect(() => {
         fetchNotifications();
-        console.log(generalNotifications);
     }, [generalNotifications.length]);
     const handleHide = () => {
         setDescVar('');

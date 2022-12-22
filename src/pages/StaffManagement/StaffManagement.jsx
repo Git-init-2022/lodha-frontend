@@ -97,7 +97,6 @@ const StaffManagement = () => {
 
   const HandleEdit = (item) => {
     const Role = document.getElementById(item.FlatNo).value;
-    // console.log(Role);
     const FinalValues = {
       FlatNo: item.FlatNo,
       Email: item.Email,

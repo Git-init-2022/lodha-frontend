@@ -40,7 +40,6 @@ function Notifications() {
         temp2.push(meeting);
       }
     }
-    console.log(temp1, temp2);
     setFinishedMeetings(temp2);
     setUpcomingMeetings(temp1);
     setNotification(data.meetings);

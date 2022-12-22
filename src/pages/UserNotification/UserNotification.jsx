@@ -41,7 +41,6 @@ function UserNotification() {
                 temp++;
             }
         }
-        console.log(Notifications);
         setCount(temp);
     }, [Notifications.length]);
 
