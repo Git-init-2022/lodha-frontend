@@ -202,7 +202,7 @@ export default function Profile() {
       Block: Block
     })
     const user = data.user;
-    if (user !== [] && !user) {
+    if (user.length > 0  && !user) {
       navigate('/UserProfile');
     }
     else {
