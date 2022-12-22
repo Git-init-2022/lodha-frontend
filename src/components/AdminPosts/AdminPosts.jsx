@@ -112,20 +112,20 @@ function AdminPosts({ props, selectedOption }) {
             x += item[index]
         }
         if (x === 'png' || x === 'jpg' || x === 'gif' || x === 'jpeg') {
-            return '../../assests/image.png';
+            return require('../../assests/image.png');
         }
         if (x === 'docx' || x === 'doc') {
-            console.log("hello");
-            return '../../assests/docx.png';
+           
+            return require('../../assests/docx.png');
         }
         if (x === 'pdf') {
-            return '../../assests/pdf.png'
+            return require('../../assests/pdf.png');
         }
         if (x === 'xlsx' || x === 'xls') {
-            return '../../assests/excel.png'
+            return require('../../assests/excel.png')
         }
         if (x === 'pptx' || x === 'ppt') {
-            return '../../assests/ppt.png'
+            return require('../../assests/ppt.png');
         }
         
     }
@@ -174,12 +174,12 @@ function AdminPosts({ props, selectedOption }) {
                         </Card.Header>
                         <Card.Body>
                             <Card.Text className="PostDesc">
-                                <div style={{ display: "flex", }}>
-                                    <div style={{width:"50%"}}>
+                                <div className='documentDescDiv'>
+                                    <div className='descDisplayDiv'>
                                         <p className='DescriptionTitle'>DESCRIPTION</p>
                                         <div contentEditable style={{ width: "100%" }} id={props._id}>{props.Description}</div>
                                     </div>
-                                    <div style={{width:"50%"}}>
+                                    <div className='descDocumentDiv'>
                                         <p className='DescriptionTitle'>DOCUMENTS</p>
 
                                         {

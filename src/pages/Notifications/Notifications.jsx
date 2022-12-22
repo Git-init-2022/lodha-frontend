@@ -220,7 +220,7 @@ function Notifications() {
                       <>
 
                         <div className="announcement" style={{ width: "95%", marginLeft: "2.5%", marginBottom: "20px", display: "grid", gridTemplateColumns: "auto auto auto" }}>
-                          <div style={{ border: "3px solid " + getColor(index, item.Date), padding: "5px 20px 5px 20px", color: "black", width: "fit-content", textAlign: "center" }}>
+                          <div className="MeetingTimeView" style={{ border: "3px solid " + getColor(index, item.Date), padding: "5px 20px 5px 20px", color: "black", width: "fit-content", textAlign: "center" }}>
                             <span className='Date' >
                               <span style={{ fontSize: "40px", letterSpacing: "1px" }}>
                                 {getFormattedTime(item.Date)}
@@ -241,6 +241,11 @@ function Notifications() {
                             <span className='Date' >
                               <p style={{ fontSize: "22px", textTransform: "capitalize", letterSpacing: "1px", textAlign: "left", textDecorationLine: "underline", textUnderlineOffset: "10px", textDecorationColor: "#675A0E", textDecorationThickness: "2px" }}>
                                 {item.Title}
+                              </p>
+                              <p
+                              className="MeetingtimeMobileView">
+                                <img height="30px" width="30px" src={require("../../assests/calendar.png")} style={{marginRight:"10px"}}></img>
+                                { getFormattedTime(item.Date) + ", " + getFormattedTime1(item.Date) + "  " + item.Time}
                               </p>
                               <p style={{ fontSize: "14px", textTransform: "capitalize", letterSpacing: "1px", textAlign: "left" }}>
                                 Lorem ipsum dolor, sit amet consectetur adipisicing elit. A, deserunt!

@@ -68,7 +68,7 @@ const StaffManagement = () => {
     refreshPage();
   }
   const createNotification = async (user, subject, message) => {
-    const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/postNotification", { FlatNo: user.FlatNo, NotificationTitle: subject, NotificationDesc:message});
+    const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/postNotification", { FlatNo: user.FlatNo, NotificationTitle: subject, NotificationDesc: message });
   }
   const Edit = async (user) => {
 
@@ -155,9 +155,11 @@ const StaffManagement = () => {
     <>
       <LoginNavBar />
       <div>
-        <div style={{ display: "flex", marginTop: "100px", justifyContent: "center", }}>
-          <img src={require("../../assests/staff.png")} style={{ height: "55px", width: "50px", marginBottom: "0px", }}></img>
-          <p id="userDashboardTitle">STAFF MANAGEMENT</p>
+        <div className="staffmanagementmobileview" >
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <img src={require("../../assests/staff.png")} style={{ height: "55px", width: "50px", marginBottom: "0px", }}></img>
+          </div>
+          <span id="userDashboardTitle">STAFF MANAGEMENT</span>
         </div>
         <div className="AddStaffDiv">
           <span className="AddStaffNote">Want to add Staff?</span>
@@ -236,16 +238,20 @@ const StaffManagement = () => {
           </Modal.Footer>
         </Modal>
         <div>
-          <div className="StaffTitleDiv" style={{display: "flex" }}>
+
+          <div className="divider-line" style={{ width: "100%", backgroundColor: "#675A0E", height: "5px", marginTop: "50px" }}></div>
+          <div className="StaffTitleDiv" >
             <div>
-              <div className="sideLines" style={{width: "250px", marginTop: "20px" }}></div>
-              <div className="sideLines" style={{width: "247px",marginTop: "5px" }}></div>
-              <div className="sideLines" style={{width: "250px",marginTop: "5px" }}></div>
+              <div className="sideLines" style={{ width: "250px", marginTop: "20px" }}></div>
+              <div className="sideLines" style={{ width: "247px", marginTop: "5px" }}></div>
+              <div className="sideLines" style={{ width: "250px", marginTop: "5px" }}></div>
             </div>
-            <p id="userDashboardTitle" style={{ marginLeft: "10px", color: "rgb(110, 97, 29)"}}>ADMINS</p>
+
+            <span className="userDashboardTitle" style={{ marginLeft: "10px", color: "rgb(110, 97, 29)" }}>ADMINS</span>
+
             <div className="linesright">
               <div className="sideLines" style={{ marginLeft: "10px", marginTop: "20px" }}></div>
-              <div className="sideLines" style={{marginLeft: "13px",marginTop: "5px" }}></div>
+              <div className="sideLines" style={{ marginLeft: "13px", marginTop: "5px" }}></div>
               <div className="sideLines" style={{ marginLeft: "10px", marginTop: "5px" }}></div>
             </div>
           </div>
@@ -256,62 +262,70 @@ const StaffManagement = () => {
                   return (
                     <form>
                       <div className="DisplayCard">
-                        <div>
-                          <img src={i.ImageToken ===undefined ? require("../../assests/admin.png") : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName } width="150px" height="150px" style={{ margin: "25px" }}></img>
+                        <div className="mobileviewCardImage" >
+                          <img src={i.ImageToken === undefined ? require("../../assests/admin.png") : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName} width="150px" height="150px" style={{ margin: "25px" }}></img>
 
                         </div>
-                        <div style={{ width: "90%", marginTop: "5px" }}>
-                          <label className="StaffLabel">name</label>
-                          <span className="StaffValue">{i.OwnerName}</span>
-                          <br></br>
-                          <label className="StaffLabel">role</label>
-                          <select defaultValue={i.Role} name="Role" className="StaffRole" id={i.FlatNo}>
-                            <option value={i.Role}>
-                              {i.Role}
-                            </option>
-                            {
-                              roles.map((item) => {
+                        <div className="mobileviewCardImage" style={{ width: "100%", marginTop: "5px" }}>
+                          <div>
+                            <label className="StaffLabel">name</label>
+                            <span className="StaffValue">{i.OwnerName}</span>
+                            <br></br>
+                            <label className="StaffLabel">role</label>
+                            <select defaultValue={i.Role} name="Role" className="StaffRole" id={i.FlatNo}>
+                              <option value={i.Role}>
+                                {i.Role}
+                              </option>
+                              {
+                                roles.map((item) => {
 
-                                return (
-                                  item !== i.Role ?
-                                    <option value={item}>{item}</option>
-                                    :
-                                    <></>
-                                );
+                                  return (
+                                    item !== i.Role ?
+                                      <option value={item}>{item}</option>
+                                      :
+                                      <></>
+                                  );
 
-                              })
-                            }
-                          </select>
-                          <br></br>
-                          <label className="StaffLabel">flat Number</label>
-                          <span className="StaffValue" id="flatno">{i.FlatNo}</span>
-                          <br></br>
-                          <label className="StaffLabel">mobile Number</label>
-                          <span className="StaffValue">{i.Mobile}</span>
-                          <br></br>
-                          <label className="StaffLabel">email</label>
-                          <span className="StaffValue">{i.Email}</span>
-                          <br></br>
+                                })
+                              }
+                            </select>
+                            <br></br>
+                            <label className="StaffLabel">flat Number</label>
+                            <span className="StaffValue" id="flatno">{i.FlatNo}</span>
+                            <br></br>
+                            <label className="StaffLabel">mobile Number</label>
+                            <span className="StaffValue">{i.Mobile}</span>
+                            <br></br>
+                            <label className="StaffLabel">email</label>
+                            <span className="StaffValue">{i.Email}</span>
+                            <br></br>
 
-                          <div className="staffButton">
-                            <Popconfirm
-                              title="Click ok to Edit User Details"
-                              onConfirm={() => HandleEdit(i)}>
-                              <button className="btn btn-primary editButton" style={{ width: "40%" }}>
-                                <img src={require("../../assests/Edit.png")} height="20px" width="20px"></img>
-                                <span style={{ marginLeft: "10px" }}>Edit</span></button>
-                            </Popconfirm>
-                            <Popconfirm
-                              title="Click ok to Confirm Deletion of user"
-                              onConfirm={() => HandleDelete(i)}>
-                              <button className="btn btn-danger DeleteButton" style={{ width: "45%", marginLeft: "10px" }}>
-                                <img src={require("../../assests/Delete.png")} height="20px" width="20px"></img>
-                                <span style={{ marginLeft: "10px" }}>Delete</span> </button>
-                            </Popconfirm>
+                            <div className="staffButton">
+
+                              <Popconfirm
+                                title="Click ok to Edit User Details"
+                                onConfirm={() => HandleEdit(i)}>
+                                <button className="btn btn-primary editButton" type="submit" >
+                                  <img src={require("../../assests/Edit.png")} height="20px" width="20px"></img>
+                                  <span style={{ marginLeft: "10px" }}>Edit</span></button>
+                              </Popconfirm>
+
+
+                              <Popconfirm
+                                title="Click ok to Confirm Deletion of user"
+                                onConfirm={() => HandleDelete(i)}>
+                                <button className="btn btn-danger DeleteButton">
+                                  <img src={require("../../assests/Delete.png")} height="20px" width="20px"></img>
+                                  <span style={{ marginLeft: "10px" }}>Delete</span> </button>
+                              </Popconfirm>
+
+
+                            </div>
                           </div>
                         </div>
                       </div>
                     </form>
+
                   );
                 }
                 )
@@ -323,16 +337,17 @@ const StaffManagement = () => {
         </div>
 
         <div>
-          <div className="StaffTitleDiv" style={{display: "flex" }}>
+          <div className="divider-line" style={{ width: "100%", backgroundColor: "#675A0E", height: "5px", marginTop: "50px" }}></div>
+          <div className="StaffTitleDiv" >
             <div>
-              <div className="sideLines" style={{width: "200px", marginTop: "20px" }}></div>
-              <div className="sideLines" style={{width: "197px",marginTop: "5px" }}></div>
-              <div className="sideLines" style={{width: "200px",marginTop: "5px" }}></div>
+              <div className="sideLines" style={{ width: "200px", marginTop: "20px" }}></div>
+              <div className="sideLines" style={{ width: "197px", marginTop: "5px" }}></div>
+              <div className="sideLines" style={{ width: "200px", marginTop: "5px" }}></div>
             </div>
-            <p id="userDashboardTitle" style={{ marginLeft: "10px", color: "rgb(110, 97, 29)"}}>FACILITY MANAGEMENT</p>
+            <span className="userDashboardTitle" style={{ marginLeft: "10px", color: "rgb(110, 97, 29)" }}>FACILITY MANAGEMENT</span>
             <div className="linesright">
               <div className="sideLines" style={{ marginLeft: "10px", marginTop: "20px" }}></div>
-              <div className="sideLines" style={{marginLeft: "13px",marginTop: "5px" }}></div>
+              <div className="sideLines" style={{ marginLeft: "13px", marginTop: "5px" }}></div>
               <div className="sideLines" style={{ marginLeft: "10px", marginTop: "5px" }}></div>
             </div>
           </div>
@@ -343,62 +358,70 @@ const StaffManagement = () => {
                   return (
                     <form>
                       <div className="DisplayCard">
-                        <div>
-                        <img src={i.ImageToken ===undefined ? require("../../assests/admin.png") : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName } width="150px" height="150px" style={{ margin: "25px" }}></img>
+                        <div className="mobileviewCardImage" >
+                          <img src={i.ImageToken === undefined ? require("../../assests/admin.png") : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName} width="150px" height="150px" style={{ margin: "25px" }}></img>
 
                         </div>
-                        <div style={{ width: "100%", marginTop: "5px" }}>
-                          <label className="StaffLabel">name</label>
-                          <span className="StaffValue">{i.OwnerName}</span>
-                          <br></br>
-                          <label className="StaffLabel">role</label>
-                          <select defaultValue={i.Role} name="Role" className="StaffRole" id={i.FlatNo}>
-                            <option value={i.Role}>
-                              {i.Role}
-                            </option>
-                            {
-                              roles.map((item) => {
+                        <div className="mobileviewCardImage" style={{ width: "100%", marginTop: "5px" }}>
+                          <div>
+                            <label className="StaffLabel">name</label>
+                            <span className="StaffValue">{i.OwnerName}</span>
+                            <br></br>
+                            <label className="StaffLabel">role</label>
+                            <select defaultValue={i.Role} name="Role" className="StaffRole" id={i.FlatNo}>
+                              <option value={i.Role}>
+                                {i.Role}
+                              </option>
+                              {
+                                roles.map((item) => {
 
-                                return (
-                                  item !== i.Role ?
-                                    <option value={item}>{item}</option>
-                                    :
-                                    <></>
-                                );
+                                  return (
+                                    item !== i.Role ?
+                                      <option value={item}>{item}</option>
+                                      :
+                                      <></>
+                                  );
 
-                              })
-                            }
-                          </select>
-                          <br></br>
-                          <label className="StaffLabel">flat Number</label>
-                          <span className="StaffValue" id="flatno">{i.FlatNo}</span>
-                          <br></br>
-                          <label className="StaffLabel">mobile Number</label>
-                          <span className="StaffValue">{i.Mobile}</span>
-                          <br></br>
-                          <label className="StaffLabel">email</label>
-                          <span className="StaffValue">{i.Email}</span>
-                          <br></br>
+                                })
+                              }
+                            </select>
+                            <br></br>
+                            <label className="StaffLabel">flat Number</label>
+                            <span className="StaffValue" id="flatno">{i.FlatNo}</span>
+                            <br></br>
+                            <label className="StaffLabel">mobile Number</label>
+                            <span className="StaffValue">{i.Mobile}</span>
+                            <br></br>
+                            <label className="StaffLabel">email</label>
+                            <span className="StaffValue">{i.Email}</span>
+                            <br></br>
 
-                          <div className="staffButton">
-                            <Popconfirm
-                              title="Click ok to Edit User Details"
-                              onConfirm={() => HandleEdit(i)}>
-                              <button className="btn btn-primary editButton" type="submit" style={{ width: "45%" }}>
-                                <img src={require("../../assests/Edit.png")} height="20px" width="20px"></img>
-                                <span style={{ marginLeft: "10px" }}>Edit</span></button>
-                            </Popconfirm>
-                            <Popconfirm
-                              title="Click ok to Confirm Deletion of user"
-                              onConfirm={() => HandleDelete(i)}>
-                              <button className="btn btn-danger DeleteButton" style={{ width: "45%", marginLeft: "10px" }}>
-                                <img src={require("../../assests/Delete.png")} height="20px" width="20px"></img>
-                                <span style={{ marginLeft: "10px" }}>Delete</span> </button>
-                            </Popconfirm>
+                            <div className="staffButton">
+
+                              <Popconfirm
+                                title="Click ok to Edit User Details"
+                                onConfirm={() => HandleEdit(i)}>
+                                <button className="btn btn-primary editButton" type="submit" >
+                                  <img src={require("../../assests/Edit.png")} height="20px" width="20px"></img>
+                                  <span style={{ marginLeft: "10px" }}>Edit</span></button>
+                              </Popconfirm>
+
+
+                              <Popconfirm
+                                title="Click ok to Confirm Deletion of user"
+                                onConfirm={() => HandleDelete(i)}>
+                                <button className="btn btn-danger DeleteButton">
+                                  <img src={require("../../assests/Delete.png")} height="20px" width="20px"></img>
+                                  <span style={{ marginLeft: "10px" }}>Delete</span> </button>
+                              </Popconfirm>
+
+
+                            </div>
                           </div>
                         </div>
                       </div>
                     </form>
+
                   );
                 }
                 )
@@ -410,16 +433,18 @@ const StaffManagement = () => {
         </div>
 
         <div>
-          <div className="StaffTitleDiv" style={{display: "flex" }}>
+          <div className="divider-line" style={{ width: "100%", backgroundColor: "#675A0E", height: "5px", marginTop: "50px" }}></div>
+
+          <div className="StaffTitleDiv" >
             <div>
-              <div className="sideLines" style={{width: "200px", marginTop: "20px" }}></div>
-              <div className="sideLines" style={{width: "197px",marginTop: "5px" }}></div>
-              <div className="sideLines" style={{width: "200px",marginTop: "5px" }}></div>
+              <div className="sideLines" style={{ width: "200px", marginTop: "20px" }}></div>
+              <div className="sideLines" style={{ width: "197px", marginTop: "5px" }}></div>
+              <div className="sideLines" style={{ width: "200px", marginTop: "5px" }}></div>
             </div>
-            <p id="userDashboardTitle" style={{ marginLeft: "10px", color: "rgb(110, 97, 29)"}}>FINANCE &amp; ACCOUNTS</p>
+            <span className="userDashboardTitle" style={{ marginLeft: "10px", color: "rgb(110, 97, 29)" }}>FINANCE &amp; ACCOUNTS</span>
             <div className="linesright">
               <div className="sideLines" style={{ marginLeft: "10px", marginTop: "20px" }}></div>
-              <div className="sideLines" style={{marginLeft: "13px",marginTop: "5px" }}></div>
+              <div className="sideLines" style={{ marginLeft: "13px", marginTop: "5px" }}></div>
               <div className="sideLines" style={{ marginLeft: "10px", marginTop: "5px" }}></div>
             </div>
           </div>
@@ -429,12 +454,13 @@ const StaffManagement = () => {
                 Account.map((i) => {
                   return (
                     <form>
-                      <div className="DisplayCard">
-                        <div>
-                        <img src={i.ImageToken ===undefined ? require("../../assests/admin.png") : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName } width="150px" height="150px" style={{ margin: "25px" }}></img>
+                    <div className="DisplayCard">
+                      <div className="mobileviewCardImage" >
+                        <img src={i.ImageToken === undefined ? require("../../assests/admin.png") : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName} width="150px" height="150px" style={{ margin: "25px" }}></img>
 
-                        </div>
-                        <div style={{ width: "100%", marginTop: "5px" }}>
+                      </div>
+                      <div className="mobileviewCardImage" style={{ width: "100%", marginTop: "5px" }}>
+                        <div>
                           <label className="StaffLabel">name</label>
                           <span className="StaffValue">{i.OwnerName}</span>
                           <br></br>
@@ -468,24 +494,31 @@ const StaffManagement = () => {
                           <br></br>
 
                           <div className="staffButton">
+
                             <Popconfirm
                               title="Click ok to Edit User Details"
                               onConfirm={() => HandleEdit(i)}>
-                              <button className="btn btn-primary editButton" type="submit" style={{ width: "45%" }}>
+                              <button className="btn btn-primary editButton" type="submit" >
                                 <img src={require("../../assests/Edit.png")} height="20px" width="20px"></img>
                                 <span style={{ marginLeft: "10px" }}>Edit</span></button>
                             </Popconfirm>
+
+
                             <Popconfirm
                               title="Click ok to Confirm Deletion of user"
                               onConfirm={() => HandleDelete(i)}>
-                              <button className="btn btn-danger DeleteButton" style={{ width: "45%", marginLeft: "10px" }}>
+                              <button className="btn btn-danger DeleteButton">
                                 <img src={require("../../assests/Delete.png")} height="20px" width="20px"></img>
                                 <span style={{ marginLeft: "10px" }}>Delete</span> </button>
                             </Popconfirm>
+
+
                           </div>
                         </div>
                       </div>
-                    </form>
+                    </div>
+                  </form>
+
                   );
                 }
                 )
@@ -496,20 +529,22 @@ const StaffManagement = () => {
           </div>
         </div>
 
-        <div>
-          <div className="StaffTitleDiv" style={{display: "flex" }}>
+        <div className="staffTitleMobileView">
+          <div className="divider-line" style={{ width: "100%", backgroundColor: "#675A0E", height: "5px", marginTop: "50px" }}></div>
+          <div className="StaffTitleDiv" >
             <div>
-              <div className="sideLines" style={{width: "240px", marginTop: "20px" }}></div>
-              <div className="sideLines" style={{width: "237px",marginTop: "5px" }}></div>
-              <div className="sideLines" style={{width: "240px",marginTop: "5px" }}></div>
+              <div className="sideLines" style={{ width: "240px", marginTop: "20px" }}></div>
+              <div className="sideLines" style={{ width: "237px", marginTop: "5px" }}></div>
+              <div className="sideLines" style={{ width: "240px", marginTop: "5px" }}></div>
             </div>
-            <p id="userDashboardTitle" style={{ marginLeft: "10px", color: "rgb(110, 97, 29)"}}>IT SUPPORT</p>
+            <span className="userDashboardTitle" style={{ marginLeft: "10px", color: "rgb(110, 97, 29)" }}>IT SUPPORT</span>
             <div className="linesright">
               <div className="sideLines" style={{ marginLeft: "10px", marginTop: "20px" }}></div>
-              <div className="sideLines" style={{marginLeft: "13px",marginTop: "5px" }}></div>
+              <div className="sideLines" style={{ marginLeft: "13px", marginTop: "5px" }}></div>
               <div className="sideLines" style={{ marginLeft: "10px", marginTop: "5px" }}></div>
             </div>
           </div>
+
           <div className="displayUsers">
             {
               Support.length ?
@@ -517,58 +552,65 @@ const StaffManagement = () => {
                   return (
                     <form>
                       <div className="DisplayCard">
-                        <div>
-                        <img src={i.ImageToken ===undefined ? require("../../assests/admin.png") : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName } width="150px" height="150px" style={{ margin: "25px" }}></img>
+                        <div className="mobileviewCardImage" >
+                          <img src={i.ImageToken === undefined ? require("../../assests/admin.png") : "https://" + i.ImageToken + ".ipfs.w3s.link/" + i.ImageName} width="150px" height="150px" style={{ margin: "25px" }}></img>
 
                         </div>
-                        <div style={{ width: "100%", marginTop: "5px" }}>
-                          <label className="StaffLabel">name</label>
-                          <span className="StaffValue">{i.OwnerName}</span>
-                          <br></br>
-                          <label className="StaffLabel">role</label>
-                          <select defaultValue={i.Role} name="Role" className="StaffRole" id={i.FlatNo}>
-                            <option value={i.Role}>
-                              {i.Role}
-                            </option>
-                            {
-                              roles.map((item) => {
+                        <div className="mobileviewCardImage" style={{ width: "100%", marginTop: "5px" }}>
+                          <div>
+                            <label className="StaffLabel">name</label>
+                            <span className="StaffValue">{i.OwnerName}</span>
+                            <br></br>
+                            <label className="StaffLabel">role</label>
+                            <select defaultValue={i.Role} name="Role" className="StaffRole" id={i.FlatNo}>
+                              <option value={i.Role}>
+                                {i.Role}
+                              </option>
+                              {
+                                roles.map((item) => {
 
-                                return (
-                                  item !== i.Role ?
-                                    <option value={item}>{item}</option>
-                                    :
-                                    <></>
-                                );
+                                  return (
+                                    item !== i.Role ?
+                                      <option value={item}>{item}</option>
+                                      :
+                                      <></>
+                                  );
 
-                              })
-                            }
-                          </select>
-                          <br></br>
-                          <label className="StaffLabel">flat Number</label>
-                          <span className="StaffValue" id="flatno">{i.FlatNo}</span>
-                          <br></br>
-                          <label className="StaffLabel">mobile Number</label>
-                          <span className="StaffValue">{i.Mobile}</span>
-                          <br></br>
-                          <label className="StaffLabel">email</label>
-                          <span className="StaffValue">{i.Email}</span>
-                          <br></br>
+                                })
+                              }
+                            </select>
+                            <br></br>
+                            <label className="StaffLabel">flat Number</label>
+                            <span className="StaffValue" id="flatno">{i.FlatNo}</span>
+                            <br></br>
+                            <label className="StaffLabel">mobile Number</label>
+                            <span className="StaffValue">{i.Mobile}</span>
+                            <br></br>
+                            <label className="StaffLabel">email</label>
+                            <span className="StaffValue">{i.Email}</span>
+                            <br></br>
 
-                          <div className="staffButton">
-                            <Popconfirm
-                              title="Click ok to Edit User Details"
-                              onConfirm={() => HandleEdit(i)}>
-                              <button className="btn btn-primary editButton" type="submit" style={{ width: "45%" }}>
-                                <img src={require("../../assests/Edit.png")} height="20px" width="20px"></img>
-                                <span style={{ marginLeft: "10px" }}>Edit</span></button>
-                            </Popconfirm>
-                            <Popconfirm
-                              title="Click ok to Confirm Deletion of user"
-                              onConfirm={() => HandleDelete(i)}>
-                              <button className="btn btn-danger DeleteButton" style={{ width: "45%", marginLeft: "10px" }}>
-                                <img src={require("../../assests/Delete.png")} height="20px" width="20px"></img>
-                                <span style={{ marginLeft: "10px" }}>Delete</span> </button>
-                            </Popconfirm>
+                            <div className="staffButton">
+
+                              <Popconfirm
+                                title="Click ok to Edit User Details"
+                                onConfirm={() => HandleEdit(i)}>
+                                <button className="btn btn-primary editButton" type="submit" >
+                                  <img src={require("../../assests/Edit.png")} height="20px" width="20px"></img>
+                                  <span style={{ marginLeft: "10px" }}>Edit</span></button>
+                              </Popconfirm>
+
+
+                              <Popconfirm
+                                title="Click ok to Confirm Deletion of user"
+                                onConfirm={() => HandleDelete(i)}>
+                                <button className="btn btn-danger DeleteButton">
+                                  <img src={require("../../assests/Delete.png")} height="20px" width="20px"></img>
+                                  <span style={{ marginLeft: "10px" }}>Delete</span> </button>
+                              </Popconfirm>
+
+
+                            </div>
                           </div>
                         </div>
                       </div>

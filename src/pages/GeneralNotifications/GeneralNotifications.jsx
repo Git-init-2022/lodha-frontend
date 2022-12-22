@@ -76,7 +76,7 @@ function GeneralNotifications() {
                             // </div>
                             <>
                                 <div className="announcement" style={{ width: "100%", display: "flex", justifyContent: "space-between" }}>
-                                    <div style={{ marginLeft: "30px", width: "70%" }}>
+                                    <div className="announcementMobileView" style={{ marginLeft: "30px", width: "70%" }}>
                                         <div style={{ display: "flex" }}>
                                             <img src={require("../../assests/announcement.png")} height="25px" width="25px"></img>
                                             <p style={{ marginLeft: "20px", fontSize: "22px", textTransform: "capitalize", letterSpacing: "1px", textAlign: "left", textDecorationLine: "underline", textUnderlineOffset: "10px", textDecorationColor: "#675A0E", textDecorationThickness: "2px" }}>

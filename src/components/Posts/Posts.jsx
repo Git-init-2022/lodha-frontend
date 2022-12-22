@@ -105,12 +105,12 @@ function Posts({ props }) {
             <form
               onSubmit={UpdateDescription}
             >
-              <div style={{ display: "flex", }}>
-                <div style={{ width: "50%" }}>
+              <div className='complaintsDescDocuments'>
+                <div className="ComplaintDocumentDiv">
                   <p className='DescriptionTitle'>DESCRIPTION</p>
                   <div contentEditable style={{ width: "100%" }} id={props._id}>{props.Description}</div>
                 </div>
-                <div style={{ width: "50%" }}>
+                <div className="ComplaintDocumentDiv" style={{ width: "50%" }}>
                   <p className='DescriptionTitle'>DOCUMENTS</p>
 
                   {

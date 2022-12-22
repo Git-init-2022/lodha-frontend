@@ -364,7 +364,7 @@ const KeyContactsAndMails = () => {
               onChange: cancel
             }}
             style={{
-
+              border: "2px solid #675A0E",
               marginTop: "20px",
               marginRight: "20px",
               overflowX: "auto",

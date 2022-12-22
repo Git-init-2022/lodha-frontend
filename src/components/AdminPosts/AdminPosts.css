@@ -2,7 +2,7 @@
 
 .PostBackground1 {
     margin-top: 40px !important;
-    background: linear-gradient(to bottom right,rgb(247, 244, 228), rgb(223, 216, 175));
+    background: linear-gradient(to bottom right, rgb(247, 244, 228), rgb(223, 216, 175));
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     width: 90%;
 }
@@ -130,18 +130,50 @@ option {
     border-radius: 25px;
 }
 
-.documentDiv{
+.documentDiv {
     display: flex;
     /* justify-content: space-around; */
 }
 
-.CardDocument{
+.CardDocument {
     background-color: rgb(247, 244, 228);
     padding: 0px !important;
 }
 
 
 
-.CardBodyDiv{
+.CardBodyDiv {
     padding: 10px !important;
+}
+
+.documentDescDiv {
+    display: flex;
+}
+
+.descDisplayDiv {
+    width: 50%;
+}
+
+.descDocumentDiv {
+    width: 50%;
+}
+
+@media (max-width:800px) {
+    .PostBackground1 {
+        width: 90%;
+        margin-right: 20px !important;
+    }
+
+    .documentDescDiv {
+        display: block;
+    }
+
+    .descDisplayDiv {
+        width: 100%;
+    }
+
+    .descDocumentDiv {
+        margin-top: 30px;
+        width: 100%;
+    }
 }

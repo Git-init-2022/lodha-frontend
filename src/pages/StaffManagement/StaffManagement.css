@@ -7,44 +7,45 @@
   margin-top: 24px;
 }
 
-.StaffTitleDiv{
+.StaffTitleDiv {
   display: flex;
   height: 50px;
   justify-content: center;
-  margin-top:100px;
-   width: 100%;         
+  margin-top: 100px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-.linesright{
+.linesright {
   display: flex;
   flex-direction: column;
   flex: 1;
 }
 
-.displayUsers{
-  display: grid; 
+.displayUsers {
+  display: grid;
   grid-template-columns: auto auto;
 }
 
-.DisplayCard{
+.DisplayCard {
   display: flex;
   width: 90%;
   height: 270px;
-  border-radius:10px;
-  background-color:whitesmoke;
-  margin-top:50px;
+  border-radius: 10px;
+  background-color: whitesmoke;
+  margin-top: 50px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   margin-left: 20px;
   /* margin-left: 10%; */
   border: 1px solid white;
 }
 
-.DisplayCard:hover{
+.DisplayCard:hover {
   border: 1px solid black;
   background-color: rgb(209, 209, 209);
 }
 
-.StaffLabel{
+.StaffLabel {
   font-size: 16px;
   text-transform: capitalize;
   /* font-weight: bold; */
@@ -54,35 +55,41 @@
   text-decoration-thickness: 2px;
   text-transform: capitalize;
   letter-spacing: 1px;
-  color:rgb(94, 82, 16);
+  color: rgb(94, 82, 16);
   margin-top: 10px;
 }
 
-.StaffValue{
+.StaffValue {
   margin-left: 20px;
   font-size: 15px;
-  color:black;
+  color: black;
 }
 
-.staffButton{
+.staffButton {
+  display: flex;
+  justify-content: space-between;
   margin-top: 50px;
   margin-bottom: 30px;
-  
+
 }
 
-.DeleteButton{
+.DeleteButton {
+  width: 45%;
+  margin-left: 10px;
   color: black !important;
   background-color: whitesmoke !important;
   border: 3px solid black;
   margin-top: -30px;
 }
 
-.addStaff{
+.addStaff {
   color: black !important;
   background-color: whitesmoke !important;
   border: 3px solid black;
 }
-.editButton{
+
+.editButton {
+  width: 45%;
   color: black !important;
   background-color: whitesmoke !important;
   border: 3px solid black;
@@ -90,15 +97,15 @@
 }
 
 
-.editButton:hover{
+.editButton:hover {
   color: white !important;
   background-color: rgb(44, 141, 135) !important;
   border: 2px solid black !important;
   transform: scale(1.05);
-  
+
 }
 
-.DeleteButton:hover{
+.DeleteButton:hover {
   color: white !important;
   background-color: rgb(203, 59, 59) !important;
   border: 2px solid black !important;
@@ -106,7 +113,7 @@
   transition: 0s;
 }
 
-.StaffRole{
+.StaffRole {
   height: 30px;
   margin-left: 30px;
   margin-top: 10px;
@@ -116,40 +123,40 @@
   border: 1.2px solid black;
 }
 
-.addStaff:hover{
-color: black !important;
-background-color: rgb(230, 214, 115) !important;
-border: 3px solid black !important;
+.addStaff:hover {
+  color: black !important;
+  background-color: rgb(230, 214, 115) !important;
+  border: 3px solid black !important;
 
 }
 
-.invisible{
+.invisible {
   display: none;
 }
 
-.AddStaffDiv{
+.AddStaffDiv {
   margin-left: 20%;
   /* border: 1px solid  gray; */
-  display:flex;
+  display: flex;
   justify-content: center;
   margin-top: 30px;
   width: 60%;
   /* box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px; */
-  
+
 }
 
-.AddStaffNote{
+.AddStaffNote {
   font-size: 20px;
   margin-top: 10px;
 }
 
-.staffInput{
+.staffInput {
   width: 60%;
   padding: 10px;
 
 }
 
-.hide{
+.hide {
   display: none;
 }
 
@@ -165,10 +172,114 @@ border: 3px solid black !important;
   font-size: 16px;
   background: rgb(219, 206, 128);
   border: 1px solid black;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+
 }
 
-.move-top:hover{
+.move-top:hover {
   color: black;
   transform: scale(1.05);
+
+}
+
+.staffmanagementmobileview {
+  display: flex;
+  margin-top: 100px;
+
+  justify-content: center;
+}
+
+.userDashboardTitle {
+  font-size: 50px;
+  font-weight: bolder;
+  margin: 0px !important;
+  letter-spacing: 2px;
+
+  text-align: center;
+  animation: fadeIn 1s;
+}
+
+.userDashboardTitle:first-letter {
+  font-weight: bolder;
+  font-size: 52px;
+
+}
+
+
+.divider-line {
+  display: none;
+}
+
+@media (max-width: 1000px) {
+  .userDashboardTitle {
+    font-size: 50px;
+    margin-top: 0px !important;
+  }
+  .DisplayCard{
+    width: 95%;
+  }
+  .displayUsers {
+    grid-template-columns: auto;
+  }
+
+  .move-top {
+    right: 20px;
+  }
+
+  .sideLines {
+    display: none;
+    margin-top: 0px !important;
+  }
+
+  .StaffTitleDiv {
+    display: block;
+    margin-top: 0px !important;
+    text-align: center;
+  }
+
+  .divider-line {
+    display: inherit;
+  }
+
+}
+
+
+@media (max-width: 600px) {
+
+  .userDashboardTitle {
+    font-size: 30px;
+    margin-top: 0px !important;
+  }
+
+  .staffmanagementmobileview {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .AddStaffDiv {
+    width: 100%;
+    margin: 0;
+
+  }
+
+  .DisplayCard {
+    margin-left: 0px;
+    height: fit-content;
+    width: 92% !important;
+    margin-left: 4%;
+    display: block;
+  }
+
+  .staffButton {
+    display: flex;
+   
+
+  }
+
+  .mobileviewCardImage{
+    display: flex;
+    justify-content: center;
+  }
 
 }

@@ -27,6 +27,7 @@
     background-color: whitesmoke;
     border-radius: 10px;
     align-items: center;
+    border: 2px solid #675a0e;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
 }
@@ -136,4 +137,17 @@
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555;
+}
+
+@media (max-width: 600px) {
+    .FormItems{
+        width: 90%;
+        margin-left: 5%;
+    }
+    .modalButton{
+        height: 150px !important;
+    }
+    .nav-pills{
+        margin-left: -10px !important;
+    }
 }

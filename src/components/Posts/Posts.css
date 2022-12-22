@@ -103,3 +103,25 @@
     width: 80% !important;
   }
 }
+
+.ComplaintDocumentDiv{
+  width:50%;
+}
+
+
+.complaintsDescDocuments{
+  display: flex;
+}
+
+@media (max-width:600px) {
+  .complaintsDescDocuments{
+    display: block;
+
+
+  }
+  .ComplaintDocumentDiv{
+    width:100%;
+    margin-top: 20px;
+  }
+  
+}

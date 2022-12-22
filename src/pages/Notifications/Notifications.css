@@ -141,14 +141,14 @@
 
 
 .Active {
-  border: 5px solid #675a0e ;
+  border: 5px solid #675a0e;
   background-color: rgb(220, 219, 216);
-  
+
 }
 
 
 @media (max-width: 1000px) {
-  .MeetingItems{
+  .MeetingItems {
     width: 80% !important;
     margin-left: 10%;
   }
@@ -173,17 +173,36 @@
   background: #555;
 }
 
-.MoreButton{
-   font-size: 16px ;
-   padding: 10px; 
-   letter-spacing: 1px;
-    border: 3px solid #675A0E ;
-    margin: 20px;
+.MoreButton {
+  font-size: 16px;
+  padding: 10px;
+  letter-spacing: 1px;
+  border: 3px solid #675A0E;
+  margin: 20px;
 }
 
-.MoreButton:Hover{
+.MoreButton:Hover {
   background-color: #675A0E;
   color: white;
 
 }
 
+.MeetingtimeMobileView {
+  display: none;
+  font-size: 14px;
+}
+
+@media (max-width:600px) {
+  .MeetingItems {
+    width: 90% !important;
+    margin-left: 5%;
+  }
+
+  .MeetingtimeMobileView {
+    display: inherit;
+  }
+
+  .MeetingTimeView {
+    display: none;
+  }
+}
