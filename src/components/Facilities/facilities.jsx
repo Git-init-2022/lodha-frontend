@@ -1,4 +1,4 @@
-import * as React from "https://cdn.skypack.dev/react@17.0.1";
+import * as React from "react";
 import "./facilities.css";
 import pool from "../../assests/pool.png";
 import gym from "../../assests/gym.png";

@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/Git-init-2022/lodha-frontend/static/css/main.2ef93d78.css",
+    "main.js": "/Git-init-2022/lodha-frontend/static/js/main.6e98b414.js",
+    "static/media/home.mp4": "/Git-init-2022/lodha-frontend/static/media/home.5e2fcdff4af5c0c4dad4.mp4",
+    "static/media/lodhapic.jpg": "/Git-init-2022/lodha-frontend/static/media/lodhapic.8c8fe4582724e13eb2e7.jpg",
+    "static/media/lodhapic4.jpg": "/Git-init-2022/lodha-frontend/static/media/lodhapic4.34c8ea4cd59e3bb2c9a2.jpg",
+    "static/media/lodhapic1.jpg": "/Git-init-2022/lodha-frontend/static/media/lodhapic1.b42e84c6526e8af60044.jpg",
+    "static/media/lodhapic2.jpg": "/Git-init-2022/lodha-frontend/static/media/lodhapic2.7f7fe8aeb85735a07ad5.jpg",
+    "static/media/lodhapic3.jpg": "/Git-init-2022/lodha-frontend/static/media/lodhapic3.832391d40c14f5de43b0.jpg",
+    "static/media/lodhapic5.jpg": "/Git-init-2022/lodha-frontend/static/media/lodhapic5.27fe67d4799c42e0fb4f.jpg",
+    "static/media/lodha10.jpeg": "/Git-init-2022/lodha-frontend/static/media/lodha10.3752cd60805c4858e6bc.jpeg",
+    "static/media/lodhalogo1.png": "/Git-init-2022/lodha-frontend/static/media/lodhalogo1.47dab39ef0977e55c31c.png",
+    "static/media/society.png": "/Git-init-2022/lodha-frontend/static/media/society.43fdd10e6407d9fdd4fe.png",
+    "static/media/lodha11.webp": "/Git-init-2022/lodha-frontend/static/media/lodha11.df721c3fc037d33e3354.webp",
+    "index.html": "/Git-init-2022/lodha-frontend/index.html",
+    "main.2ef93d78.css.map": "/Git-init-2022/lodha-frontend/static/css/main.2ef93d78.css.map",
+    "main.6e98b414.js.map": "/Git-init-2022/lodha-frontend/static/js/main.6e98b414.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2ef93d78.css",
+    "static/js/main.6e98b414.js"
+  ]
+}
