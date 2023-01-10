@@ -1,10 +1,10 @@
 import React, { useContext, useEffect, useRef, useState } from "react"
 import "antd/dist/antd.css"
 import "./FinanceAndAccount.css"
-import { Form, Input, Popconfirm, Table } from "antd"
+import { Form, Input, Popconfirm, Table, Typography, InputNumber } from "antd"
 import axios from "axios"
 import LoginNavBar from "../../components/LoginNavBar/LoginNavBar"
-import finance from "../../assests/finance.png"
+import contact from "../../assests/contact.png";
 import "antd/dist/antd.css"
 const { Search } = Input
 
@@ -22,68 +22,45 @@ const EditableRow = ({ index, ...props }) => {
 }
 
 const EditableCell = ({
+  editing,
   title,
   editable,
   children,
+  inputType,
   dataIndex,
   record,
   handleSave,
   ...restProps
 }) => {
-  const [editing, setEditing] = useState(false)
+  const inputNode = inputType === "number" ? <InputNumber /> : <Input />
+
+  // const [editing, setEditing] = useState(false)
   const inputRef = useRef(null)
-  const form = useContext(EditableContext)
+  // const form = useContext(EditableContext)
 
-  useEffect(() => {
-    if (editing) {
-      inputRef.current.focus()
-    }
-  }, [editing])
 
-  const toggleEdit = () => {
-    setEditing(!editing)
-    form.setFieldsValue({ [dataIndex]: record[dataIndex] })
-  }
 
-  const save = async () => {
-    try {
-      const values = await form.validateFields()
 
-      toggleEdit()
-      handleSave({ ...record, ...values })
-    } catch (errInfo) {
-      console.log("Save failed:", errInfo)
-    }
-  }
-
-  let childNode = children
-
-  if (editable) {
-    childNode = editing ? (
-      <Form.Item
-        style={{ margin: 0 }}
-        name={dataIndex}
-        rules={[
-          {
-            required: true,
-            message: `${title} is required.`
-          }
-        ]}
-      >
-        <Input ref={inputRef} onPressEnter={save} onBlur={save} />
-      </Form.Item>
-    ) : (
-      <div
-        className="editable-cell-value-wrap"
-        style={{ paddingRight: 24 }}
-        onClick={toggleEdit}
-      >
-        {children}
-      </div>
-    )
-  }
-
-  return <td {...restProps}>{childNode}</td>
+  return (
+    <td {...restProps}>
+      {editing ? (
+        <Form.Item
+          name={dataIndex}
+          style={{ margin: 0 }}
+          rules={[
+            {
+              required: true,
+              message: `Please Input ${title}!`,
+            },
+          ]}
+        >
+          {inputNode}
+        </Form.Item>
+      ) : (
+        children
+      )}
+    </td>
+  );
 }
 
 
@@ -100,7 +77,7 @@ const EditableCell = ({
 
 
 
-const FinanceAndAccount = () => {
+const KeyContactsAndMails = () => {
 
   const [dataSource, setDataSource] = useState([])
   const [searchVal, setSearchVal] = useState("")
@@ -108,9 +85,32 @@ const FinanceAndAccount = () => {
   const [origData, setOrigData] = useState([]);
   const [searchIndex, setSearchIndex] = useState([]);
   const [loading, setLoading] = useState(true);
-  
-  const refreshPage = () =>
-  {
+  const [form] = Form.useForm()
+
+  const [editingKey, setEditingKey] = useState("")
+
+  const isEditing = record => record.FlatNo === editingKey
+
+  const edit = record => {
+    form.setFieldsValue({ FlatNo: "", OwnerName: "", RegisteredName: "", Email: "", Mobile: "", ParkingSlot: "", Dues: "", ...record })
+    setEditingKey(record.FlatNo)
+  }
+
+  const cancel = () => {
+    setEditingKey("")
+  }
+
+  const save = async record => {
+    try {
+      const row = await form.validateFields()
+      setEditingKey("")
+      handleSave({...record, ...row})
+    } catch (errInfo) {
+      console.log("Validate Failed:", errInfo)
+    }
+  }
+
+  const refreshPage = () => {
     window.location.reload();
   }
   useEffect(() => {
@@ -123,7 +123,7 @@ const FinanceAndAccount = () => {
       }
       return allValues;
     };
-    const fetchData = async() => {
+    const fetchData = async () => {
       const users = await fetchUsers();
       setOrigData(users);
       setFilteredData(users);
@@ -159,44 +159,85 @@ const FinanceAndAccount = () => {
     return users
   }
   
+  const deleteUser = async(key)=> {
+    const {data} = await axios.get("https://lodha-backend.onrender.com/api/v1/userdelete", {params: {FlatNo: key, Admin: JSON.parse(localStorage.getItem("User")).FlatNo }});
+    refreshPage();
+  }
 
+  const handleDelete = key => {
+    deleteUser(key);
+    const newData = dataSource.filter(item => item.FlatNo !== key)
+    setDataSource(newData)
+  }
 
   const defaultColumns = [
     {
       title: "Flat Number",
       dataIndex: "FlatNo",
       key: "FlatNo",
+      className: "TableColumns",
       editable: false
     },
     {
       title: "Owner Name",
       dataIndex: "OwnerName",
       key: "OwnerName",
-      editable: false
-    },
-    {
-      title: "Property Registered Name",
-      dataIndex: "RegisteredName",
-      key: "RegisteredName",
+      className: "TableColumns",
       editable: false
     },
     {
       title: "Email",
       dataIndex: "Email",
       key: "Email",
+      className: "TableColumns",
+      editable: false
+    },
+    {
+      title: "Mobile Number",
+      dataIndex: "Mobile",
+      key: "Mobile",
+      className: "TableColumns",
       editable: false
     },
     {
       title: "Society Dues",
       dataIndex: "Dues",
       key: "Dues",
+      className: "TableColumns",
       editable: true
     },
+    {
+      title: 'operation',
+      dataIndex: 'operation',
+      render: (_, record) => {
+        const editable = isEditing(record);
+        return editable ? (
+          <span>
+            <Popconfirm title="click ok to save your changes" onConfirm={() => save(record)}>
+            <Typography.Link
+              style={{ marginRight: 8 }}
+            >
+              Save
+            </Typography.Link>
+            </Popconfirm>
+            <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
+            <Typography.Link>
+              Cancel
+            </Typography.Link>
+            </Popconfirm>
+          </span>
+        ) : (
+          <Typography.Link disabled={editingKey !== ''} onClick={() => edit(record)}>
+            Edit
+          </Typography.Link>
+        );
+      },
 
+    }
   ]
 
   const updateUser = async(row)=> {
-    const {data} = await axios.get("https://lodha-backend.onrender.com/api/v1/userupdate", {params: {user: row}});
+    const {data} = await axios.get("https://lodha-backend.onrender.com/api/v1/userupdate", {params: {user: row, Admin: JSON.parse(localStorage.getItem("User")).FlatNo}});
     refreshPage();
   }
 
@@ -206,7 +247,7 @@ const FinanceAndAccount = () => {
 
   const components = {
     body: {
-      row: EditableRow,
+      // row: EditableRow,
       cell: EditableCell
     }
   }
@@ -219,10 +260,12 @@ const FinanceAndAccount = () => {
       ...col,
       onCell: record => ({
         record,
+        inputType: col.dataIndex === "Dues" ? "number" : "text",
+
         editable: col.editable,
         dataIndex: col.dataIndex,
         title: col.title,
-        handleSave
+        editing: isEditing(record)
       })
     }
   })
@@ -240,19 +283,19 @@ const FinanceAndAccount = () => {
     <>
       <LoginNavBar />
       <div className="KeyContactDiv">
-        <div style={{ display: "flex", justifyContent:"center", }}>
-            <img src={finance} style={{ height: "50px", width: "50px", marginTop : "20px", marginBottom: "50px"}}></img>
-            <p id="title">FINANCE AND ACCOUNT MANAGEMENT</p>
+        <div style={{ display: "flex", justifyContent: "center", }}>
+          <img src={contact} style={{ height: "50px", width: "50px", marginTop: "20px", marginBottom: "30px", marginRight: "-10px" }}></img>
+          <p id="title">KEY CONTACTS AND MAILS</p>
         </div>
-        
+
         <div className="Note">
           <p className="NoteTitle">NOTE</p>
-          <ul> 
+          <ul>
             <li className="NoteList">
-               Only Society Dues field can be edited.
+              Please Enter the value to be Edited in the Input and press enter button to be edited.
             </li>
             <li className="NoteList">
-               Please Enter the value to be Edited in the Input and press enter button to be edited.
+              Please Press Delete button to delete the user details
             </li>
           </ul>
         </div>
@@ -269,27 +312,32 @@ const FinanceAndAccount = () => {
             borderRadius: "5px"
           }}
         />
+        <Form form={form} component={false}>
+          <Table
+            components={components}
+            rowClassName={() => 'editable-row'}
+            bordered
+            rowKey="name"
+            dataSource={filteredData}
+            columns={columns}
+            loading={loading}
+            pagination={{
+              onChange: cancel
+            }}
+            style={{
+              border: "2px solid #675A0E",
+              marginTop: "20px",
+              marginRight: "20px",
+              overflowX: "auto",
+              boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+            }}
 
-        <Table
-          components={components}
-          rowClassName={() => 'editable-row'}
-          bordered
-          rowKey="name"
-          dataSource={filteredData}
-          columns={columns}
-          loading={loading}
-          pagination={false}
-          style={{
-            marginTop: "20px",
-            marginRight: "50px",
-            boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-           
-          }}
-        />
+          />
+        </Form>
       </div>
       <div style={{ height: "100px", color: "white" }}></div>
     </>
   )
 }
 
-export default FinanceAndAccount;
+export default KeyContactsAndMails;
