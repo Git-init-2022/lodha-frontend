@@ -4,7 +4,7 @@ import "./FinanceAndAccount.css"
 import { Form, Input, Popconfirm, Table, Typography, InputNumber } from "antd"
 import axios from "axios"
 import LoginNavBar from "../../components/LoginNavBar/LoginNavBar"
-import contact from "../../assests/contact.png";
+import finance from "../../assests/finance.png";
 import "antd/dist/antd.css"
 const { Search } = Input
 
@@ -284,18 +284,20 @@ const KeyContactsAndMails = () => {
       <LoginNavBar />
       <div className="KeyContactDiv">
         <div style={{ display: "flex", justifyContent: "center", }}>
-          <img src={contact} style={{ height: "50px", width: "50px", marginTop: "20px", marginBottom: "30px", marginRight: "-10px" }}></img>
-          <p id="title">KEY CONTACTS AND MAILS</p>
+        <img src={finance} style={{ height: "70px", width: "70px", marginTop: "5px", marginBottom: "30px"}}></img>
+          <p id="userDashboardTitle" >FINANCE AND ACCOUNT</p>
+
         </div>
+        <p style={{textAlign:"center", letterSpacing:"1px", fontSize:"20px"}}>Society dues for users can be added here. </p>
 
         <div className="Note">
           <p className="NoteTitle">NOTE</p>
           <ul>
             <li className="NoteList">
-              Please Enter the value to be Edited in the Input and press enter button to be edited.
+              Click Edit button to change the dues.
             </li>
             <li className="NoteList">
-              Please Press Delete button to delete the user details
+              Click Save button to save the changes.
             </li>
           </ul>
         </div>

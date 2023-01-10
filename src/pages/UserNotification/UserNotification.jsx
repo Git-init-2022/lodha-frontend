@@ -6,11 +6,12 @@ import { useEffect } from "react";
 import { useGlobalContext } from '../../context/StateContext';
 import axios from "axios";
 import "./UserNotification.css"
+import Spinner from "../../components/Spinner/Spinner";
 
 
 function UserNotification() {
     const [count, setCount] = useState(0);
-
+    const [loading, setLoading] = useState(true);
     const [Notifications, setNotifications] = useState([]);
     const { User } = useGlobalContext();
 
@@ -20,6 +21,7 @@ function UserNotification() {
 
     const fetchNotifications = async () => {
         const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/getUserNotifications", { params: { FlatNo: JSON.parse(User).FlatNo } })
+        setLoading(false);
         const temp = data.userNotifications;
         temp.sort(compare);
         setNotifications(temp)
@@ -110,6 +112,9 @@ function UserNotification() {
                     <hr></hr>
                     <div className="alertDiv" style={{ width: "100%", display: "grid", gridTemplateColumns: "auto ", rowGap: "20px", padding: "20px" }} >
                         {
+                            loading ? 
+                            <Spinner /> 
+                            :
                             Notifications.length ?
                             Notifications.map((item) => {
                                 return (

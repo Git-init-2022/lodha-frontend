@@ -10,6 +10,7 @@ import Posts from "../../components/Posts/Posts"
 import complaint from "../../assests/complaint.png";
 import Toast from 'react-bootstrap/Toast';
 import AdminPosts from "../../components/AdminPosts/AdminPosts";
+import Spinner from "../../components/Spinner/Spinner";
 import { useRoutes } from "react-router-dom";
 
 const EditableContext = React.createContext(null)
@@ -101,6 +102,7 @@ const fetchUsers = async () => {
 
 
 function AllComplaints() {
+  const [loading1, setloading1] = useState(true);
   const [Issues, setIssues] = useState([]);
   const [dataSource, setDataSource] = useState([])
   const [searchVal, setSearchVal] = useState("")
@@ -144,6 +146,7 @@ function AllComplaints() {
     };
     const fetchData = async () => {
       const users = await fetchUsers();
+      setloading1(false);
       setOrigData(users);
       setFilteredData(users);
       const searchInd = users.map(user => {
@@ -286,10 +289,12 @@ function AllComplaints() {
       <LoginNavBar />
       <div className="KeyContactDiv">
         <div style={{ display: "flex", marginTop: "100px", justifyContent:"center", }}>
-            <img src={complaint} style={{ height: "50px", width: "50px", marginTop : "-3px", marginBottom: "50px", marginRight: "5px"}}></img>
-            <p id="title10">ALL COMPLAINTS</p>
+            <img src={complaint} style={{ height: "70px", width: "70px", marginTop : "-3px", marginBottom: "50px", marginRight: "5px"}}></img>
+            <p id="userDashboardTitle">ALL COMPLAINTS</p>
         </div>
+        <p style={{textAlign:"center", letterSpacing:"1px", fontSize:"20px"}}>All complaints posted by the users will appear here.</p>
 
+        
           <Accordion >
           <Accordion.Item eventKey="0" id="IssueAccord" style={{ marginTop: "50px", width: "90%", border: "2px solid #d3d3d3", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", }}>
             <Accordion.Header>
@@ -364,7 +369,17 @@ function AllComplaints() {
           </div>
         
         <div className="AdminPostsDiv">
+
           {
+            loading ? 
+            <Spinner />
+            :
+            filteredData.length===0 ?
+            
+            <>
+            <p style={{fontSize:"16px", letterSpacing:"1px", textAlign:"center"}}>No Complaints !</p>
+            </>
+            :
             filteredData.map(item => <AdminPosts props={item} selectedOption={selectedOption} />)
           }
         </div>

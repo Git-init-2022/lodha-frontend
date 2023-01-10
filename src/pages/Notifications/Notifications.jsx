@@ -9,6 +9,7 @@ import calendar from "../../assests/calendar.png";
 import { Radio, Space, Tabs } from 'antd';
 import { useGlobalContext } from '../../context/StateContext';
 import { getTwoToneColor } from "@ant-design/icons";
+import Spinner from "../../components/Spinner/Spinner";
 
 
 function Notifications() {
@@ -17,7 +18,7 @@ function Notifications() {
   const [upcoming, setUpcoming] = useState(true);
   const [FinishedMeetings, setFinishedMeetings] = useState([]);
   const [upcomingMeetings, setUpcomingMeetings] = useState([]);
-
+  const [loading , setLoading] = useState(true);
   const [titleVar, setTitleVar] = useState('');
   const [DescVar, setDescVar] = useState('');
   const [LinkVar, setLinkVar] = useState('');
@@ -31,6 +32,7 @@ function Notifications() {
   const [isAdmin, setisAdmin] = useState(JSON.parse(User).Role === '440f3041c89adee0f2ad780704bcc0efae1bdb30f8d77dc455a2f6c823b87ca0');
   const fetchMeetings = async () => {
     const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/AllMeetings");
+    setLoading(false);
     const temp1 = [], temp2 = [];
     for (let meeting of data.meetings) {
       if (CompareDate(meeting.Date, meeting.Time)) {
@@ -214,6 +216,9 @@ function Notifications() {
               }
               <hr style={{ height: "1", backgroundColor: "black", width: "94%", marginLeft: "3%" }}></hr>
               {
+                loading ?
+                <Spinner />
+                :
                 upcomingMeetings.length ?
                   upcomingMeetings.map((item, index) => {
                     return (
@@ -267,7 +272,7 @@ function Notifications() {
                     );
                   })
                   :
-                  <p>No Upcoming Meetings!</p>
+                  <p style={{fontSize:"16px", letterSpacing:"1px", textAlign:"center"}}>No Upcoming Meetings!</p>
               }
               {
                 isAdmin ?
@@ -387,7 +392,14 @@ function Notifications() {
               }
               <hr style={{ height: "1", backgroundColor: "black", width: "94%", marginLeft: "3%" }}></hr>
               {
-
+                loading ?
+                <Spinner /> 
+                : 
+                FinishedMeetings.length === 0 ? 
+                <>
+                <p style={{fontSize:"16px", letterSpacing:"1px", textAlign:"center"}}>No Finished Meetings</p>
+                </>
+                :
                 FinishedMeetings.map((item, index) => {
                   return (
                     <>

@@ -12,6 +12,8 @@ import UserNotification from "../UserNotification/UserNotification";
 import announcement from "../../assests/announcement.png";
 import form from "../../assests/form.png";
 import meeting1 from "../../assests/meeting1.png";
+import dashboard from "../../assests/dashboard.png";
+
 import complaint1 from "../../assests/complaint1.png";
 import documents from "../../assests/documents.png";
 import notifications from "../../assests/notifications.png";
@@ -83,10 +85,13 @@ function Dashboard() {
 
             <div>
                 <div style={{ display: "flex", marginTop: "100px", justifyContent: "center", }}>
-                    {/* <img src="../../assests/dashboard.png" style={{ height: "55px", width: "50px", marginBottom: "0px", }}></img> */}
-                    <p id="userDashboardTitle">Hello, {JSON.parse(User).OwnerName}!</p>
+                    <img src={dashboard} style={{ height: "60px", width: "50px", marginBottom: "0px", }}></img> 
+                     <p id="userDashboardTitle">Hello, {JSON.parse(User).OwnerName}!</p>
+                    
                 </div>
-                
+               
+
+                <p style={{textAlign:"center", letterSpacing:"1px", fontSize:"20px"}}>All Notifications and Updates posted will appear here</p>
                     <div className="d-flex mb-3 FacilityNavBar">
 
                         <Nav variant="pills" defaultActiveKey="/home">
