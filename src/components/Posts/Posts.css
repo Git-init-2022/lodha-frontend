@@ -1,24 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 
-.PostBackground{
+.PostBackground {
   margin-top: 40px !important;
   width: 100% !important;
   background-color: whitesmoke;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.PostBackground:hover{
+
+.PostBackground:hover {
   border: 2px solid black;
   box-shadow: none !important;
 }
-.PostTitle{
-   text-align: center;
-    font-size: 30px;
-    font-weight: 800;
-    color:red;
-    text-transform: uppercase;
- }
 
-.PostDesc{
+.PostTitle {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 800;
+  color: red;
+  text-transform: uppercase;
+}
+
+.PostDesc {
   text-align: left;
 }
 
@@ -58,20 +60,20 @@
   z-index: 0
 }
 
-.PostHeader{
+.PostHeader {
   display: flex;
   justify-content: space-between;
 
 }
 
-.PostsIssue{
+.PostsIssue {
   font-size: 20px;
   color: black;
   letter-spacing: 1px;
   font-weight: normal;
 }
 
-.ComplaintsButton{
+.ComplaintsButton {
   text-transform: uppercase;
   width: 30%;
   letter-spacing: 2px;
@@ -83,13 +85,39 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.ComplaintsButton:hover{
+.ComplaintsButton:hover {
   background-color: black !important;
   color: gold !important;
 
 }
 
-.DescriptionTitle{
+.CommentHeader {
+  font-size: 18px;
+  text-align: right;
+  margin-top: 40px;
+  margin-bottom: 20px;
+
+  letter-spacing: 2px;
+
+  color: #675a0e;
+
+
+
+}
+
+.statusTitles{
+  letter-spacing: 1px;
+  
+}
+
+.CommentHeader:hover {
+  text-decoration-line: underline;
+  text-underline-offset: 10px;
+  text-decoration-color: #675a0e;
+}
+
+
+.DescriptionTitle {
 
   font-size: 20px;
   letter-spacing: 1px;
@@ -99,29 +127,30 @@
 }
 
 @media (max-width: 800px) {
-  .ComplaintsButton{
+  .ComplaintsButton {
     width: 80% !important;
   }
 }
 
-.ComplaintDocumentDiv{
-  width:50%;
+.ComplaintDocumentDiv {
+  width: 50%;
 }
 
 
-.complaintsDescDocuments{
+.complaintsDescDocuments {
   display: flex;
 }
 
 @media (max-width:600px) {
-  .complaintsDescDocuments{
+  .complaintsDescDocuments {
     display: block;
 
 
   }
-  .ComplaintDocumentDiv{
-    width:100%;
+
+  .ComplaintDocumentDiv {
+    width: 100%;
     margin-top: 20px;
   }
-  
+
 }

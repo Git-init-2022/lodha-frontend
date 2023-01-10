@@ -4,6 +4,9 @@ import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Web3Storage } from 'web3.storage';
 import done from "../../assests/done.png";
+import redCircle from "../../assests/redCircle.png";
+import comment from '../../assests/comments.png';
+
 import {
     MDBBtn,
     MDBCard,
@@ -121,7 +124,7 @@ function AdminPosts({ props, selectedOption }) {
             return image;
         }
         if (x === 'docx' || x === 'doc') {
-           
+
             return docx;
         }
         if (x === 'pdf') {
@@ -133,7 +136,7 @@ function AdminPosts({ props, selectedOption }) {
         if (x === 'pptx' || x === 'ppt') {
             return ppt;
         }
-        
+
     }
 
     return (
@@ -166,14 +169,28 @@ function AdminPosts({ props, selectedOption }) {
                                 </div>
 
                                 <div>
-                                    {props.Status ? <div><img src={done} height="20px" width="20px"></img><span style={{ color: "green", fontWeight: "bold", fontSize: "16px", letterSpacing: "2px" }}>Done</span></div> : <select name="Status" id='Status' className='statusOptions'>
-                                        <option value="0">
-                                            Pending
-                                        </option>
-                                        <option value="1" style={{ color: "green" }}>
-                                            Done
-                                        </option>
-                                    </select>/*<p style={{ color: "red", fontWeight: "bold", fontSize: "16px", letterSpacing: "1px" }}>Pending</p>*/}
+                                    {props.Status ?
+                                        props.Status == 1 ?
+                                            <div>
+                                                <img src={done} height="20px" width="20px"></img>
+                                                <span style={{ color: "green", fontWeight: "bold", fontSize: "16px", letterSpacing: "2px" }}>Resolved</span>
+                                            </div> :
+                                            <div>
+                                                <img src={redCircle} height="20px" width="20px"></img>
+                                                <span style={{ color: "red", fontWeight: "bold", fontSize: "16px", letterSpacing: "2px" }}>Closed</span>
+                                            </div>
+                                        :
+                                        <select name="Status" id='Status' className='statusOptions'>
+                                            <option value="0" style={{ color: "orange" }}>
+                                                Pending
+                                            </option>
+                                            <option value="1" style={{ color: "green" }}>
+                                                Resolved
+                                            </option>
+                                            <option value="2" style={{ color: "red" }}>
+                                                Closed
+                                            </option>
+                                        </select>}
                                     <p style={{ color: "black", fontWeight: "bold", fontSize: "16px", letterSpacing: "1px", marginTop: "10px" }}>{props.Time + " Ago"} </p>
                                 </div>
                             </div>
@@ -219,10 +236,41 @@ function AdminPosts({ props, selectedOption }) {
                                         }
                                     </div>
                                 </div>
+                                {
+                                    props.Status === 0 ?
+                                        <>
+                                            <div>
+                                                <p className='DescriptionTitle'>ADD COMMENT</p>
+                                                <textarea
+                                                    name="comment"
+                                                    class="commentBox"
+                                                    rows="3"
+                                                    placeholder="Comment Here"
+
+                                                ></textarea>
+                                            </div>
+                                        </>
+                                        :
+                                        <>
+                                        <div>
+                                                <p className='DescriptionTitle'>COMMENTS </p>
+                                               {
+                                               props.Comments!== undefined && props.Comments.length > 0 ? 
+                                                <div style={{ width: "100%" }} >{props.Comments}</div>
+                                                :
+                                                <>
+                                                <p>No comments!</p>
+                                                </>
+                                               }
+                                            </div>
+                                        </>
+                                }
                                 <div style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
                                     <button className="btn btn-primary " type="submit" onClick={(e) => UpdateComplaint(e)}>Edit Complaint</button>
                                     <button className="btn btn-danger" type="submit" style={{ marginLeft: "50px" }} onClick={(e) => DeleteComplaint(e)}>Delete Complaint</button>
                                 </div>
+
+
 
                             </Card.Text>
                         </Card.Body>

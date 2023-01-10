@@ -11,7 +11,8 @@ import docx from '../../assests/docx.png';
 import pdf from '../../assests/pdf.png';
 import excel from '../../assests/excel.png';
 import ppt from '../../assests/ppt.png';
-
+import comment from '../../assests/comments.png';
+import { Steps } from 'antd';
 const client = new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDcxOTdiN2M2OGFEMTNhNzREMGIzMGQ3OTI4OTNGMDc4MWQxZjE4M2QiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzAxNjM1MTczNDIsIm5hbWUiOiJsb2RoYS1maWxlcyJ9.rmkUCge8MPPj5TC6i8Z5lVAjIevCSVni0gpu-_jUzlI" });
 import {
   MDBBtn,
@@ -28,8 +29,10 @@ import {
 } from "mdb-react-ui-kit";
 import { useGlobalContext } from '../../context/StateContext';
 import axios from 'axios';
+import { useState } from 'react';
 
 function Posts({ props }) {
+  const [isVisible, setIsVisible] = useState(false);
   let timeStamp = Date.parse(props.Time);
   var date = new Date(timeStamp);
   var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -91,7 +94,7 @@ function Posts({ props }) {
               <span className='PostsIssue'> {props.Issue}</span>
             </div>
             <div>
-              {props.Status ? <div>
+              {/* {props.Status ? <div>
                 <img src={done} height="20px" width="20px"></img>
                 <span style={{ color: "green", fontWeight: "bold", fontSize: "18px", letterSpacing: "2px" }}>Done</span>
               </div>
@@ -100,8 +103,9 @@ function Posts({ props }) {
                   <img src={redCircle} height="20px" width="20px"></img>
                   <span style={{ color: "red", fontWeight: "bold", fontSize: "18px", letterSpacing: "2px" }}>Pending</span>
                 </div>
-              }
-              <span style={{ color: "black", fontWeight: "bold", fontSize: "16px", letterSpacing: "1px" }}>{formattedDate}</span>
+              } */}
+              <label className='PostHeading'>Posted on</label>
+              <span style={{ color: "black", fontWeight: "bold", fontSize: "16px", letterSpacing: "1px", marginLeft: "20px" }}>{formattedDate}</span>
             </div>
           </div>
         </Card.Header>
@@ -160,6 +164,58 @@ function Posts({ props }) {
                   }
                 </div>
               </div>
+              <div>
+                <p className='DescriptionTitle'>STATUS</p>
+                <Steps
+                  current={props.Status == 0 ? 1 : 3}
+                  style={{ marginTop: "50px", color:"green" }}
+                  items={[
+                    {
+                      title: 'Submitted',
+                      className: "statusTitles"
+                    },
+                    {
+                      title: 'In Progress',
+                      className: "statusTitles"
+                    },
+                    {
+                      title: (props.Status>0) ?  props.Status===1 ? 'Resolved' : 'Closed' : 'Waiting',
+                      className: "statusTitles",
+                      
+                    },
+                  ]}
+                /></div>
+
+              <div>
+                {
+                  isVisible ?
+                    <p className='CommentHeader' onClick={() => setIsVisible(false)}>
+                      <img src={comment} height="20px" width="20px"></img> Hide Comments
+                    </p>
+                    :
+                    <p className='CommentHeader' onClick={() => setIsVisible(true)}>
+                      <img src={comment} height="20px" width="20px"></img> View Comments
+                    </p>
+                }
+              </div>
+              {
+                isVisible ?
+                  <div>
+                    <p className='DescriptionTitle'> COMMENTS </p>
+                    {
+                      props.Comments !== undefined && props.Comments.length > 0 ?
+                        <div style={{ width: "100%" }} >{props.Comments}</div>
+                        :
+                        <>
+                          <p>No comments!</p>
+                        </>
+                    }
+
+                  </div>
+                  :
+                  <></>
+              }
+
               <div style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
                 <Popconfirm
                   title="Clicking ok button will edit the complaint details "
