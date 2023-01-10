@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useGlobalContext } from "../../context/StateContext";
 import { Button, Table } from "antd";
 import payment from "../../assests/payment.png";
+import { getJSDocDeprecatedTag } from "typescript";
 
 
 function SocietyDues() {
@@ -15,7 +16,7 @@ function SocietyDues() {
     const [user, setuser] = useState([]);
     const { User } = useGlobalContext();
     const [Penalty, setPenalty] = useState(100);
-    const [total, setTotal] = useState(10);
+    const [total, setTotal] = useState(0);
 
     const columns = [
         {
@@ -36,18 +37,30 @@ function SocietyDues() {
     ]
 
 
+    const getDate = (date) => {
+        const date1= new Date(date);
+        const month = date1.getMonth() + 1 ;
+        return date1.getDate() + "-" + (date1.getMonth()+1) + "-" + date1.getFullYear();
+
+    }
+
     const data = []
     for (let i = 0; i < 5; i++) {
         data.push({
             key: i,
             name: "Maintainence due",
-            date: (Date.now()),
+            date: getDate(Date.now()),
             amount: 100
         })
     }
 
 
     const onSelectChange = newSelectedRowKeys => {
+        let totalSelectedAmount = 0;
+        for(let key of newSelectedRowKeys){
+            totalSelectedAmount += data[key].amount;
+        }
+        setTotal(totalSelectedAmount);
         setSelectedRowKeys(newSelectedRowKeys)
     }
 
@@ -81,7 +94,7 @@ function SocietyDues() {
                     <p id="userDashboardTitle">SOCIETY DUES</p>
                 </div>
                 <div>
-                    <p className="Remainingdues reveal">Remaining Dues - {user.length > 0 ? currency(user.at(0).Dues) : currency(0)}</p>
+                    <p className="Remainingdues reveal">Remaining Dues - {user.length > 0 ? currency(500) : currency(0)}</p>
                 </div>
                 <div className="duesDiv">
                     <div className="TableValues">
@@ -103,25 +116,25 @@ function SocietyDues() {
                             <div>
                                 <div className="paymentOptions">
                                 <span className="amount">
-                                    Total Payable Amount 
+                                    Total  
                                 </span>
                                 <span className="amount">
-                                    {currency(0)} 
+                                    {currency(total)} 
                                 </span>
                                 </div>
                                 <div className="paymentOptions">
                                 <span className="amount">
-                                    Penalty 
+                                    Interest 
                                 </span>
                                 <span className="amount">
-                                    {currency(0)} 
+                                    {currency(Penalty)} 
                                 </span>
                                 </div>
                             </div>
                             <hr style={{ width: "94%", marginLeft:"3%" ,height: "2px", backgroundColor: "gray" }}></hr>
                             <div className="Total" >
                                 <span className="amount">
-                                    Total Amount 
+                                    Total Payable Amount 
                                 </span>
                                 <span className="amount">
                                     {currency(Penalty + total)} 
