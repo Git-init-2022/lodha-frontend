@@ -31,6 +31,7 @@ import StaffManagement from './pages/StaffManagement/StaffManagement';
 import UserNotification from './pages/UserNotification/UserNotification';
 import SocietyDues from './pages/SocietyDues/SocietyDues';
 import NoAccessPage from './pages/NoAccessPage/NoAccessPage';
+import KeyCommunications from './pages/KeyCommunications/KeyCommunications';
 
 export default function App() {
 
@@ -45,7 +46,7 @@ export default function App() {
                     <Route path='/login' element={<LoginSignUp />} />
                     <Route path='/forgotpassword' element={<ForgotPassword />} />
                     <Route path='/updatepassword/:token' element={<UpdatePassword />} />
-                    <Route path='/NoAccess' element={<NoAccessPage Type="Forbidden" ErrorTitle="Access Forbidden" Status="403"/>} />
+                    <Route path='/NoAccess' element={<NoAccessPage Type="Forbidden" ErrorTitle="Access Forbidden" Status="403" />} />
                     <Route path="/Home"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<LoggedHome />}
                             isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
@@ -54,7 +55,7 @@ export default function App() {
                             isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
                     <Route path="/UserProfile"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<Profile />}
-                            isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))}  />} />
+                            isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
 
                     <Route path="/AllComplaints"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<AllComplaints />}
@@ -66,7 +67,7 @@ export default function App() {
 
                     <Route path="/Meeting"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<Meeting />}
-                            isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} /> 
+                            isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
                     <Route path="/Emergency"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<Emergency />}
                             isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
@@ -79,12 +80,15 @@ export default function App() {
                     <Route path="/KeyContacts"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<KeyContactsAndMails />}
                             isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
+                    <Route path="/KeyCommunications"
+                        element={<PrivateRoute redirectTo="/NoAccess" component={<KeyCommunications />}
+                            isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
                     <Route path="/Finance"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<FinanceAndAccount />}
                             isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
                     <Route path="/FM"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<FacilityManagement />}
-                            isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))}/>} />
+                            isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
                     <Route path="/HelpDesk"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<HelpDesk />}
                             isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
@@ -108,8 +112,8 @@ export default function App() {
                             isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
                     <Route path="/SocietyDues"
                         element={<PrivateRoute redirectTo="/NoAccess" component={<SocietyDues />}
-                            isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))}/>} />
-                    <Route path = "*" element={<NoAccessPage Status="404" ErrorTitle="Page Not Found" Type="Not found"/>} />
+                            isAuth={JSON.parse(localStorage.getItem("isAuthenticated"))} />} />
+                    <Route path="*" element={<NoAccessPage Status="404" ErrorTitle="Page Not Found" Type="Not found" />} />
 
                 </Routes>
             </Router>
