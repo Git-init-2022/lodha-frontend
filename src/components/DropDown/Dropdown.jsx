@@ -44,7 +44,7 @@ function Dropdown() {
             <Accordion.Body className='ExpandDropDown'>
               {/* <a href='/SocietyByLaws'>Society By-Laws</a>
               <a href='/ProcessDocs'>Process & Policy Documents </a> */}
-              <a href='/Communication'>Key Communication</a>
+              <a href='/KeyCommunications'>Key Communication</a>
               <a href='/PreviousYearsData'>Previous Years Data</a>
             </Accordion.Body>
           </Accordion.Item>
