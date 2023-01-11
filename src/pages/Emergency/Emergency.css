@@ -4,8 +4,15 @@
  font-family: 'Montserrat', sans-serif;
 }
 
-.title{
-    text-transform: uppercase;
+#HeaderTitle {
+  font-size: 37px;
+  font-weight: bolder;
+  padding-top: 20px;
+  margin: 0px !important;
+  letter-spacing: 2px;
+  padding-left: 5px;
+  text-align: center;
+  animation: fadeIn 1s;
 }
 
 .wrapper{

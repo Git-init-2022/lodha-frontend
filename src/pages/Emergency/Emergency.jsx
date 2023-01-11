@@ -15,7 +15,7 @@ function Emergency() {
       <div className="emergency">
         <div style={{ display: "flex", justifyContent: "center", marginTop: "90px" }}>
           <img src={emergency} style={{ height: "50px", width: "50px", marginTop: "20px", marginBottom: "50px" }}></img>
-          <p id="title">EMERGENCY SERVICES</p>
+          <p id="HeaderTitle">EMERGENCY SERVICES</p>
         </div>
         <div>
           <p style={{marginLeft:"30px", letterSpacing: "1px", fontSize: "40px",textDecorationLine:"underline", textDecorationColor:"#675A0e", textUnderlineOffset:"20px" }}> Emergency Services  </p>
