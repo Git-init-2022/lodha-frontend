@@ -226,7 +226,7 @@ const KeyContactsAndMails = () => {
       dataIndex: "Dues",
       key: "Dues",
       className: "TableColumns",
-      editable: false
+      editable: true
     },
     {
       title: 'operation',
@@ -250,7 +250,7 @@ const KeyContactsAndMails = () => {
           </span>
         ) : (
           <Typography.Link disabled={editingKey !== ''} onClick={() => edit(record)}>
-            Edit
+            <button className="btn btn-primary">Edit</button>
           </Typography.Link>
         );
       },

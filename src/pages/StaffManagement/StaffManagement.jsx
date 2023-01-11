@@ -160,7 +160,7 @@ const StaffManagement = () => {
           <div style={{ display: "flex", justifyContent: "center" }}>
             <img src={staff} style={{ height: "55px", width: "50px", marginBottom: "0px", }}></img>
           </div>
-          <span id="userDashboardTitle">STAFF MANAGEMENT</span>
+          <span id="HeaderTitle">STAFF MANAGEMENT</span>
         </div>
         <div className="AddStaffDiv">
           <span className="AddStaffNote">Want to add Staff?</span>
@@ -248,7 +248,7 @@ const StaffManagement = () => {
               <div className="sideLines" style={{ width: "250px", marginTop: "5px" }}></div>
             </div>
 
-            <span className="userDashboardTitle" style={{ marginLeft: "10px", color: "rgb(110, 97, 29)" }}>ADMINS</span>
+            <span id='StaffTitle' style={{ marginLeft: "10px", color: "rgb(110, 97, 29)" }}>ADMINS</span>
 
             <div className="linesright">
               <div className="sideLines" style={{ marginLeft: "10px", marginTop: "20px" }}></div>
@@ -345,7 +345,7 @@ const StaffManagement = () => {
               <div className="sideLines" style={{ width: "197px", marginTop: "5px" }}></div>
               <div className="sideLines" style={{ width: "200px", marginTop: "5px" }}></div>
             </div>
-            <span className="userDashboardTitle" style={{ marginLeft: "10px", color: "rgb(110, 97, 29)" }}>FACILITY MANAGEMENT</span>
+            <span id='StaffTitle' style={{ marginLeft: "10px", color: "rgb(110, 97, 29)" }}>FACILITY MANAGEMENT</span>
             <div className="linesright">
               <div className="sideLines" style={{ marginLeft: "10px", marginTop: "20px" }}></div>
               <div className="sideLines" style={{ marginLeft: "13px", marginTop: "5px" }}></div>
@@ -442,7 +442,7 @@ const StaffManagement = () => {
               <div className="sideLines" style={{ width: "197px", marginTop: "5px" }}></div>
               <div className="sideLines" style={{ width: "200px", marginTop: "5px" }}></div>
             </div>
-            <span className="userDashboardTitle" style={{ marginLeft: "10px", color: "rgb(110, 97, 29)" }}>FINANCE &amp; ACCOUNTS</span>
+            <span id='StaffTitle' style={{ marginLeft: "10px", color: "rgb(110, 97, 29)" }}>FINANCE &amp; ACCOUNTS</span>
             <div className="linesright">
               <div className="sideLines" style={{ marginLeft: "10px", marginTop: "20px" }}></div>
               <div className="sideLines" style={{ marginLeft: "13px", marginTop: "5px" }}></div>
@@ -538,7 +538,7 @@ const StaffManagement = () => {
               <div className="sideLines" style={{ width: "237px", marginTop: "5px" }}></div>
               <div className="sideLines" style={{ width: "240px", marginTop: "5px" }}></div>
             </div>
-            <span className="userDashboardTitle" style={{ marginLeft: "10px", color: "rgb(110, 97, 29)" }}>IT SUPPORT</span>
+            <span id='StaffTitle' style={{ marginLeft: "10px", color: "rgb(110, 97, 29)" }}>IT SUPPORT</span>
             <div className="linesright">
               <div className="sideLines" style={{ marginLeft: "10px", marginTop: "20px" }}></div>
               <div className="sideLines" style={{ marginLeft: "13px", marginTop: "5px" }}></div>

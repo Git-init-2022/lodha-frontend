@@ -74,8 +74,8 @@
 }
 
 .DeleteButton {
-  width: 45%;
-  margin-left: 10px;
+  width: 40%;
+  margin-right: 10%;
   color: black !important;
   background-color: whitesmoke !important;
   border: 3px solid black;
@@ -89,13 +89,12 @@
 }
 
 .editButton {
-  width: 45%;
+  width: 40%;
   color: black !important;
   background-color: whitesmoke !important;
   border: 3px solid black;
   margin-top: -30px;
 }
-
 
 .editButton:hover {
   color: white !important;
@@ -189,20 +188,14 @@
   justify-content: center;
 }
 
-.userDashboardTitle {
-  font-size: 50px;
+#HeaderTitle {
+  font-size: 37px;
   font-weight: bolder;
   margin: 0px !important;
   letter-spacing: 2px;
-
+  padding-left: 5px;
   text-align: center;
   animation: fadeIn 1s;
-}
-
-.userDashboardTitle:first-letter {
-  font-weight: bolder;
-  font-size: 52px;
-
 }
 
 
@@ -282,4 +275,13 @@
     justify-content: center;
   }
 
+}
+
+#StaffTitle {
+  font-size: 30px;
+  font-weight: bolder;
+  margin-top: 3px;
+  letter-spacing: 2px;
+  margin-left: 15px;
+  text-align: center;
 }
