@@ -4,21 +4,30 @@ import { setSourceMapRange } from "typescript";
 import './Profile.css';
 import LoginNavBar from '../../components/LoginNavBar/LoginNavBar'
 import { useGlobalContext } from "../../context/StateContext";
-import Spinner from "../../components/Spinner/Spinner"
+
 import camera from "../../assests/camera.png";
 import Edit from "../../assests/Edit.png";
-import update from "../../assests/update.png";
+import Update from "../../assests/update.png";
+import cancel from "../../assests/close.png";
+import success from "../../assests/success.png";
+import Modal from 'react-bootstrap/Modal';
 
+import { Popconfirm } from 'antd';
+import imgname from "../../assests/user.png"
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
 import { Web3Storage } from 'web3.storage';
+import Spinner from "../../components/Spinner/Spinner";
 export default function Profile() {
   const { User, setUser } = useGlobalContext();
   const [isVisible, setisVisible] = useState(true);
-  const [Loading, setLoading] = useState(false);
+  const [Loading, setLoading] = useState(true);
+  const [Editable, setEditable] = useState(true);
+  const [show, setShow] = useState(false);
   useEffect(() => {
     const fetchUsers = async () => {
       if (User !== null) {
         const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/singleUser", { params: { FlatNo: JSON.parse(User).FlatNo } });
+        setLoading(false);
         const user = data.user1;
         const user1 = {
           OwnerName: user[0].OwnerName,
@@ -41,42 +50,47 @@ export default function Profile() {
       fetchUsers();
     }
   }, [])
-  const update = async (e) => {
-    const FlatNo = e.target.FlatNo.value;
-    const ParkingSlot = e.target.ParkingSlot.value;
-    const Block = e.target.Block.value;
-    const Mobile = e.target.Mobile.value;
-    const Email = e.target.Email.value;
-    const OwnerName = e.target.OwnerName.value;
-    const RegisteredName = e.target.RegisteredName.value;
+  const update = async () => {
+    setShow(true);
 
-    const { data } = await axios.put("http:localhost:4000/api/v1/userupdate", {
+    
+    const FlatNo = document.getElementsByName("FlatNo").item(0).value;
+    const ParkingSlot = document.getElementsByName("ParkingSlot").item(0).value;
+    const Block = document.getElementsByName("Block").item(0).value;
+    const Mobile = document.getElementsByName("Mobile").item(0).value;
+    const Email = document.getElementsByName("Email").item(0).value;
+    const RegisteredName = document.getElementsByName("RegisteredName").item(0).value;
+    const OwnerName = JSON.parse(User).OwnerName;
+    const row = {
       OwnerName: OwnerName,
       RegisteredName: RegisteredName,
       Email: Email,
       Mobile: Mobile,
       ParkingSlot: ParkingSlot,
       FlatNo: FlatNo,
-      Block: Block
-    })
-    const user = data.user;
-    if (user.length > 0  && !user) {
-      navigate('/UserProfile');
-    }
-    else {
-      localStorage.getItem("User", JSON.stringify(user));
-      setUser(JSON.stringify(user));
+      Block: Block,
+      Role: JSON.parse(User).Role,
+      ImageName: JSON.parse(User).ImageName,
+      ImageToken: JSON.parse(User).ImageToken,
+      Dues: JSON.parse(User).Dues,
+
     }
 
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/userupdate", { params: { user: row, Admin: FlatNo } });
+    
+    setShow(false);
+    refreshPage();
+    
+    
+     
   }
 
   const change = () => {
     setisVisible(!isVisible);
   }
 
-  const UpdateSubmit = (e) => {
-    e.preventDefault();
-    update(e);
+  const UpdateSubmit = () => {
+    update();
   };
 
   const refreshPage = () => {
@@ -103,6 +117,11 @@ export default function Profile() {
 
   };
 
+  const changeInput = () => {
+    setEditable(false);
+
+  }
+
 
   return (
     <>
@@ -110,6 +129,8 @@ export default function Profile() {
       <div style={{ backgroundColor: "#f4f5f7", height: "1000px" }}>
         <section >
           <p id="userProfileTitle">USER PROFILE</p>
+
+
           {
             Loading ?
               <div className="Profilediv">
@@ -124,7 +145,7 @@ export default function Profile() {
                         <MDBCol md="4" className="gradient-custom text-center text-white profileLeftDiv"
                           style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem', display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", margin: "auto", }}>
 
-                          <MDBCardImage className="my-5 profileImage" src={JSON.parse(User).ImageToken !== undefined ? "https://" + JSON.parse(User).ImageToken + ".ipfs.w3s.link/" + JSON.parse(User).ImageName : "../../assests/user.png"}
+                          <MDBCardImage className="my-5 profileImage" src={JSON.parse(User).ImageToken !== undefined ? "https://" + JSON.parse(User).ImageToken + ".ipfs.w3s.link/" + JSON.parse(User).ImageName : imgname}
                             alt="Avatar" style={{ width: '150px', height: '150px' }} fluid />
                           <MDBTypography tag="h4" className="ProfileName">{JSON.parse(User).OwnerName}</MDBTypography>
                           <MDBTypography tag="h4" className="ProfileRole">{JSON.parse(User).Role}</MDBTypography>
@@ -153,42 +174,93 @@ export default function Profile() {
                         <MDBCol md="8">
                           <MDBCardBody className="p-4">
                             <MDBTypography tag="h5" className="ProfileHeader">Details</MDBTypography>
+                            <p style={{ textAlign: "center", letterSpacing: "1px", fontSize: "20px" }}>Click on Edit Button to edit your personal details  </p>
                             <hr className="mt-0 mb-4" />
                             <MDBRow className="pt-1">
                               <MDBCol size="6" className="mb-3" style={{ marginTop: "30px" }}>
                                 <MDBTypography tag="h6" className="InputHeader">Email</MDBTypography>
-                                <MDBCardText className="text-muted">{JSON.parse(User).Email}</MDBCardText>
+
+                                {
+                                  Editable ?
+                                    <MDBCardText className="text-muted">{JSON.parse(User).Email}</MDBCardText>
+                                    :
+                                    <input className="text-muted" defaultValue={JSON.parse(User).Email} type="text" name="Email"></input>
+                                }
                               </MDBCol>
                               <MDBCol size="6" className="mb-3" style={{ marginTop: "30px" }}>
                                 <MDBTypography tag="h6" className="InputHeader">Phone</MDBTypography>
-                                <MDBCardText className="text-muted">{JSON.parse(User).Mobile}</MDBCardText>
+                                {
+                                  Editable ?
+                                    <MDBCardText className="text-muted">{JSON.parse(User).Mobile}</MDBCardText>
+                                    :
+                                    <input className="text-muted" defaultValue={JSON.parse(User).Mobile} type="text" name="Mobile"></input>
+                                }
                               </MDBCol>
                               <MDBCol size="6" className="mb-3" style={{ marginTop: "30px" }}>
                                 <MDBTypography tag="h6" className="InputHeader">Block</MDBTypography>
-                                <MDBCardText className="text-muted">{JSON.parse(User).Block}</MDBCardText>
+                                {
+                                  Editable ?
+                                    <MDBCardText className="text-muted">{JSON.parse(User).Block}</MDBCardText>
+                                    :
+                                    <input className="text-muted" defaultValue={JSON.parse(User).Block} type="text" name="Block"></input>
+                                }
                               </MDBCol>
                               <MDBCol size="6" className="mb-3" style={{ marginTop: "30px" }}>
                                 <MDBTypography tag="h6" className="InputHeader">Flat No.</MDBTypography>
-                                <MDBCardText className="text-muted">{JSON.parse(User).FlatNo}</MDBCardText>
+                                {
+                                  Editable ?
+                                    <MDBCardText className="text-muted">{JSON.parse(User).FlatNo}</MDBCardText>
+                                    :
+                                    <input className="text-muted" defaultValue={JSON.parse(User).FlatNo} type="text" name="FlatNo"></input>
+                                }
                               </MDBCol>
                               <MDBCol size="6" className="mb-3" style={{ marginTop: "30px" }}>
                                 <MDBTypography tag="h6" className="InputHeader">Property Registered Name</MDBTypography>
-                                <MDBCardText className="text-muted">{JSON.parse(User).RegisteredName}</MDBCardText>
+                                {
+                                  Editable ?
+                                    <MDBCardText className="text-muted">{JSON.parse(User).RegisteredName}</MDBCardText>
+                                    :
+                                    <input className="text-muted" defaultValue={JSON.parse(User).RegisteredName} type="text" name="RegisteredName"></input>
+                                }
                               </MDBCol>
                               <MDBCol size="6" className="mb-3" style={{ marginTop: "30px" }}>
                                 <MDBTypography tag="h6" className="InputHeader">Parking slot</MDBTypography>
-                                <MDBCardText className="text-muted">{JSON.parse(User).ParkingSlot}</MDBCardText>
+                                {
+                                  Editable ?
+                                    <MDBCardText className="text-muted">{JSON.parse(User).ParkingSlot}</MDBCardText>
+                                    :
+                                    <input className="text-muted" defaultValue={JSON.parse(User).ParkingSlot} type="text" name="ParkingSlot"></input>
+                                }
                               </MDBCol>
-                              <div style={{ display: "flex", justifyContent: "space-between" }}>
-                                <button className="btn btn-primary editProfileButton">
-                                  <img src={Edit} height="15px" width="15px" style={{ marginRight: "10px" }}></img>
-                                  Edit
-                                </button>
-                                <button className="btn btn-primary editProfileButton">
-                                  <img src={update} height="15px" width="15px" style={{ marginRight: "10px" }}></img>
-                                  Update
-                                </button>
+
+                              <div >
+                                {
+                                  Editable ?
+                                    <button className="btn btn-primary editProfileButton" onClick={() => changeInput()}>
+                                      <img src={Edit} height="15px" width="15px" style={{ marginRight: "10px" }}></img>
+                                      Edit
+                                    </button>
+                                    :
+
+                                    <div style={{ display: "flex", justifyContent: "space-between" }}>
+                                      <button className="btn btn-danger editProfileButton" onClick={() => setEditable(true)}>
+                                        <img src={cancel} height="15px" width="15px" style={{ marginRight: "10px" }}></img>
+
+                                        Cancel</button>
+                                      <Popconfirm
+                                        title="Clicking ok button will edit the complaint details "
+                                        onConfirm={() => UpdateSubmit()}
+                                      >
+                                        <button className="btn btn-primary editProfileButton">
+                                          <img src={Update} height="15px" width="15px" style={{ marginRight: "10px" }} ></img>
+                                          Update
+                                        </button>
+                                      </Popconfirm>
+                                    </div>
+                                }
                               </div>
+
+
                             </MDBRow>
 
                           </MDBCardBody>
@@ -200,6 +272,17 @@ export default function Profile() {
               </MDBContainer>
           }
         </section>
+        <Modal show={show}>
+          <Modal.Header >
+
+          </Modal.Header>
+          <Modal.Body style={{ display: "flex", justifyContent: "center" }}>
+            <span style={{ fontSize: "30px", letterSpacing: "1px", marginLeft: "20px" }}>Please wait until the update is successful</span>
+
+
+          </Modal.Body>
+          <Spinner />
+        </Modal>
       </div>
     </>
   );

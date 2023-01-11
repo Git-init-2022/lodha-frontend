@@ -104,7 +104,7 @@ const KeyContactsAndMails = () => {
     try {
       const row = await form.validateFields()
       setEditingKey("")
-      handleSave({...record, ...row})
+      handleSave({ ...record, ...row })
     } catch (errInfo) {
       console.log("Validate Failed:", errInfo)
     }
@@ -158,9 +158,9 @@ const KeyContactsAndMails = () => {
     const users = data.users
     return users
   }
-  
-  const deleteUser = async(key)=> {
-    const {data} = await axios.get("https://lodha-backend.onrender.com/api/v1/userdelete", {params: {FlatNo: key, Admin: JSON.parse(localStorage.getItem("User")).FlatNo }});
+
+  const deleteUser = async (key) => {
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/userdelete", { params: { FlatNo: key, Admin: JSON.parse(localStorage.getItem("User")).FlatNo } });
     refreshPage();
   }
 
@@ -236,16 +236,16 @@ const KeyContactsAndMails = () => {
         return editable ? (
           <span>
             <Popconfirm title="click ok to save your changes" onConfirm={() => save(record)}>
-            <Typography.Link
-              style={{ marginRight: 8 }}
-            >
-              Save
-            </Typography.Link>
+              <Typography.Link
+                style={{ marginRight: 8 }}
+              >
+                Save
+              </Typography.Link>
             </Popconfirm>
             <Popconfirm title="Sure to cancel?" onConfirm={cancel}>
-            <Typography.Link>
-              Cancel
-            </Typography.Link>
+              <Typography.Link>
+                Cancel
+              </Typography.Link>
             </Popconfirm>
           </span>
         ) : (
@@ -271,8 +271,8 @@ const KeyContactsAndMails = () => {
     }
   ]
 
-  const updateUser = async(row)=> {
-    const {data} = await axios.get("https://lodha-backend.onrender.com/api/v1/userupdate", {params: {user: row, Admin: JSON.parse(localStorage.getItem("User")).FlatNo}});
+  const updateUser = async (row) => {
+    const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/userupdate", { params: { user: row, Admin: JSON.parse(localStorage.getItem("User")).FlatNo } });
     refreshPage();
   }
 
@@ -319,9 +319,10 @@ const KeyContactsAndMails = () => {
       <LoginNavBar />
       <div className="KeyContactDiv">
         <div style={{ display: "flex", justifyContent: "center", }}>
-          <img src={contact} style={{ height: "50px", width: "50px", marginTop: "20px", marginBottom: "30px", marginRight: "-10px" }}></img>
-          <p id="title">KEY CONTACTS AND MAILS</p>
+          <img src={contact} style={{ height: "70px", width: "70px", marginTop: "5px", marginBottom: "30px" }}></img>
+          <p id="userDashboardTitle" >KEY CONTACTS AND MAILS</p>
         </div>
+        <p style={{ textAlign: "center", letterSpacing: "1px", fontSize: "20px" }}>Owner Details can be Edited  and Deleted here. </p>
 
         <div className="Note">
           <p className="NoteTitle">NOTE</p>

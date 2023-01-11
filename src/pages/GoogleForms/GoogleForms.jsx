@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import LoginNavBar from '../../components/LoginNavBar/LoginNavBar'
 import axios from "axios";
+import Spinner from "../../components/Spinner/Spinner"
 import { useGlobalContext } from '../../context/StateContext';
 
 function GoogleForms() {
@@ -13,11 +14,12 @@ function GoogleForms() {
     const [DescVar, setDescVar] = useState('');
     const [LinkVar, setLinkVar] = useState('');
     const [idvalue, setidvalue] = useState('');
-
+    const [loading, setLoading] = useState(true); 
     const { User } = useGlobalContext();
     const [isAdmin, setisAdmin] = useState(JSON.parse(User).Role === '440f3041c89adee0f2ad780704bcc0efae1bdb30f8d77dc455a2f6c823b87ca0');
     const fetchForms = async () => {
         const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/AllForms");
+        setLoading(false);
         setGoogleForms(data.forms);
     }
     useEffect(() => {
@@ -77,6 +79,15 @@ function GoogleForms() {
                 }
                 <hr style={{ height: "1", backgroundColor: "black", width: "94%", marginLeft: "3%" }}></hr>
                 {
+                   loading ? 
+                   <Spinner /> 
+                   :
+                    googleForms.length === 0?
+                    
+                        <>
+                           <p style={{fontSize:"16px", letterSpacing:"1px", textAlign:"center"}}>No Announcements !</p>
+                        </>
+                    :
                     googleForms.map((item) => (
                         <>
                             <Button variant="primary" onClick={() => handleShow(item.Title, item.Description, item.Link, item._id)} className="modalButton">

@@ -13,12 +13,14 @@ import excel from '../../assests/excel.png';
 import ppt from '../../assests/ppt.png';
 import legalUpdate from '../../assests/legalUpdate.png';
 import { ExceptionOutlined, FilePdfFilled } from "@ant-design/icons";
+import Spinner from "../../components/Spinner/Spinner";
 
 
 
 function BasicExample() {
 
   const [Documents, setDocuments] = useState([]);
+  const [loading, setLoading] = useState(true);
   let Type = "all";
 
   const types = {
@@ -29,6 +31,7 @@ function BasicExample() {
 
   const fetchDocuments = async () => {
     const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/getDocumentsByType", { params: { Type: Type } });
+    setLoading(false);
     setDocuments(data.documents);
   }
 
@@ -49,7 +52,7 @@ function BasicExample() {
     for (let index = i + 1; index < item.length; index++) {
       x += item[index]
     }
-    if(x === 'png' || x==='jpg' || x==='gif' || x==='jpeg'){
+    if (x === 'png' || x === 'jpg' || x === 'gif' || x === 'jpeg') {
       return image;
     }
     if (x === 'docx' || x === 'doc') {
@@ -68,13 +71,13 @@ function BasicExample() {
   }
 
   const getimagesource = (type) => {
-    if(type==='legal'){
+    if (type === 'legal') {
       return legalUpdate;
     }
-    if(Type==='bank'){
-      
+    if (Type === 'bank') {
+
     }
-    if(Type === 'audit'){
+    if (Type === 'audit') {
 
     }
   }
@@ -111,34 +114,39 @@ function BasicExample() {
         </select>
         <div className="DocumentsDiv">
           {
-            Documents.length ?
-              Documents.map((item) => {
-                return (
-                  <Card className="DocumentCard">
-                    <Card.Title >
-                    <img  height="100px" width="100px" style={{marginTop:"10px"}} src={getimagesource(item.Type)} ></img>
-                    </Card.Title>
-                    
-                    <Card.Body>
-                      <p style={{ letterSpacing: "1px", fontSize: "20px", textDecorationLine:"underline", textUnderlineOffset:"10px", textDecorationColor:"gray"}}>{types[String(item.Type)]}</p>
-                      <div className="DisplayDiv">
-                        <div style={{display:"flex", justifyContent:"space-evenly"}}>
-                          <img src={getSourceimg(item.Name)} height="25px" width="25px"></img>
-                          <Card.Title style={{ letterSpacing: "0.5px", fontSize: "16px" , marginLeft:"10px"}}>{item.Name}</Card.Title>
-                        </div>
-                        <span>{getFormattedDate(item.UploadDate)}</span>
-                      </div>
-                      <Card.Text>
-
-                      </Card.Text>
-                      <Button variant="primary" target="blank" href={"https://" + item.Hash + ".ipfs.w3s.link/" + item.Name} className="viewDocumentButton">
-                        <img src={document} height="20px" width = "20px" style={{marginRight:"10px"}}></img>View Document</Button>
-                    </Card.Body>
-                  </Card>
-                );
-              })
+            loading ?
+              <div>
+                <Spinner />
+              </div>
               :
-              <p style={{ letterSpacing: "1px", fontSize: "20px", marginLeft: "20px", color: "rgb(83, 74, 26)", textAlign: "center", marginTop: "20px", }}>No Documents :(</p>
+              Documents.length ?
+                Documents.map((item) => {
+                  return (
+                    <Card className="DocumentCard">
+                      <Card.Title >
+                        <img height="100px" width="100px" style={{ marginTop: "10px" }} src={getimagesource(item.Type)} ></img>
+                      </Card.Title>
+
+                      <Card.Body>
+                        <p style={{ letterSpacing: "1px", fontSize: "20px", textDecorationLine: "underline", textUnderlineOffset: "10px", textDecorationColor: "gray" }}>{types[String(item.Type)]}</p>
+                        <div className="DisplayDiv">
+                          <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+                            <img src={getSourceimg(item.Name)} height="25px" width="25px"></img>
+                            <Card.Title style={{ letterSpacing: "0.5px", fontSize: "16px", marginLeft: "10px" }}>{item.Name}</Card.Title>
+                          </div>
+                          <span>{getFormattedDate(item.UploadDate)}</span>
+                        </div>
+                        <Card.Text>
+
+                        </Card.Text>
+                        <Button variant="primary" target="blank" href={"https://" + item.Hash + ".ipfs.w3s.link/" + item.Name} className="viewDocumentButton">
+                          <img src={document} height="20px" width="20px" style={{ marginRight: "10px" }}></img>View Document</Button>
+                      </Card.Body>
+                    </Card>
+                  );
+                })
+                :
+                <p style={{ letterSpacing: "1px", fontSize: "20px", marginLeft: "20px", color: "rgb(83, 74, 26)", textAlign: "center", marginTop: "20px", }}>No Documents !</p>
           }
         </div>
       </div>
