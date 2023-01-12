@@ -50,9 +50,8 @@ function Meeting() {
       <LoginNavBar />
       <div style={{ display: "flex", justifyContent:"center", marginTop: "80px"}}>
             <img src={meeting} style={{ height: "50px", width: "50px", marginTop : "19px", marginBottom: "-20px", marginRight: "-8px"}}></img>
-            <p id="title">SET-UP A MEETING</p>
+            <p id="meettitle">SET-UP A MEETING</p>
       </div>
-      {/* <p id="title">FINANCE AND MANAGEMENT</p> */}
       {
         DuplicateMeeting > 0 ? DuplicateMeeting === 2 ? <Alert message="Error" type="error" description="Meeting Details Already Exists! Please try again" showIcon closable style={{ marginBottom: "20px", marginTop: "20px", width: "60%", letterSpacing: "2px", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", marginLeft: "20%" }} />
           :
