@@ -37,6 +37,7 @@
     margin-left: 15px;
     text-align: center;
     animation: fadeIn 1s;
+    margin-top: -10px;
 }
 
 @keyframes fadeIn {

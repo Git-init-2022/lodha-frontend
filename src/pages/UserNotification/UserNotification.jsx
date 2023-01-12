@@ -107,7 +107,7 @@ function UserNotification() {
                         <Badge count={count} style={{ marginTop: "30px" }}>
                             <Avatar shape="circle" size="large" icon={<BellFilled />} style={{ color: "#675A0E", backgroundColor: "#F5F5F5", marginTop: "20px" }} />
                         </Badge>
-                        <p id="title" style={{ color: "#675A0E", marginBottom: "0px" }}>NOTIFICATIONS</p>
+                        <p id="meettitle" style={{ color: "#675A0E", marginBottom: "0px" }}>NOTIFICATIONS</p>
                     </div>
                     <hr></hr>
                     <div className="alertDiv" style={{ width: "100%", display: "grid", gridTemplateColumns: "auto ", rowGap: "20px", padding: "20px" }} >
