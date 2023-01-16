@@ -64,7 +64,6 @@ const LoginSignUp = () => {
       setIsAuthenticated(true);
       localStorage.setItem("User", JSON.stringify(user));
       localStorage.setItem("isAuthenticated", true);
-      navigate('/UserDashboard');
       
     } catch (error) {
       setLoading(false);
@@ -73,7 +72,7 @@ const LoginSignUp = () => {
       setValidCredentials(false);
       return;
     }
-      
+    navigate('/UserDashboard');
     
   }
 
