@@ -9,10 +9,11 @@ import forgotPassword from "../../assests/forgotPassword.png";
 import { Alert } from "antd";
 
 const ForgotPassword = () => {
-  const { loading, setLoading } = useState(false);
+  const [ loading, setLoading ] = useState(false);
   const [successful, setSuccessful] = useState(0);
   const forgot = async (email, flatnum) => {
     const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/forgotpassword", { params: { FlatNo: flatnum, Email: email } });
+    setLoading(false);
     if (data.success === true) {
       setSuccessful(2);
     }
@@ -21,7 +22,10 @@ const ForgotPassword = () => {
     }
   }
   const forgotPasswordSubmit = (e) => {
-    setLoading(false);
+    
+    e.preventDefault();
+   
+    setLoading(true);
     const email = e.target.Email.value;
     const flatnum = e.target.FlatNo.value;
     forgot(email, flatnum);
@@ -48,7 +52,7 @@ const ForgotPassword = () => {
               message="Error"
               style={{ marginBottom: "20px", marginTop: "20px", width: "60%", letterSpacing: "2px", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", marginLeft: "20%" }}
             /> :
-              <Alert message="Success" type="success" description="Mail Sent Successfully, Please check your mail to reset password." showIcon closable style={{ marginBottom: "20px", marginTop: "20px", width: "60%", letterSpacing: "2px", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", marginLeft: "20%" }} /> : <></>
+              <Alert message="Success" type="success" description="Mail Sent Successfully, Please check your mail to reset password." showIcon closable style={{ marginBottom: "20px", marginTop: "100px", width: "60%", letterSpacing: "2px", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", marginLeft: "20%" }} /> : <></>
           }
           <div className="forgotPasswordContainer">
             <div className="forgotPasswordBox">
@@ -57,7 +61,7 @@ const ForgotPassword = () => {
                 <h2 className="forgotPasswordHeading">Forgot Password</h2>
               </div>
               <hr style={{ width: "90%", height: "2px", backgroundColor: "black", color: "black", marginLeft: "5%" }}></hr>
-              <form className="forgotPasswordForm" onSubmit={forgotPasswordSubmit} >
+              <form className="forgotPasswordForm"  onSubmit={forgotPasswordSubmit}>
                 <div className="forgotPasswordEmail">
                   <div>
                     <label className="ForgotPasswordLabel">Email</label><br></br>
@@ -80,7 +84,7 @@ const ForgotPassword = () => {
                     />
                   </div>
                 </div>
-                <button type="submit" className="forgotPasswordButton">Reset Password</button>
+                <button type="submit" className="forgotPasswordButton" >Reset Password</button>
               </form>
             </div>
           </div>

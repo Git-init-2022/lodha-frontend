@@ -24,6 +24,8 @@ import 'antd/dist/antd.css';
 import { Alert } from 'antd';
 import user from "../../assests/user.png";
 import password from "../../assests/password.png";
+import hide from "../../assests/hide.png";
+
 import lodha11 from '../../assests/lodha11.webp';
 
 
@@ -59,21 +61,32 @@ const LoginSignUp = () => {
       let {data} = await axios.post("https://lodha-backend.onrender.com/api/v1/login", {
         FlatNo: loginFlatNo, Password: loginPassword
       });
+      if(data.success === true){
       const user = data.user;
       setUser(JSON.stringify(user));
       setIsAuthenticated(true);
       localStorage.setItem("User", JSON.stringify(user));
       localStorage.setItem("isAuthenticated", true);
       navigate('/UserDashboard');
-      
-    } catch (error) {
+      }
+      else{ 
+        console.log("hello");
       setLoading(false);
       setFalseCredentials(true);
       setInvalidCredentials(false);
       setValidCredentials(false);
-      return;
+      
+      }
+    } catch (error) {
+      console.log("hello");
+      setLoading(false);
+      setFalseCredentials(true);
+      setInvalidCredentials(false);
+      setValidCredentials(false);
+      
     }
       
+    
     
   }
 
@@ -332,7 +345,7 @@ const LoginSignUp = () => {
                           </div>
                           <div style={{ display: "flex", justifyContent: "space-between" }}>
                             <p className="Label">PASSWORD</p>
-                            <img src={password} onClick={(e) => ShowPassword(e)} style={{ height: "20px", width: "20px", marginRight: "10%", marginTop: "10px" }}></img>
+                            <img src={!Curr ? password : hide} onClick={(e) => ShowPassword(e)} style={{ height: "20px", width: "20px", marginRight: "10%", marginTop: "10px" }}></img>
                           </div>
                           <MDBInput wrapperClass='mb-4' placeholder='Password' className='form1' id='pass' name="Password" type={Curr ? 'text' : 'password'} required />
 
