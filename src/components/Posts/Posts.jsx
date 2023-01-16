@@ -30,9 +30,11 @@ import {
 import { useGlobalContext } from '../../context/StateContext';
 import axios from 'axios';
 import { useState } from 'react';
+import Spinner from '../Spinner/Spinner';
 
 function Posts({ props }) {
   const [isVisible, setIsVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
   let timeStamp = Date.parse(props.Time);
   var date = new Date(timeStamp);
   var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
@@ -46,13 +48,19 @@ function Posts({ props }) {
     window.location.reload();
   }
 
+  const createNotification = async (FlatNo, subject, message) => {
+    const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/postNotification", { FlatNo: FlatNo, NotificationTitle: subject, NotificationDesc: message });
+  }
+  
   const updateComplaint = async () => {
     const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/updatecomplaint", { params: { complaint: props } });
+    setLoading(false);
     refreshPage();
   }
 
   const UpdateDescription = (e) => {
     e.preventDefault();
+    setLoading(true);
     const desc = document.getElementById((props._id).toString()).innerText;
     props.Description = desc;
     updateComplaint();
@@ -90,7 +98,7 @@ function Posts({ props }) {
         <Card.Header className="PostTitle">
           <div className='PostHeader'>
             <div>
-              <label className='PostHeading'>Complaint Type</label>
+              <label className='PostHeading'>Complaint Type </label>
               <span className='PostsIssue'> {props.Issue}</span>
             </div>
             <div>
@@ -117,7 +125,7 @@ function Posts({ props }) {
               <div className='complaintsDescDocuments'>
                 <div className="ComplaintDocumentDiv">
                   <p className='DescriptionTitle'>DESCRIPTION</p>
-                  <div contentEditable style={{ width: "100%" }} id={props._id}>{props.Description}</div>
+                  <div contentEditable style={{ width: "100%", letterSpacing:"1px" }} id={props._id}>{props.Description}</div>
                 </div>
                 <div className="ComplaintDocumentDiv" style={{ width: "50%" }}>
                   <p className='DescriptionTitle'>DOCUMENTS</p>
@@ -139,12 +147,12 @@ function Posts({ props }) {
 
                                       <div>
                                         <img src={"https://" + props.FileHashes + ".ipfs.w3s.link/" + item} width="150px" height="150px"></img>
-                                        <p style={{ marginLeft: "10px" }}> {item}</p>
+                                        <p style={{ marginLeft: "10px", letterSpacing:"1px" }}> {item}</p>
                                       </div>
                                       :
                                       <div style={{ display: "flex", }}>
                                         <img src={getSourceimg(item)} width="50px" height="50px"></img>
-                                        <p style={{ marginLeft: "10px" }}> {item}</p>
+                                        <p style={{ marginLeft: "10px", letterSpacing:"1px" }}> {item}</p>
                                       </div>
                                   }
 
@@ -158,7 +166,7 @@ function Posts({ props }) {
                         }
                       </div>
                       :
-                      <p>
+                      <p style={{letterSpacing:"1px"}}>
                         No Documents!
                       </p>
                   }
@@ -194,7 +202,9 @@ function Posts({ props }) {
                     </p>
                     :
                     <p className='CommentHeader' onClick={() => setIsVisible(true)}>
-                      <img src={comment} height="20px" width="20px"></img> View Comments
+                      <img src={comment} height="20px" width="20px"></img> Comments {
+                         props.Comments !== undefined && props.Comments.length > 0 ? "(1)" : "(0)"
+                      }
                     </p>
                 }
               </div>
@@ -204,10 +214,10 @@ function Posts({ props }) {
                     <p className='DescriptionTitle'> COMMENTS </p>
                     {
                       props.Comments !== undefined && props.Comments.length > 0 ?
-                        <div style={{ width: "100%" }} >{props.Comments}</div>
+                        <div style={{ letterSpacing:"1px",width: "100%" }} >{props.Comments}</div>
                         :
                         <>
-                          <p>No comments!</p>
+                          <p style={{letterSpacing:"1px"}}>No comments!</p>
                         </>
                     }
 
@@ -215,7 +225,9 @@ function Posts({ props }) {
                   :
                   <></>
               }
-
+              {
+                loading && <Spinner />
+              }
               <div style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
                 <Popconfirm
                   title="Clicking ok button will edit the complaint details "

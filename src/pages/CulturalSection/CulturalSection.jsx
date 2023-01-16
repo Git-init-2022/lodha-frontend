@@ -5,18 +5,36 @@ import './CulturalSection.css';
 import LoginNavBar from '../../components/LoginNavBar/LoginNavBar';
 import { useGlobalContext } from '../../context/StateContext';
 import activities from "../../assests/activities.png";
+import Spinner from "../../components/Spinner/Spinner";
+import { Web3Storage } from "web3.storage";
 
 function CulturalSection() {
-    const { User, setLoading, loading } = useGlobalContext();
+    const { User} = useGlobalContext();
+    const [Loading, setLoading] = useState(false);
+
     const [DuplicateNotification, setDuplicateNotification] = useState(0);
 
     const PostCulturalSection = async (Title, Description) => {
         setLoading(true);
+        
+        const client = new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDcxOTdiN2M2OGFEMTNhNzREMGIzMGQ3OTI4OTNGMDc4MWQxZjE4M2QiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzAxNjM1MTczNDIsIm5hbWUiOiJsb2RoYS1maWxlcyJ9.rmkUCge8MPPj5TC6i8Z5lVAjIevCSVni0gpu-_jUzlI" });
+        const files = document.getElementsByName("CulturalActivityFiles").item(0).files;
+        
+        const cid = await client.put(files);
+        const temp = []
+        for(let file of files){
+            temp.push(file.name);
+        }
+       
         const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/notification/new", {
             Title: Title,
             Description: Description, 
-            PostedDate: new Date()
+            PostedDate: new Date(),
+            FileHashes: cid,
+            FileObjects: temp
         });
+        console.log("done");
+        setLoading(false);
         if (data.success === false) {
             setDuplicateNotification(2);
         }
@@ -44,9 +62,12 @@ function CulturalSection() {
                     <p id="title2">CULTURAL ACTIVITIES</p>
                 </div>
                 {
+                    Loading && <Spinner />
+                }
+                {
                     DuplicateNotification > 0 ? DuplicateNotification===2? <Alert message="Error" type="error" description="Cultural Activity Details Already Exists! Please try again" showIcon closable style={{ marginBottom: "20px",marginTop:"20px", width:"60%",letterSpacing:"2px", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", marginLeft:"20%" }} />
                     :
-                    <Alert message="Success" type="success" description="Cultural Acitivity Details Posted Successfully!" showIcon closable style={{ marginBottom: "20px",marginTop:"20px", width:"60%", letterSpacing:"2px", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", marginLeft:"20%" }} /> : <></>
+                    <Alert message="Success" type="success" description="Cultural Activity Details Posted Successfully!" showIcon closable style={{ marginBottom: "20px",marginTop:"20px", width:"60%", letterSpacing:"2px", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", marginLeft:"20%" }} /> : <></>
                 }
                 <div class="container" >
                     <div class="row mx-0 justify-content-center">
@@ -71,7 +92,7 @@ function CulturalSection() {
                                     <label class="d-block mb-2 head">Related Files</label>
                                     <p style={{ fontSize: "14px" }}>(.xlsx, .xls, images, .doc, .docx, .pdf are only accepted)</p>
                                     <div class="form-control h-auto temp">
-                                        <input name="receipt" type="file" class="form-control-file" multiple accept=".xlsx,.xls,image/*,.doc, .docx,.pdf" />
+                                        <input name="CulturalActivityFiles" type="file" class="form-control-file" multiple accept=".xlsx,.xls,image/*,.doc, .docx,.pdf" />
                                     </div>
                                 </div>
 

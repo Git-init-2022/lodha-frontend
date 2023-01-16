@@ -29,7 +29,7 @@ function Notifications() {
   const [finished, setFinished] = useState(false);
   let colorArray = ['rgb(106, 101, 73)', '#b8860b', '#a28557', 'rgb(181, 173, 127)', '#675A0E'];
   const { User } = useGlobalContext();
-  const [isAdmin, setisAdmin] = useState(JSON.parse(User).Role === '440f3041c89adee0f2ad780704bcc0efae1bdb30f8d77dc455a2f6c823b87ca0');
+  const [isAdmin, setisAdmin] = useState(JSON.parse(User).Role === '8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918');
   const fetchMeetings = async () => {
     const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/AllMeetings");
     setLoading(false);

@@ -226,7 +226,7 @@ const KeyContactsAndMails = () => {
       dataIndex: "Dues",
       key: "Dues",
       className: "TableColumns",
-      editable: true
+      
     },
     {
       title: 'operation',
@@ -271,8 +271,16 @@ const KeyContactsAndMails = () => {
     }
   ]
 
+  const createNotification = async (FlatNo, subject, message) => {
+    const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/postNotification", { FlatNo: FlatNo, NotificationTitle: subject, NotificationDesc: message });
+  }
+
   const updateUser = async (row) => {
     const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/userupdate", { params: { user: row, Admin: JSON.parse(localStorage.getItem("User")).FlatNo } });
+    const message = data.message; 
+    if(message !== ''){
+      createNotification(row.FlatNo, data.subject, data.message);
+    }
     refreshPage();
   }
 

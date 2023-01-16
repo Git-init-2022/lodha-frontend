@@ -55,23 +55,26 @@ const LoginSignUp = () => {
 
   const login = async (loginFlatNo, loginPassword) => {
     setLoading(true);
-    const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/login", {
-      FlatNo: loginFlatNo, Password: loginPassword
-    });
-    const user = data.user;
-    setLoading(false);
-    if (!user || user.length == 0) {
-      setFalseCredentials(true);
-      setInvalidCredentials(false);
-      setValidCredentials(false);
-    }
-    else {
+    try {
+      let {data} = await axios.post("https://lodha-backend.onrender.com/api/v1/login", {
+        FlatNo: loginFlatNo, Password: loginPassword
+      });
+      const user = data.user;
       setUser(JSON.stringify(user));
       setIsAuthenticated(true);
       localStorage.setItem("User", JSON.stringify(user));
       localStorage.setItem("isAuthenticated", true);
       navigate('/UserDashboard');
+      
+    } catch (error) {
+      setLoading(false);
+      setFalseCredentials(true);
+      setInvalidCredentials(false);
+      setValidCredentials(false);
+      return;
     }
+      
+    
   }
 
   const register = async (OwnerName, RegisteredName, FlatNo, Password, Email, Mobile, ParkingSlot, Block) => {
@@ -89,7 +92,7 @@ const LoginSignUp = () => {
 
     setLoading(false);
     if (data.success === false) {
-      
+
       setValidCredentials(false);
       setInvalidCredentials(true);
       setIsEmpty(true);
@@ -165,7 +168,7 @@ const LoginSignUp = () => {
     return false;
   }
   const validate = (value, len) => {
-   
+
     if (len > 0) {
       setIsEmpty(false);
     }
@@ -188,50 +191,50 @@ const LoginSignUp = () => {
     let upperchars = "ABCEDFGHIJKLMNOPQRSTUVWXYZ";
     let digits = "0123456789";
 
-    var specials = 0; 
+    var specials = 0;
     var lowers = 0;
-    var uppers = 0; 
+    var uppers = 0;
     var digit = 0;
     for (let x of value) {
       if (spChars.indexOf(x) >= 0) {
         specials++;
       }
-      else if(lowerchars.indexOf(x) >= 0){
+      else if (lowerchars.indexOf(x) >= 0) {
         lowers++;
-      } 
-      else if(upperchars.indexOf(x) >= 0){
+      }
+      else if (upperchars.indexOf(x) >= 0) {
         uppers++;
       }
-      else if(digits.indexOf(x)){
+      else if (digits.indexOf(x)) {
         digit++;
       }
-      
+
     }
-    if(specials > 0){
-      setAtleastspecial(true); 
+    if (specials > 0) {
+      setAtleastspecial(true);
     }
     else {
       setAtleastspecial(false);
-    } 
+    }
 
-    if(lowers > 0){
-      setAtleastLower(true); 
-    } 
-    else{
+    if (lowers > 0) {
+      setAtleastLower(true);
+    }
+    else {
       setAtleastLower(false);
-    } 
+    }
 
-    if(uppers > 0){
+    if (uppers > 0) {
       setAtleastUpper(true);
-    } 
-    else{
+    }
+    else {
       setAtleastUpper(false);
     }
 
-    if(digit > 0){
+    if (digit > 0) {
       setAtleastdigit(true);
-    } 
-    else{
+    }
+    else {
       setAtleastdigit(false);
     }
 
@@ -286,7 +289,7 @@ const LoginSignUp = () => {
         <Fragment>
           <NavBar />
           <div style={{ marginTop: "100px" }}>
-            
+
             <div className="container">
               <div style={{ marginBottom: "60px" }} className="container">
                 <div className="login_signUp_toggle">
@@ -392,8 +395,8 @@ const LoginSignUp = () => {
                               (isEmpty) ? <></> : (isStrong) ? <p style={{ color: "green", letterSpacing: "1.5px", }}>Strong Password</p> : <p style={{ color: "red", letterSpacing: "1.5px" }}>Weak Password</p>
                             }
 
-                            <ul style={{ width: "80%", textAlign: "left", marginLeft: "10%", fontSize: "14px", backgroundColor: "#FFFEF6",  }}>
-                              <p style={{fontSize:"16px", letterSpacing:"1px"}}>Password must contain</p>
+                            <ul style={{ width: "80%", textAlign: "left", marginLeft: "10%", fontSize: "14px", backgroundColor: "#FFFEF6", }}>
+                              <p style={{ fontSize: "16px", letterSpacing: "1px" }}>Password must contain</p>
                               <li className={AtleastEight ? "Green" : "Red"}>alteast 8 characters</li>
                               <li className={Atleastdigit ? "Green" : "Red"}>atleast One digit</li>
                               <li className={Atleastspecial ? "Green" : "Red"}>atleast One Special Character(!,@,#,$,%,^,&,*)</li>

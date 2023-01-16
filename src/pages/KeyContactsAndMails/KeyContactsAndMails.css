@@ -90,5 +90,6 @@
 .TableColumns{
   width:fit-content;
   padding: 20px !important;
-  margin:0px
+  margin:0px;
+  letter-spacing: 1px;
 }

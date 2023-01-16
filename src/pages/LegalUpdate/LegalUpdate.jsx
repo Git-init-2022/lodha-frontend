@@ -6,10 +6,12 @@ import './LegalUpdate.css';
 import LoginNavBar from '../../components/LoginNavBar/LoginNavBar';
 import legal from "../../assests/legal.png";
 import { useGlobalContext } from '../../context/StateContext';
+import Spinner from "../../components/Spinner/Spinner";
 
 function LegalUpdate() {
-    const { User, setLoading, loading } = useGlobalContext();
+    const { User } = useGlobalContext();
     const [DuplicateLegalUpdate, setDuplicateLegalUpdate] = useState(0);
+    const [loading, setLoading] = useState(false);
     const PostLegalUpdate = async (Title, Description) => {
         setLoading(true);
         const files = document.getElementsByName("LegalFiles").item(0).files;
@@ -25,13 +27,15 @@ function LegalUpdate() {
                 Description: Description, 
                 Hash: cid
             });
+            setLoading(false);
             if (data.success === false) {
+                
                 setDuplicateLegalUpdate(2);
                 return;
             }
             
         }
-
+       
         setDuplicateLegalUpdate(1);
     }
     const LegalUpdateSubmit = (e) => {
@@ -54,7 +58,9 @@ function LegalUpdate() {
                     <img src={legal} style={{ height: "50px", width: "50px", marginTop: "100px", marginBottom: "25px", marginRight: "10px" }}></img>
                     <p id="title2">LEGAL UPDATE</p>
                 </div>
-
+                {
+                    loading && <Spinner />
+                }
                 {
                     DuplicateLegalUpdate > 0 ? DuplicateLegalUpdate === 2 ? <Alert message="Error" type="error" description="Legal Update Details Already Exists! Please try again" showIcon closable style={{ marginBottom: "20px", marginTop: "20px", width: "60%", letterSpacing: "2px", boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px", marginLeft: "20%" }} />
                         :

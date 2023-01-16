@@ -21,6 +21,7 @@ function BasicExample() {
 
   const [Documents, setDocuments] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [TypeOfDoc, setTypeOfDoc] = useState("all");
   let Type = "all";
 
   const types = {
@@ -43,6 +44,8 @@ function BasicExample() {
 
   const changeDocumentsType = (e) => {
     Type = e.target.value;
+    setTypeOfDoc(Type);
+    setLoading(true);
     fetchDocuments();
   }
 
@@ -112,10 +115,12 @@ function BasicExample() {
             Audit Reports
           </option>
         </select>
+        <p style={{ textAlign: "center", letterSpacing: "1px", fontSize: "20px",marginTop:"20px", marginLeft:"20px",padding:"10px", border:"3px solid #675A0E", borderRadius:"5px"}}> 	&#42; {TypeOfDoc[0].toUpperCase() + TypeOfDoc.slice(1)} Documents will appear here. Click <strong> View Document</strong> button to view the document.  </p>
+
         <div className="DocumentsDiv">
           {
             loading ?
-              <div>
+              <div style={{margin:"0 auto"}}>
                 <Spinner />
               </div>
               :
@@ -146,7 +151,7 @@ function BasicExample() {
                   );
                 })
                 :
-                <p style={{ letterSpacing: "1px", fontSize: "20px", marginLeft: "20px", color: "rgb(83, 74, 26)", textAlign: "center", marginTop: "20px", }}>No Documents !</p>
+                <p style={{letterSpacing: "1px", fontSize: "20px", marginLeft: "50%", color: "rgb(83, 74, 26)", textAlign: "center", marginTop: "20px", verticalAlign:"center"}}>No Documents !</p>
           }
         </div>
       </div>

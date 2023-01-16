@@ -29,6 +29,7 @@ import docx from '../../assests/docx.png';
 import pdf from '../../assests/pdf.png';
 import excel from '../../assests/excel.png';
 import ppt from '../../assests/ppt.png';
+import Spinner from '../Spinner/Spinner';
 
 const client = new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJkaWQ6ZXRocjoweDcxOTdiN2M2OGFEMTNhNzREMGIzMGQ3OTI4OTNGMDc4MWQxZjE4M2QiLCJpc3MiOiJ3ZWIzLXN0b3JhZ2UiLCJpYXQiOjE2NzAxNjM1MTczNDIsIm5hbWUiOiJsb2RoYS1maWxlcyJ9.rmkUCge8MPPj5TC6i8Z5lVAjIevCSVni0gpu-_jUzlI" });
 
@@ -37,7 +38,8 @@ const client = new Web3Storage({ token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ey
 function AdminPosts({ props, selectedOption }) {
 
     const [singleUser, setSingleUser] = useState([])
-    const [filesNames, setFilesNames] = useState([])
+    const [filesNames, setFilesNames] = useState([]); 
+    const [loading, setLoading] = useState(false);
     const user = async () => {
         const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/singleUser", { params: { FlatNo: props.FlatNo } });
         const singleuser = data.user1[0];
@@ -54,9 +56,17 @@ function AdminPosts({ props, selectedOption }) {
         window.location.reload();
     }
 
+    const createNotification = async (FlatNo, subject, message) => {
+        const { data } = await axios.post("https://lodha-backend.onrender.com/api/v1/postNotification", { FlatNo: FlatNo, NotificationTitle: subject, NotificationDesc: message });
+        console.log(data);
+      }
+
     const updateComplaint = async () => {
+        setLoading(true);
         const { data } = await axios.get("https://lodha-backend.onrender.com/api/v1/updatecomplaint", { params: { complaint: props, Admin: JSON.parse(localStorage.getItem("User")).FlatNo } });
-        refreshPage();
+        createNotification(props.FlatNo, data.subject, data.message);
+        setLoading(false);
+        // refreshPage();
     }
 
     const deleteUserComplaint = async () => {
@@ -68,8 +78,12 @@ function AdminPosts({ props, selectedOption }) {
         e.preventDefault();
         if (props.Status === 0) {
             const Status = document.getElementById("Status").value;
-
+           
+            const comment = document.getElementsByName("comment").item(0).value;
+            console.log(comment);
             props.Status = Status;
+            props.Comments = comment;
+            console.log(props);
             updateComplaint();
         }
 
@@ -200,7 +214,7 @@ function AdminPosts({ props, selectedOption }) {
                                 <div className='documentDescDiv'>
                                     <div className='descDisplayDiv'>
                                         <p className='DescriptionTitle'>DESCRIPTION</p>
-                                        <div contentEditable style={{ width: "100%" }} id={props._id}>{props.Description}</div>
+                                        <div contentEditable style={{letterSpacing:"1px" ,width: "100%" }} id={props._id}>{props.Description}</div>
                                     </div>
                                     <div className='descDocumentDiv'>
                                         <p className='DescriptionTitle'>DOCUMENTS</p>
@@ -230,7 +244,7 @@ function AdminPosts({ props, selectedOption }) {
                                                     }
                                                 </div>
                                                 :
-                                                <p>
+                                                <p style={{letterSpacing:"1px"}}>
                                                     No Documents!
                                                 </p>
                                         }
@@ -252,21 +266,24 @@ function AdminPosts({ props, selectedOption }) {
                                         </>
                                         :
                                         <>
-                                        <div>
+                                            <div>
                                                 <p className='DescriptionTitle'>COMMENTS </p>
-                                               {
-                                               props.Comments!== undefined && props.Comments.length > 0 ? 
-                                                <div style={{ width: "100%" }} >{props.Comments}</div>
-                                                :
-                                                <>
-                                                <p>No comments!</p>
-                                                </>
-                                               }
+                                                {
+                                                    props.Comments !== undefined && props.Comments.length > 0 ?
+                                                        <div style={{ width: "100%",letterSpacing:"1px" }} >{props.Comments}</div>
+                                                        :
+                                                        <>
+                                                            <p style={{letterSpacing:"1px"}}>No comments!</p>
+                                                        </>
+                                                }
                                             </div>
                                         </>
                                 }
+                                {loading && <Spinner />}
                                 <div style={{ display: "flex", justifyContent: "center", marginTop: "50px" }}>
-                                    <button className="btn btn-primary " type="submit" onClick={(e) => UpdateComplaint(e)}>Edit Complaint</button>
+                                    {
+                                        props.Status === 0 ? <button className="btn btn-primary " type="submit" onClick={(e) => UpdateComplaint(e)}>Edit Complaint</button> : <></>
+                                    }
                                     <button className="btn btn-danger" type="submit" style={{ marginLeft: "50px" }} onClick={(e) => DeleteComplaint(e)}>Delete Complaint</button>
                                 </div>
 
