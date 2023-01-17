@@ -401,7 +401,7 @@ const LoginSignUp = () => {
 
                             <div style={{ display: "flex", justifyContent: "space-between" }}>
                               <p className="Label">PASSWORD</p>
-                              <img src={password} onClick={(e) => ShowPassword(e)} style={{ height: "20px", width: "20px", marginRight: "10%", marginTop: "10px" }}></img>
+                              <img src={!Curr ? password : hide} onClick={(e) => ShowPassword(e)} style={{ height: "20px", width: "20px", marginRight: "10%", marginTop: "10px" }}></img>
                             </div>
                             <MDBInput wrapperClass='mb-4' placeholder='Password' name="Password" className='form1' id='RegPass' type={Curr ? 'text' : 'password'} ref={UserPass} onChange={(e) => validate(e.target.value, e.target.value.length)} required />
                             {

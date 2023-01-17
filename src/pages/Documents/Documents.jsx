@@ -6,6 +6,8 @@ import Card from 'react-bootstrap/Card';
 import { useEffect } from "react";
 import axios from "axios";
 import image from '../../assests/image.png';
+import bank from '../../assests/bank.png';
+
 import document from "../../assests/document.png";
 import docx from '../../assests/docx.png';
 import pdf from '../../assests/pdf.png';
@@ -77,10 +79,10 @@ function BasicExample() {
     if (type === 'legal') {
       return legalUpdate;
     }
-    if (Type === 'bank') {
-
+    if (type === 'bank') {
+      return bank;
     }
-    if (Type === 'audit') {
+    if (type === 'audit') {
 
     }
   }
