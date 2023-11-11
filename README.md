@@ -1,6 +1,7 @@
 <div align="center">
 <h1 align="center">
-<img src="https://raw.githubusercontent.com/PKief/vscode-material-icon-theme/ec559a9f6bfd399b82bb44393651661b08aaf7ba/icons/folder-markdown-open.svg" width="100" />
+    
+<img src="https://www.google.co.in/imgres?imgurl=https%3A%2F%2Fwww.lodhagroup.in%2Fassets%2Fresidential%2FLodha_meridian%2FLodha_Meridian_Logo_color.svg&tbnid=VSMzgE59AAMp3M&vet=12ahUKEwjF3-ftuLyCAxUwTWwGHfNBBW4QMygAegQIARBw..i&imgrefurl=https%3A%2F%2Fwww.lodhagroup.in%2Fprojects%2Fresidential-property-in-hyderabad%2Fmeridian%2Fabout&docid=AyYVbF0EhZDP3M&w=587&h=167&q=lodha%20meridian%20logog&ved=2ahUKEwjF3-ftuLyCAxUwTWwGHfNBBW4QMygAegQIARBw" width="100" />
 <br>LODHA-FRONTEND</h1>
 <h3>◦ Developed with the software and tools below.</h3>
 
